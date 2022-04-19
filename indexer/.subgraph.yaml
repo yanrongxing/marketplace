@@ -9,11 +9,11 @@ dataSources:
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: LANDRegistry
-    network: {{network}}
+    network: tixon
     source:
       address: '{{address:LANDRegistry}}'
       abi: LANDRegistry
-      startBlock: {{startBlock:LANDRegistry}}
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -38,11 +38,11 @@ dataSources:
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: EstateRegistry
-    network: {{network}}
+    network: tixon
     source:
       address: '{{address:EstateRegistry}}'
       abi: EstateRegistry
-      startBlock: {{startBlock:EstateRegistry}}
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -72,7 +72,7 @@ dataSources:
   # ---------------------------------------------------------
   # - kind: ethereum/contract
   #   name: MANAToken
-  #   network: {{network}}
+  #   network: tixon
   #   source:
   #     address: '{{address:MANAToken}}'
   #     abi: MANAToken
@@ -100,11 +100,11 @@ dataSources:
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: Marketplace
-    network: {{network}}
+    network: tixon
     source:
       address: '{{address:Marketplace}}'
       abi: Marketplace
-      startBlock: {{startBlock:Marketplace}}
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -129,11 +129,11 @@ dataSources:
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: DCLRegistrar
-    network: {{network}}
+    network: tixon
     source:
       address: '{{address:DCLRegistrar}}'
       abi: DCLRegistrar
-      startBlock: {{startBlock:DCLRegistrar}}
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -153,11 +153,11 @@ dataSources:
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: ERC721Bid
-    network: {{network}}
+    network: tixon
     source:
       address: '{{address:ERC721Bid}}'
       abi: ERC721Bid
-      startBlock: {{startBlock:ERC721Bid}}
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -183,7 +183,7 @@ dataSources:
 templates:
   - name: ERC721
     kind: ethereum/contract
-    network: {{network}}
+    network: tixon
     source:
       abi: ERC721
     mapping:
