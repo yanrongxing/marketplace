@@ -2,7 +2,7 @@
   "name": "testing",
   "version": "0.1.0",
   "scripts": {
-    "create-local": "npx graph create decentraland/marketplace --node http://127.0.0.1:8020",
+    "create-local": "npx graph create decentraland/marketplace --node http://127.0.0.1:8020 --access-token ",
     "deploy-local": "npx graph deploy decentraland/marketplace --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
     "codegen": "npx graph codegen --debug --output-dir src/entities/",
     "build": "npx graph build",
