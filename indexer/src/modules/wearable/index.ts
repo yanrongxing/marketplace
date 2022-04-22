@@ -150,10 +150,10 @@ export function buildWearableFromNFT(nft: NFT): WearableEntity {
     'xmas_2020',
     'xmash_up_2020'
   ]
-  var i=Math.floor(Math.random()*allCollections.length+1);
-  var j=Math.floor(Math.random()*allCollections[i].length+1);
+  let a=Math.floor(Math.random()*allCollections.length+1);
+  let b=Math.floor(Math.random()*allCollections[a].length+1);
 
-  let wearableId = allCollections[i][j].id;
+  let wearableId = allCollections[a][b].id;
   for (let i = 0; i < allCollections.length; i++) {
     let wearable = findWearable(wearableId, allCollections[i])
     if (wearable.id == wearableId) {
