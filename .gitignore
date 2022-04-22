@@ -69,7 +69,5 @@ dist
 # Indexer generated data
 indexer/build
 indexer/src/entities
-indexer/src/data/addresses.ts
-indexer/subgraph.yaml
 
 .vscode
