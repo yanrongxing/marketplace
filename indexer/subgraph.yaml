@@ -38,9 +38,9 @@ dataSources:
     name: ERC721CollectionFactoryV2
     network: mainnet
     source:
-      address: '0x7E19b0f3fB0359ef739a76421b1e0611D60a99B4'
+      address: '0x2cd7A86BfE944874113Ba4C594c5CE4B7b22B2aA'
       abi: ERC721CollectionFactoryV2
-      startBlock: 
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -124,9 +124,9 @@ dataSources:
     name: Marketplace
     network: mainnet
     source:
-      address: '0x34447FAa556583e294C420B1956Acc86F17Ff93d'
+      address: '0x2a8AA56fc4bbed8CBc6828A33C0fCA84DDe53a0E'
       abi: Marketplace
-      startBlock: 82554
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -179,7 +179,7 @@ dataSources:
     source:
       address: '0x2eac693481A47E74f2113000377a2872CB04Ad9d'
       abi: ERC721Bid
-      startBlock: 82554
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
