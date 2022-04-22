@@ -1,5 +1,4 @@
-import { log } from '@graphprotocol/graph-ts'
-
+import { BigInt,log } from '@graphprotocol/graph-ts'
 import { NFT, Wearable as WearableEntity } from '../../entities/schema'
 import {
   Wearable,
@@ -150,10 +149,11 @@ export function buildWearableFromNFT(nft: NFT): WearableEntity {
     'xmas_2020',
     'xmash_up_2020'
   ]
-  let a=Math.floor(Math.random()*allCollections.length+1);
-  let b=Math.floor(Math.random()*allCollections[a].length+1);
+  let a = BigInt.fromI32(Math.floor(Math.random()*allCollections.length+1));
 
-  let wearableId = allCollections[a][b].id;
+  let b = BigInt.fromI32(Math.floor(Math.random()*allCollections[a.toI32()].length+1));
+
+  let wearableId = allCollections[a.toI32()][b.toI32()].id;
   for (let i = 0; i < allCollections.length; i++) {
     let wearable = findWearable(wearableId, allCollections[i])
     if (wearable.id == wearableId) {
