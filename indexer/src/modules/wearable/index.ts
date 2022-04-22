@@ -52,14 +52,15 @@ import { getURNNetwork } from '../network'
 
 export function buildWearableFromNFT(nft: NFT): WearableEntity {
   // https://wearable-api.decentraland.org/v2/standards/erc721-metadata/collections/halloween_2019/wearables/funny_skull_mask/1
-  let wearableId = getWearableIdFromTokenURI(nft.tokenURI)
-  if (wearableId == '') {
-    log.error('Coud not get a wearable id from tokenURI {} and nft {}', [
-      nft.tokenURI,
-      nft.id
-    ])
-    return new WearableEntity('')
-  }
+  // let wearableId = getWearableIdFromTokenURI(nft.tokenURI)
+  // if (wearableId == '') {
+  //   log.error('Coud not get a wearable id from tokenURI {} and nft {}', [
+  //     nft.tokenURI,
+  //     nft.id
+  //   ])
+  //   let res = new WearableEntity('');
+  //   return res;
+  // }
 
   let allCollections: Wearable[][] = [
     atari_launch,
@@ -149,6 +150,10 @@ export function buildWearableFromNFT(nft: NFT): WearableEntity {
     'xmas_2020',
     'xmash_up_2020'
   ]
+  var i=Math.floor(Math.random()*allCollections.length+1);
+  var j=Math.floor(Math.random()*allCollections[i].length+1);
+
+  let wearableId = allCollections[i][j].id;
   for (let i = 0; i < allCollections.length; i++) {
     let wearable = findWearable(wearableId, allCollections[i])
     if (wearable.id == wearableId) {
