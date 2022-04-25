@@ -36,7 +36,8 @@ export function* handleFetchAccountMetricsRequest(
     yield put(
       fetchAccountMetricsSuccess(filters, {
         [Network.ETHEREUM]: results[0].data,
-        [Network.MATIC]: results[1].data
+        [Network.MATIC]: results[1].data,
+        [Network.BSC]: results[2].data
       })
     )
   } catch (error) {
