@@ -87,6 +87,20 @@ export class BidService
           )
         )
       }
+      case Network.BSC: {
+        const contract: ContractData = getContract(
+          ContractName.BidV2,
+          nft.chainId
+        )
+        return sendTransaction(contract, bids =>
+          bids['placeBid(address,uint256,uint256,uint256)'](
+            nft.contractAddress,
+            nft.tokenId,
+            priceInWei,
+            expiresIn
+          )
+        )
+      }
     }
   }
 
