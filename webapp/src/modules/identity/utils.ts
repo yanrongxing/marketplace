@@ -12,7 +12,7 @@ import {
   CONNECT_WALLET_SUCCESS,
   CONNECT_WALLET_FAILURE,
   ConnectWalletSuccessAction
-} from 'decentraland-dapps/dist/modules/wallet/actions'
+} from '@yanrongxing/dapps/dist/modules/wallet/actions'
 import { AuthIdentity } from 'dcl-crypto'
 
 const ONE_MONTH_IN_MINUTES = 31 * 24 * 60

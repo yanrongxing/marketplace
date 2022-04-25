@@ -1,7 +1,7 @@
 import {
   EventName,
   GetPayload
-} from 'decentraland-dapps/dist/modules/analytics/types'
+} from '@yanrongxing/dapps/dist/modules/analytics/types'
 import {
   FETCH_TRANSACTION_FAILURE,
   FIX_REVERTED_TRANSACTION,
@@ -9,15 +9,15 @@ import {
   FetchTransactionFailureAction,
   FixRevertedTransactionAction,
   ReplaceTransactionSuccessAction
-} from 'decentraland-dapps/dist/modules/transaction/actions'
+} from '@yanrongxing/dapps/dist/modules/transaction/actions'
 import {
   GrantTokenSuccessAction,
   GRANT_TOKEN_SUCCESS,
   RevokeTokenSuccessAction,
   REVOKE_TOKEN_SUCCESS
-} from 'decentraland-dapps/dist/modules/authorization/actions'
-import { TransactionStatus } from 'decentraland-dapps/dist/modules/transaction/types'
-import { add } from 'decentraland-dapps/dist/modules/analytics/utils'
+} from '@yanrongxing/dapps/dist/modules/authorization/actions'
+import { TransactionStatus } from '@yanrongxing/dapps/dist/modules/transaction/types'
+import { add } from '@yanrongxing/dapps/dist/modules/analytics/utils'
 import { PayloadAction } from 'typesafe-actions'
 import { capitalize } from '../../lib/text'
 import {

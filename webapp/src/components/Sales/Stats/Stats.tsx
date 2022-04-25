@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from 'react'
-import { Icon, Loader } from 'decentraland-ui'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { Icon, Loader } from '@yanrongxing/ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { formatMANA } from '../../../lib/mana'
 import { Props } from './Stats.types'
 import { Mana } from '../../Mana'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { locations } from '../../../modules/routing/locations'
 import { Props } from './Collection.types'
 import CollectionImage from '../../CollectionImage'
-import { Stats } from 'decentraland-ui'
+import { Stats } from '@yanrongxing/ui'
 import CollectionProvider from '../../CollectionProvider'
 import styles from './Collection.module.css'
 

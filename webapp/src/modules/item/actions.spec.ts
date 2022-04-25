@@ -1,5 +1,5 @@
 import { ChainId, Item, Network } from '@dcl/schemas'
-import { buildTransactionPayload } from 'decentraland-dapps/dist/modules/transaction/utils'
+import { buildTransactionPayload } from '@yanrongxing/dapps/dist/modules/transaction/utils'
 import { formatMANA } from '../../lib/mana'
 import { getAssetName } from '../asset/utils'
 import { View } from '../ui/types'

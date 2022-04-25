@@ -2,7 +2,7 @@ import { Sale } from '@dcl/schemas'
 import {
   loadingReducer,
   LoadingState
-} from 'decentraland-dapps/dist/modules/loading/reducer'
+} from '@yanrongxing/dapps/dist/modules/loading/reducer'
 import {
   FetchSalesFailureAction,
   FetchSalesRequestAction,

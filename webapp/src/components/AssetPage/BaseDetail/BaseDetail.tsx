@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Container } from 'decentraland-ui'
+import { Container } from '@yanrongxing/ui'
 import { PageHeader } from '../../PageHeader'
 import Title from '../Title'
 import { Box } from '../../AssetBrowse/Box'

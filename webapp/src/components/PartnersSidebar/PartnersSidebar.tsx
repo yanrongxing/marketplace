@@ -1,6 +1,6 @@
 import React from 'react'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { Header } from 'decentraland-ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
+import { Header } from '@yanrongxing/ui'
 
 import { getPartners } from '../../modules/vendor/utils'
 import { Menu } from '../Menu'

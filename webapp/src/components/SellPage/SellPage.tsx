@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page } from 'decentraland-ui'
+import { Page } from '@yanrongxing/ui'
 import { AssetType } from '../../modules/asset/types'
 import { Navbar } from '../Navbar'
 import { Footer } from '../Footer'

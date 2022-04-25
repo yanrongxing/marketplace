@@ -1,7 +1,7 @@
 import { Address } from 'web3x/address'
 import { ABICoder } from 'web3x/contract/abi-coder'
 import { Order } from '@dcl/schemas'
-import { Wallet } from 'decentraland-dapps/dist/modules/wallet/types'
+import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { MarketplaceAdapter } from '../../../contracts/MarketplaceAdapter'
 import { ContractFactory } from '../../contract/ContractFactory'
 import { NFT } from '../../nft/types'

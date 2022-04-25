@@ -1,7 +1,7 @@
 import React from 'react'
 import { Network } from '@dcl/schemas'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { Mana as BaseMana, Popup } from 'decentraland-ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
+import { Mana as BaseMana, Popup } from '@yanrongxing/ui'
 import { Props } from './Mana.types'
 
 const Mana = (props: Props) => {

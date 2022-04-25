@@ -1,6 +1,6 @@
 import { Contract, providers, utils } from 'ethers'
 import { Bid } from '@dcl/schemas'
-import { getNetworkProvider } from 'decentraland-dapps/dist/lib/eth'
+import { getNetworkProvider } from '@yanrongxing/dapps/dist/lib/eth'
 import { ContractName, getContract } from 'decentraland-transactions'
 
 export async function isInsufficientMANA(bid: Bid) {

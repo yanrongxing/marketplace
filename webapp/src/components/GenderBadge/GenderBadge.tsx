@@ -1,6 +1,6 @@
 import { BodyShape } from '@dcl/schemas'
 import classNames from 'classnames'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import React from 'react'
 import { isGender, isUnisex as getIsUnisex } from '../../modules/nft/utils'
 import IconBadge from '../AssetPage/IconBadge'

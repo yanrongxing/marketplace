@@ -4,8 +4,8 @@ import {
   getData as getAuthorizations,
   getLoading,
   getError
-} from 'decentraland-dapps/dist/modules/authorization/selectors'
-import { FETCH_AUTHORIZATIONS_REQUEST } from 'decentraland-dapps/dist/modules/authorization/actions'
+} from '@yanrongxing/dapps/dist/modules/authorization/selectors'
+import { FETCH_AUTHORIZATIONS_REQUEST } from '@yanrongxing/dapps/dist/modules/authorization/actions'
 
 import { RootState } from '../../modules/reducer'
 import {
@@ -13,7 +13,7 @@ import {
   isUserDeniedSignatureError,
   isContractAccountError
 } from '../../modules/transaction/utils'
-import { isLoadingType } from 'decentraland-dapps/dist/modules/loading/selectors'
+import { isLoadingType } from '@yanrongxing/dapps/dist/modules/loading/selectors'
 import { getWallet, isConnecting } from '../../modules/wallet/selectors'
 import {
   MapStateProps,
@@ -27,7 +27,7 @@ const mapState = (state: RootState): MapStateProps => {
 
   const error = getError(state)
 
-  // TODO: Change this to use ErrorCodes. Needs an overhaul on decentraland-dapps
+  // TODO: Change this to use ErrorCodes. Needs an overhaul on @yanrongxing/dapps
   const hasError =
     !!error &&
     !isUserCanceled(error) &&

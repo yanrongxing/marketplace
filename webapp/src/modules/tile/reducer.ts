@@ -1,8 +1,8 @@
-import { AtlasTile } from 'decentraland-ui'
+import { AtlasTile } from '@yanrongxing/ui'
 import {
   LoadingState,
   loadingReducer
-} from 'decentraland-dapps/dist/modules/loading/reducer'
+} from '@yanrongxing/dapps/dist/modules/loading/reducer'
 import {
   FetchTilesRequestAction,
   FetchTilesSuccessAction,

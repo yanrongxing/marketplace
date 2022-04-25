@@ -1,4 +1,4 @@
-import { ManaProps } from 'decentraland-ui'
+import { ManaProps } from '@yanrongxing/ui'
 
 export type Props = ManaProps & {
   withTooltip?: boolean

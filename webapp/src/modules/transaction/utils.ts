@@ -1,8 +1,8 @@
 import {
   GrantTokenRequestAction,
   RevokeTokenRequestAction
-} from 'decentraland-dapps/dist/modules/authorization/actions'
-import { Transaction } from 'decentraland-dapps/dist/modules/transaction/types'
+} from '@yanrongxing/dapps/dist/modules/authorization/actions'
+import { Transaction } from '@yanrongxing/dapps/dist/modules/transaction/types'
 
 export function hasTransactionPending(
   transactions: Transaction[],
@@ -22,7 +22,7 @@ export function hasTransactionPending(
   })
 }
 
-// TODO: This is a replacement for future `ErrorCode`s. Needs an overhaul on decentraland-dapps
+// TODO: This is a replacement for future `ErrorCode`s. Needs an overhaul on @yanrongxing/dapps
 export function isUserCanceled(error: string) {
   return error.search(/User canceled/) !== -1
 }
@@ -35,7 +35,7 @@ export function isUserDeniedSignatureError(error: string) {
   )
 }
 
-// TODO: This is a replacement for future `ErrorCode`s. Needs an overhaul on decentraland-dapps
+// TODO: This is a replacement for future `ErrorCode`s. Needs an overhaul on @yanrongxing/dapps
 export function isContractAccountError(error: string) {
   return error.search('Contract accounts are not supported') !== -1
 }

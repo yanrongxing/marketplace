@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Back } from 'decentraland-ui'
+import { Back } from '@yanrongxing/ui'
 import { getAssetUrl } from '../../modules/asset/utils'
 import { AssetImage } from '../AssetImage'
 import { Row } from '../Layout/Row'

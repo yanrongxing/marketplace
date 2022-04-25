@@ -8,8 +8,8 @@ import {
   Radio,
   Responsive,
   Modal
-} from 'decentraland-ui'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+} from '@yanrongxing/ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 
 import { SortBy } from '../../../../modules/routing/types'
 import { MAX_QUERY_SIZE } from '../../../../modules/vendor/super_rare/api'

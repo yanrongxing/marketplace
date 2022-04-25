@@ -1,6 +1,6 @@
 import React from 'react'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { SmartIcon } from 'decentraland-ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
+import { SmartIcon } from '@yanrongxing/ui'
 import IconBadge from '../IconBadge'
 import { Props } from './SmartBadge.types'
 import './SmartBadge.css'

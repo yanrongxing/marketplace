@@ -1,6 +1,6 @@
 import React from 'react'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { Mana, Stats } from 'decentraland-ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
+import { Mana, Stats } from '@yanrongxing/ui'
 import { formatMANA } from '../../../lib/mana'
 import { Props } from './Price.types'
 

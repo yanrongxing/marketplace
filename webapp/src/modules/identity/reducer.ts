@@ -2,7 +2,7 @@ import { AuthIdentity } from 'dcl-crypto'
 import {
   loadingReducer,
   LoadingState
-} from 'decentraland-dapps/dist/modules/loading/reducer'
+} from '@yanrongxing/dapps/dist/modules/loading/reducer'
 import {
   GenerateIdentityRequestAction,
   GenerateIdentitySuccessAction,

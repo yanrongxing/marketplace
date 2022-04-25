@@ -1,7 +1,7 @@
 import BN from 'bn.js'
 import { Address } from 'web3x/address'
 import { toWei } from 'web3x/utils'
-import { Wallet } from 'decentraland-dapps/dist/modules/wallet/types'
+import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { ListingStatus, Network, Order } from '@dcl/schemas'
 import { ERC721 } from '../../../contracts/ERC721'
 import { ContractFactory } from '../../contract/ContractFactory'

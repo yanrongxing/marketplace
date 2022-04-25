@@ -9,6 +9,6 @@ config({ path: path.resolve(process.cwd(), '.env.example') })
 
 import * as locales from './modules/translation/locales'
 import flatten from 'flat'
-import { setCurrentLocale } from 'decentraland-dapps/dist/modules/translation/utils'
+import { setCurrentLocale } from '@yanrongxing/dapps/dist/modules/translation/utils'
 
 setCurrentLocale('en', flatten(locales.en))

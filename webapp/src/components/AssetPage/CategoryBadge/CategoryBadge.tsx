@@ -1,5 +1,5 @@
 import React from 'react'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import IconBadge from '../IconBadge'
 import { Props } from './CategoryBadge.types'
 

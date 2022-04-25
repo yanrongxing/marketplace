@@ -1,6 +1,6 @@
 import { Order } from '@dcl/schemas'
-import { Wallet } from 'decentraland-dapps/dist/modules/wallet/types'
-import { sendTransaction } from 'decentraland-dapps/dist/modules/wallet/utils'
+import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
+import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { NFT, NFTsFetchParams, NFTsCountParams } from '../../nft/types'
 import { Account } from '../../account/types'
 import { NFTService as NFTServiceInterface } from '../services'

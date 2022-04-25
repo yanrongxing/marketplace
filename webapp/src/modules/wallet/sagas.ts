@@ -1,7 +1,7 @@
 import { takeEvery, all, put } from 'redux-saga/effects'
 import { ChainId, Network, NFTCategory } from '@dcl/schemas'
 import { ContractName } from 'decentraland-transactions'
-import { createWalletSaga } from 'decentraland-dapps/dist/modules/wallet/sagas'
+import { createWalletSaga } from '@yanrongxing/dapps/dist/modules/wallet/sagas'
 import {
   ConnectWalletSuccessAction,
   CONNECT_WALLET_SUCCESS,
@@ -9,12 +9,12 @@ import {
   ChangeNetworkAction,
   CHANGE_ACCOUNT,
   CHANGE_NETWORK
-} from 'decentraland-dapps/dist/modules/wallet/actions'
-import { fetchAuthorizationsRequest } from 'decentraland-dapps/dist/modules/authorization/actions'
+} from '@yanrongxing/dapps/dist/modules/wallet/actions'
+import { fetchAuthorizationsRequest } from '@yanrongxing/dapps/dist/modules/authorization/actions'
 import {
   Authorization,
   AuthorizationType
-} from 'decentraland-dapps/dist/modules/authorization/types'
+} from '@yanrongxing/dapps/dist/modules/authorization/types'
 import { getContractNames } from '../vendor'
 import { contracts, getContract } from '../contract/utils'
 import { isPartner } from '../vendor/utils'

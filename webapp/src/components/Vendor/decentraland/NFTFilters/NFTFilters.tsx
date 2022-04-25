@@ -10,9 +10,9 @@ import {
   Modal,
   Icon,
   NotMobile
-} from 'decentraland-ui'
+} from '@yanrongxing/ui'
 import { Network, NFTCategory, Rarity } from '@dcl/schemas'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 
 import { SortBy } from '../../../../modules/routing/types'
 import { WearableGender } from '../../../../modules/nft/wearable/types'

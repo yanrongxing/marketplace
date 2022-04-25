@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mobile, NotMobile, Table } from 'decentraland-ui'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { Mobile, NotMobile, Table } from '@yanrongxing/ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Mana } from '../../Mana'
 import { formatMANA } from '../../../lib/mana'
 import { Props } from './OnSaleListElement.types'

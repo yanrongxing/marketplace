@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { Button, Center, Empty } from 'decentraland-ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
+import { Button, Center, Empty } from '@yanrongxing/ui'
 import { Props } from './CoverPicker.types'
 import './CoverPicker.css'
 

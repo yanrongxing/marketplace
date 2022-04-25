@@ -1,5 +1,5 @@
-import { ToastType } from 'decentraland-ui'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { ToastType } from '@yanrongxing/ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 
 export function getStoreUpdateSucessToast() {
   return {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header } from 'decentraland-ui'
-import { t } from 'decentraland-dapps/dist/modules/translation/utils'
+import { Header } from '@yanrongxing/ui'
+import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import Stats from './Stats'
 import Activity from './Activity'
 import './Sales.css'
