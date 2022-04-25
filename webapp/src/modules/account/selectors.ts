@@ -29,7 +29,8 @@ export const getMetricsByAddressByNetwork = createSelector(
   metrics => {
     const addresses = new Set([
       ...Object.keys(metrics.ETHEREUM),
-      ...Object.keys(metrics.MATIC)
+      ...Object.keys(metrics.MATIC),
+      ...Object.keys(metrics.BSC)
     ])
 
     const res: Record<string, Record<Network, AccountMetrics>> = {}
@@ -37,7 +38,8 @@ export const getMetricsByAddressByNetwork = createSelector(
     for (const address of addresses) {
       res[address] = {
         [Network.ETHEREUM]: metrics[Network.ETHEREUM][address],
-        [Network.MATIC]: metrics[Network.MATIC][address]
+        [Network.MATIC]: metrics[Network.MATIC][address],
+        [Network.BSC]: metrics[Network.BSC][address]
       }
     }
 
@@ -54,6 +56,7 @@ export const getAggregatedMetricsByAddress = createSelector(
     for (const address of addresses) {
       const eth = metrics[address].ETHEREUM
       const mat = metrics[address].MATIC
+      const bsc = metrics[address].BSC
 
       if (eth && !mat) {
         res[address] = eth
@@ -61,6 +64,8 @@ export const getAggregatedMetricsByAddress = createSelector(
         res[address] = mat
       } else if (eth && mat) {
         res[address] = sumAccountMetrics(eth, mat)
+      }else{
+        res[address] = bsc
       }
     }
 
@@ -85,6 +90,7 @@ export const getMetricsByAddress = createSelector(
         {
           [Network.ETHEREUM]: AccountMetrics
           [Network.MATIC]: AccountMetrics
+          [Network.BSC]: AccountMetrics
           aggregated: AccountMetrics
         }
       >
