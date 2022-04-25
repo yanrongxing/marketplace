@@ -218,6 +218,72 @@ const contracts = ({
       network: Network.ETHEREUM,
       chainId: ChainId.TEST
     }
+  ],
+  [AppNetwork.BSC]: [
+    {
+      name: ContractName.MANA,
+      address: getContract(CN.MANAToken, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      address: getContract(CN.Marketplace, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      address: getContract(CN.Bid, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.MANA,
+      address: getContract(CN.MANAToken, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      address: getContract(CN.MarketplaceV2, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.LEGACY_MARKETPLACE,
+      address: getContract(CN.Marketplace, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: CN.CollectionStore,
+      address: getContract(CN.CollectionStore, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      address: getContract(CN.BidV2, ChainId.BSC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.BSC,
+      chainId: ChainId.BSC_MAINNET
+    }
   ]
 } as Record<AppNetwork, Contract[]>)[network]
 

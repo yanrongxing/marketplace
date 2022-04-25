@@ -16,6 +16,7 @@ export enum ContractName {
 const contracts = ({
   [AppNetwork.ROPSTEN]: [],
   [AppNetwork.BSC]: [],
+  [AppNetwork.TEST]: [],
   [AppNetwork.MAINNET]: [
     {
       name: ContractName.DIGITAL_ASSET,
