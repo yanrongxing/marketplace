@@ -152,6 +152,72 @@ const contracts = ({
       network: Network.MATIC,
       chainId: ChainId.MATIC_MAINNET
     }
+  ],
+  [AppNetwork.TEST]: [
+    {
+      name: ContractName.MANA,
+      address: getContract(CN.MANAToken, ChainId.ETHEREUM_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.ETHEREUM,
+      chainId: ChainId.ETHEREUM_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      address: getContract(CN.Marketplace, ChainId.ETHEREUM_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.ETHEREUM,
+      chainId: ChainId.ETHEREUM_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      address: getContract(CN.Bid, ChainId.ETHEREUM_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.ETHEREUM,
+      chainId: ChainId.ETHEREUM_MAINNET
+    },
+    {
+      name: ContractName.MANA,
+      address: getContract(CN.MANAToken, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      address: getContract(CN.MarketplaceV2, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.LEGACY_MARKETPLACE,
+      address: getContract(CN.Marketplace, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: CN.CollectionStore,
+      address: getContract(CN.CollectionStore, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      address: getContract(CN.BidV2, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    }
   ]
 } as Record<AppNetwork, Contract[]>)[network]
 

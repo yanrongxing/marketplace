@@ -1,4 +1,5 @@
 export enum Network {
   ROPSTEN = 'ropsten',
-  MAINNET = 'mainnet'
+  MAINNET = 'mainnet',
+  TEST = 'test'
 }
