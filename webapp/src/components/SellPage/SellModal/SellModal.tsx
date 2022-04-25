@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Network, NFTCategory } from '@dcl/schemas'
+import { Network, NFTCategory } from '@yanrongxing/schemas'
 import { fromWei } from 'web3x/utils'
 import dateFnsFormat from 'date-fns/format'
 import {

@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import { CallHistoryMethodAction } from 'connected-react-router'
-import { Bid } from '@dcl/schemas'
+import { Bid } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import {
   fetchBidsByAddressRequest,

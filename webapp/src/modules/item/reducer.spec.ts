@@ -1,4 +1,4 @@
-import { ChainId, Item } from '@dcl/schemas'
+import { ChainId, Item } from '@yanrongxing/schemas'
 import { loadingReducer } from '@yanrongxing/dapps/dist/modules/loading/reducer'
 import { View } from '../ui/types'
 import {

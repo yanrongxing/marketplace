@@ -1,4 +1,4 @@
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { RootState } from '../reducer'
 import { createSelector } from 'reselect'
 import { getCurrentNFT } from '../nft/selectors'

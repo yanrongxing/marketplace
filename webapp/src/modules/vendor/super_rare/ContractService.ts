@@ -1,4 +1,4 @@
-import { ChainId, Network } from '@dcl/schemas'
+import { ChainId, Network } from '@yanrongxing/schemas'
 import { Network as AppNetwork } from '../../contract/types'
 import { getContract } from '../../contract/utils'
 import {

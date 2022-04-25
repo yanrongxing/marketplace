@@ -1,6 +1,6 @@
 import { Address } from 'web3x/address'
 import { ABICoder } from 'web3x/contract/abi-coder'
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { MarketplaceAdapter } from '../../../contracts/MarketplaceAdapter'
 import { ContractFactory } from '../../contract/ContractFactory'

@@ -1,5 +1,5 @@
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { Authorization } from '@yanrongxing/dapps/dist/modules/authorization/types'
 import { NFT } from '../../../modules/nft/types'
 import { createOrderRequest } from '../../../modules/order/actions'

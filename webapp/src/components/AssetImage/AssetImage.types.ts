@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
-import { Avatar } from '@dcl/schemas'
-import { Item } from '@dcl/schemas'
+import { Avatar } from '@yanrongxing/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { NFT } from '../../modules/nft/types'
 import {
   setIsTryingOn,

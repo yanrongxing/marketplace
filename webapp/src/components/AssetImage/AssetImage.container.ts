@@ -1,5 +1,5 @@
 import { getData as getProfiles } from '@yanrongxing/dapps/dist/modules/profile/selectors'
-import { Avatar } from '@dcl/schemas'
+import { Avatar } from '@yanrongxing/schemas'
 import { connect } from 'react-redux'
 import { RootState } from '../../modules/reducer'
 import { getWallet } from '../../modules/wallet/selectors'

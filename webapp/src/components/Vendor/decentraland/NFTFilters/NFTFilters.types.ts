@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { Network, Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@yanrongxing/schemas'
 import { SortBy } from '../../../../modules/routing/types'
 import {
   browse,

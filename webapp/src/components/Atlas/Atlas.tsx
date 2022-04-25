@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import {
   Atlas as AtlasComponent,
   AtlasTile,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Stats } from '@yanrongxing/ui'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
-import { NFTCategory, Rarity } from '@dcl/schemas'
+import { NFTCategory, Rarity } from '@yanrongxing/schemas'
 import { Network } from '../Network'
 import { Description } from '../Description'
 import { Props } from './WearableDetail.types'

@@ -4,7 +4,7 @@ import {
   ListingStatus,
   NFTCategory,
   Order
-} from '@dcl/schemas'
+} from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { NFT, NFTsFetchParams, NFTsCountParams } from '../nft/types'
 import { Account } from '../account/types'

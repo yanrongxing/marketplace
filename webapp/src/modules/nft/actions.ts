@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { buildTransactionPayload } from '@yanrongxing/dapps/dist/modules/transaction/utils'
 import { ErrorCode } from 'decentraland-transactions'
 

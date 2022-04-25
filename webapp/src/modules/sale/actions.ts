@@ -1,4 +1,4 @@
-import { Sale, SaleFilters } from '@dcl/schemas'
+import { Sale, SaleFilters } from '@yanrongxing/schemas'
 import { action } from 'typesafe-actions'
 
 export const FETCH_SALES_REQUEST = '[Request] Fetch sales'

@@ -1,5 +1,5 @@
 import { takeEvery, all, put } from 'redux-saga/effects'
-import { ChainId, Network, NFTCategory } from '@dcl/schemas'
+import { ChainId, Network, NFTCategory } from '@yanrongxing/schemas'
 import { ContractName } from 'decentraland-transactions'
 import { createWalletSaga } from '@yanrongxing/dapps/dist/modules/wallet/sagas'
 import {

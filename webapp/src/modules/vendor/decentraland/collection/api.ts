@@ -1,4 +1,4 @@
-import { Collection, CollectionFilters } from '@dcl/schemas'
+import { Collection, CollectionFilters } from '@yanrongxing/schemas'
 import { BaseAPI } from '@yanrongxing/dapps/dist/lib/api'
 import { NFT_SERVER_URL } from '../nft'
 import { CollectionResponse } from './types'

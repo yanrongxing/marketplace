@@ -1,4 +1,4 @@
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { put, takeEvery } from '@redux-saga/core/effects'
 import { ContractName, getContract } from 'decentraland-transactions'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'

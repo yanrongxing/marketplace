@@ -1,4 +1,4 @@
-import { BodyShape } from '@dcl/schemas'
+import { BodyShape } from '@yanrongxing/schemas'
 import { NFT } from './types'
 
 export function getNFTId(contractAddress: string, tokenId: string) {

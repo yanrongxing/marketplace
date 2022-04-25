@@ -1,5 +1,5 @@
 import React from 'react'
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { T } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Link } from 'react-router-dom'
 import { Network } from '../Network'

@@ -1,4 +1,4 @@
-import { NFT } from '@dcl/schemas'
+import { NFT } from '@yanrongxing/schemas'
 import { AssetType } from '../../../modules/asset/types'
 
 export type Props = {

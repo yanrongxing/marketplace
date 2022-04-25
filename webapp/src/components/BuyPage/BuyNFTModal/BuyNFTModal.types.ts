@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { Authorization } from '@yanrongxing/dapps/dist/modules/authorization/types'
 import { NFT } from '../../../modules/nft/types'

@@ -1,4 +1,4 @@
-import { BodyShape, WearableGender } from '@dcl/schemas'
+import { BodyShape, WearableGender } from '@yanrongxing/schemas'
 import { push } from 'connected-react-router'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'

@@ -1,5 +1,5 @@
 import { Contract, providers, utils } from 'ethers'
-import { Bid } from '@dcl/schemas'
+import { Bid } from '@yanrongxing/schemas'
 import { getNetworkProvider } from '@yanrongxing/dapps/dist/lib/eth'
 import { ContractName, getContract } from 'decentraland-transactions'
 

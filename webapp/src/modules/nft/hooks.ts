@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { getFingerprint } from './estate/utils'
 import { NFT } from './types'
 

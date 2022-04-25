@@ -1,4 +1,4 @@
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { call, takeEvery, put, all } from '@redux-saga/core/effects'
 import { accountAPI } from '../vendor/decentraland'
 import { AccountResponse } from '../vendor/decentraland/account/types'

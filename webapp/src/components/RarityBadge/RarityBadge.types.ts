@@ -1,4 +1,4 @@
-import { NFTCategory, Rarity } from '@dcl/schemas'
+import { NFTCategory, Rarity } from '@yanrongxing/schemas'
 import { AssetType } from '../../modules/asset/types'
 
 export type Props = {

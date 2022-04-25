@@ -1,5 +1,5 @@
 import React from 'react'
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Mana as BaseMana, Popup } from '@yanrongxing/ui'
 import { Props } from './Mana.types'

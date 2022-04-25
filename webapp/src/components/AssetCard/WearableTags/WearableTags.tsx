@@ -1,4 +1,4 @@
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { SmartIcon } from '@yanrongxing/ui'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Section } from '../../../modules/vendor/decentraland'

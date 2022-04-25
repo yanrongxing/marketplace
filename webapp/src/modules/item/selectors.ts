@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 import { createMatchSelector } from 'connected-react-router'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { locations } from '../routing/locations'
 import { RootState } from '../reducer'
 

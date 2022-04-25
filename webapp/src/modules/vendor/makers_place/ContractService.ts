@@ -1,4 +1,4 @@
-import { ChainId, Network } from '@dcl/schemas'
+import { ChainId, Network } from '@yanrongxing/schemas'
 import {
   Contract,
   ContractService as ContractServiceInterface

@@ -1,4 +1,4 @@
-import { Bid, Order } from '@dcl/schemas'
+import { Bid, Order } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules//wallet/types'
 import { NFT } from '../../../modules/nft/types'
 

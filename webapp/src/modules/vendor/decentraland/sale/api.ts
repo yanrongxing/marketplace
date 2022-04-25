@@ -1,4 +1,4 @@
-import { SaleFilters } from '@dcl/schemas'
+import { SaleFilters } from '@yanrongxing/schemas'
 import { BaseAPI } from '@yanrongxing/dapps/dist/lib/api'
 import { NFT_SERVER_URL } from '../nft'
 import { SaleResponse } from './types'

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react'
 import classNames from 'classnames'
-import { Network, NFTCategory, Rarity } from '@dcl/schemas'
+import { Network, NFTCategory, Rarity } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import {
   Row,

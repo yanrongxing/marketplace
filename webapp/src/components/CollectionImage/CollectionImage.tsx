@@ -1,6 +1,6 @@
 import React from 'react'
 import { Loader } from '@yanrongxing/ui'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { Props } from './CollectionImage.types'
 import { AssetImage } from '../AssetImage'
 import classNames from 'classnames'

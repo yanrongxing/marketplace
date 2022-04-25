@@ -15,7 +15,7 @@ import {
   LOCATION_CHANGE,
   replace
 } from 'connected-react-router'
-import { NFTCategory, Sale, SaleSortBy, SaleType } from '@dcl/schemas'
+import { NFTCategory, Sale, SaleSortBy, SaleType } from '@yanrongxing/schemas'
 import { omit } from '../../lib/utils'
 import { AssetType } from '../asset/types'
 import {

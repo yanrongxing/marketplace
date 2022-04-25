@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import { ChainId, ListingStatus, Order } from '@dcl/schemas'
+import { ChainId, ListingStatus, Order } from '@yanrongxing/schemas'
 import { ContractData } from 'decentraland-transactions'
 import * as walletUtils from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import * as orderAPI from './order/api'

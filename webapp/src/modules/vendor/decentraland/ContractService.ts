@@ -1,4 +1,4 @@
-import { ChainId, Network } from '@dcl/schemas'
+import { ChainId, Network } from '@yanrongxing/schemas'
 import { getContract, ContractName as CN } from 'decentraland-transactions'
 import {
   Contract,
@@ -156,67 +156,67 @@ const contracts = ({
   [AppNetwork.TEST]: [
     {
       name: ContractName.MANA,
-      address: getContract(CN.MANAToken, ChainId.ETHEREUM_MAINNET).address,
+      address: getContract(CN.MANAToken, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
       network: Network.ETHEREUM,
-      chainId: ChainId.ETHEREUM_MAINNET
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.MARKETPLACE,
-      address: getContract(CN.Marketplace, ChainId.ETHEREUM_MAINNET).address,
+      address: getContract(CN.Marketplace, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
       network: Network.ETHEREUM,
-      chainId: ChainId.ETHEREUM_MAINNET
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.BIDS,
-      address: getContract(CN.Bid, ChainId.ETHEREUM_MAINNET).address,
+      address: getContract(CN.Bid, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
       network: Network.ETHEREUM,
-      chainId: ChainId.ETHEREUM_MAINNET
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.MANA,
-      address: getContract(CN.MANAToken, ChainId.MATIC_MAINNET).address,
+      address: getContract(CN.MANAToken, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.MATIC,
-      chainId: ChainId.MATIC_MAINNET
+      network: Network.ETHEREUM,
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.MARKETPLACE,
-      address: getContract(CN.MarketplaceV2, ChainId.MATIC_MAINNET).address,
+      address: getContract(CN.MarketplaceV2, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.MATIC,
-      chainId: ChainId.MATIC_MAINNET
+      network: Network.ETHEREUM,
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.LEGACY_MARKETPLACE,
-      address: getContract(CN.Marketplace, ChainId.MATIC_MAINNET).address,
+      address: getContract(CN.Marketplace, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.MATIC,
-      chainId: ChainId.MATIC_MAINNET
+      network: Network.ETHEREUM,
+      chainId: ChainId.TEST
     },
     {
       name: CN.CollectionStore,
-      address: getContract(CN.CollectionStore, ChainId.MATIC_MAINNET).address,
+      address: getContract(CN.CollectionStore, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.MATIC,
-      chainId: ChainId.MATIC_MAINNET
+      network: Network.ETHEREUM,
+      chainId: ChainId.TEST
     },
     {
       name: ContractName.BIDS,
-      address: getContract(CN.BidV2, ChainId.MATIC_MAINNET).address,
+      address: getContract(CN.BidV2, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.MATIC,
-      chainId: ChainId.MATIC_MAINNET
+      network: Network.ETHEREUM,
+      chainId: ChainId.TEST
     }
   ]
 } as Record<AppNetwork, Contract[]>)[network]

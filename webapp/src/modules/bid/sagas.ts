@@ -1,4 +1,4 @@
-import { Bid } from '@dcl/schemas'
+import { Bid } from '@yanrongxing/schemas'
 import { takeEvery, put, select, call } from 'redux-saga/effects'
 import {
   PLACE_BID_REQUEST,

@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { Bid, ChainId } from '@dcl/schemas'
+import { Bid, ChainId } from '@yanrongxing/schemas'
 import { buildTransactionPayload } from '@yanrongxing/dapps/dist/modules/transaction/utils'
 import { NFT } from '../nft/types'
 import { formatMANA } from '../../lib/mana'

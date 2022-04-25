@@ -1,4 +1,4 @@
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { Asset, AssetType } from '../../modules/asset/types'
 
 export type Props<T extends AssetType = AssetType> = {

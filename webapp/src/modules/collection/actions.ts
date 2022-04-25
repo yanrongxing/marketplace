@@ -1,4 +1,4 @@
-import { Collection, CollectionFilters } from '@dcl/schemas'
+import { Collection, CollectionFilters } from '@yanrongxing/schemas'
 import { action } from 'typesafe-actions'
 
 // FETCH COLLECTIONS

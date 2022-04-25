@@ -1,5 +1,5 @@
 import React from 'react'
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 
 export type Props = {
   open: boolean

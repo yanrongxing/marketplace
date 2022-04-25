@@ -1,6 +1,6 @@
 import { Eth } from 'web3x/eth'
 import { Address } from 'web3x/address'
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { getConnectedProvider } from '@yanrongxing/dapps/dist/lib/eth'
 import { EstateRegistry } from '../../../contracts/EstateRegistry'
 import { NFT } from '../types'

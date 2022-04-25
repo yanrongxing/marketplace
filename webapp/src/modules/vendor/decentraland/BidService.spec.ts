@@ -1,4 +1,4 @@
-import { Bid, ChainId, Network } from '@dcl/schemas'
+import { Bid, ChainId, Network } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { ContractName, getContract } from 'decentraland-transactions'

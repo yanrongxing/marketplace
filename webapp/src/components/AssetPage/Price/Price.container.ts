@@ -3,7 +3,7 @@ import { MapStateProps, OwnProps } from './Price.types'
 import Price from './Price'
 import { RootState } from '../../../modules/reducer'
 import { getCurrentOrder } from '../../../modules/order/selectors'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 
 const mapState = (state: RootState, { asset }: OwnProps): MapStateProps => {
   let price: string | undefined

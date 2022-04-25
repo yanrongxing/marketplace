@@ -1,4 +1,4 @@
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 
 export type Props = {

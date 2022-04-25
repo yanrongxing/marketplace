@@ -1,5 +1,5 @@
-import { AccountFilters as AccountMetricsFilters } from '@dcl/schemas'
-import { Network } from '@dcl/schemas'
+import { AccountFilters as AccountMetricsFilters } from '@yanrongxing/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { action } from 'typesafe-actions'
 import { AccountMetrics } from './types'
 

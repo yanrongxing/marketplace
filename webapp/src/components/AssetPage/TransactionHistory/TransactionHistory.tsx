@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import { Sale } from '@dcl/schemas'
+import { Sale } from '@yanrongxing/schemas'
 import {
   Header,
   Table,

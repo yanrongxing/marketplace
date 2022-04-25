@@ -1,4 +1,4 @@
-import { NFT as BaseNFT, NFTCategory } from '@dcl/schemas'
+import { NFT as BaseNFT, NFTCategory } from '@yanrongxing/schemas'
 import { View } from '../ui/types'
 import { NFTsFetchFilters } from '../vendor/nft/types'
 import { VendorName } from '../vendor/types'

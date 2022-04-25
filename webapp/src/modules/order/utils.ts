@@ -1,4 +1,4 @@
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import addDays from 'date-fns/addDays'
 import dateFnsFormat from 'date-fns/format'
 import { Asset } from '../asset/types'

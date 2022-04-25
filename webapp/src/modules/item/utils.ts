@@ -1,4 +1,4 @@
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 
 export function getItem(
   contractAddress: string | null,

@@ -1,4 +1,4 @@
-import { Store as CommonsStore } from '@dcl/schemas'
+import { Store as CommonsStore } from '@yanrongxing/schemas'
 
 export type Store = {
   owner: string

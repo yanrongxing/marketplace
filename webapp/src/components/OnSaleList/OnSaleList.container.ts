@@ -10,7 +10,7 @@ import { FETCH_ITEMS_REQUEST } from '../../modules/item/actions'
 import { FETCH_NFTS_REQUEST } from '../../modules/nft/actions'
 import { getOnSaleElements } from '../../modules/ui/browse/selectors'
 import { OnSaleNFT } from '../../modules/ui/browse/types'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 
 const mapState = (state: RootState): MapStateProps => {
   const isLoading =

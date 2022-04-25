@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Footer } from '@yanrongxing/dapps/dist/containers'
 import { isMobile } from '@yanrongxing/dapps/dist/lib/utils'

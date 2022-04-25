@@ -4,7 +4,7 @@ import {
   Network,
   NFTCategory,
   WearableCategory
-} from '@dcl/schemas'
+} from '@yanrongxing/schemas'
 import { View } from '../ui/types'
 import { BrowseOptions, SortBy, SortDirection } from './types'
 import { Section } from '../vendor/decentraland'

@@ -1,4 +1,4 @@
-import { NFT, NFTCategory, Order } from '@dcl/schemas'
+import { NFT, NFTCategory, Order } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { locations } from '../routing/locations'

@@ -1,4 +1,4 @@
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { AssetType } from '../../../../modules/asset/types'
 
 export type Props = {

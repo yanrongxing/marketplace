@@ -1,6 +1,6 @@
 import React from 'react'
 import { fromWei } from 'web3x/utils'
-import { Item, Order } from '@dcl/schemas'
+import { Item, Order } from '@yanrongxing/schemas'
 import { Page } from '@yanrongxing/ui'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { Navbar } from '../Navbar'

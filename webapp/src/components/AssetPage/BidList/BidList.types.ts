@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { Bid } from '@dcl/schemas'
+import { Bid } from '@yanrongxing/schemas'
 import { NFT } from '../../../modules/nft/types'
 import {
   fetchBidsByNFTRequest,

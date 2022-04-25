@@ -1,4 +1,4 @@
-import { Collection, Item } from '@dcl/schemas'
+import { Collection, Item } from '@yanrongxing/schemas'
 import { ReactNode } from 'react'
 
 export type Props = {

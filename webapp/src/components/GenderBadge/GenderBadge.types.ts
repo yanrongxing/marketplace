@@ -1,4 +1,4 @@
-import { BodyShape } from '@dcl/schemas'
+import { BodyShape } from '@yanrongxing/schemas'
 import { Section } from '../../modules/vendor/decentraland'
 import { AssetType } from '../../modules/asset/types'
 

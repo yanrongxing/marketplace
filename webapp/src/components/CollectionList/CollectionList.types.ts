@@ -1,4 +1,4 @@
-import { Collection } from '@dcl/schemas'
+import { Collection } from '@yanrongxing/schemas'
 import { Dispatch } from 'redux'
 import { browse, BrowseAction } from '../../modules/routing/actions'
 import { SortBy } from '../../modules/routing/types'

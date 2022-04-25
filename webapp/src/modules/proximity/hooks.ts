@@ -1,4 +1,4 @@
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { useMemo } from 'react'
 import { NFT } from '../nft/types'
 import { VendorName } from '../vendor/types'

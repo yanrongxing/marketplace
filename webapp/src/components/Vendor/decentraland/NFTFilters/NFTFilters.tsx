@@ -11,7 +11,7 @@ import {
   Icon,
   NotMobile
 } from '@yanrongxing/ui'
-import { Network, NFTCategory, Rarity } from '@dcl/schemas'
+import { Network, NFTCategory, Rarity } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 
 import { SortBy } from '../../../../modules/routing/types'

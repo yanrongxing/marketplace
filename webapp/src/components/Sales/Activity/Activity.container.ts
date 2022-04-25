@@ -1,4 +1,4 @@
-import { Item, Sale, SaleType } from '@dcl/schemas'
+import { Item, Sale, SaleType } from '@yanrongxing/schemas'
 import { isLoadingType } from '@yanrongxing/dapps/dist/modules/loading/selectors'
 import { connect } from 'react-redux'
 import { NFT } from '../../../modules/nft/types'

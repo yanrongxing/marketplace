@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import { ListingStatus, Network, Order } from '@dcl/schemas'
+import { ListingStatus, Network, Order } from '@yanrongxing/schemas'
 import {
   ContractName,
   getContract,

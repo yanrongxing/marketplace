@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { Bid } from '@dcl/schemas'
+import { Bid } from '@yanrongxing/schemas'
 import { getData as getBidData } from '../../../bid/selectors'
 import { RootState } from '../../../reducer'
 import { BidState } from '../../../bid/reducer'

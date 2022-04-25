@@ -1,5 +1,5 @@
 import { BaseAPI } from '@yanrongxing/dapps/dist/lib/api'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { NFT_SERVER_URL } from '../nft'
 import { ItemFilters, ItemResponse } from './types'
 

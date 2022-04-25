@@ -1,4 +1,4 @@
-import { Account, AccountFilters, Network } from '@dcl/schemas'
+import { Account, AccountFilters, Network } from '@yanrongxing/schemas'
 import { expectSaga } from 'redux-saga-test-plan'
 import { call } from 'redux-saga/effects'
 import { accountAPI } from '../vendor/decentraland'

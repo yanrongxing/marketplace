@@ -1,4 +1,4 @@
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 
 export type Props = {
   network: Network

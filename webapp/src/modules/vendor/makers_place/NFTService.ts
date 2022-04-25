@@ -1,5 +1,5 @@
 import BN from 'bn.js'
-import { ListingStatus, Network, Order } from '@dcl/schemas'
+import { ListingStatus, Network, Order } from '@yanrongxing/schemas'
 import { Address } from 'web3x/address'
 import { toWei } from 'web3x/utils'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'

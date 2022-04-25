@@ -1,4 +1,4 @@
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { FieldProps } from '@yanrongxing/ui'
 
 export type Props = FieldProps & {

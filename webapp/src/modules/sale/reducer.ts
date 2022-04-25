@@ -1,4 +1,4 @@
-import { Sale } from '@dcl/schemas'
+import { Sale } from '@yanrongxing/schemas'
 import {
   loadingReducer,
   LoadingState

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { Card, Button, Loader } from '@yanrongxing/ui'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { getAnalytics } from '@yanrongxing/dapps/dist/modules/analytics/utils'
 

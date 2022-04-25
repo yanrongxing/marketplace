@@ -1,4 +1,4 @@
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { NFT, NFTsFetchParams, NFTsCountParams } from '../../nft/types'

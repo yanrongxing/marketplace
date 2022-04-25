@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import React from 'react'
-import { Order } from '@dcl/schemas'
+import { Order } from '@yanrongxing/schemas'
 import {
   fetchNFTRequest,
   FetchNFTRequestAction

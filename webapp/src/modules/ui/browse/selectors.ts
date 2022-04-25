@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { Item, Order } from '@dcl/schemas'
+import { Item, Order } from '@yanrongxing/schemas'
 import { getData as getNFTData } from '../../nft/selectors'
 import { getData as getItemData } from '../../item/selectors'
 import { getData as getOrderData } from '../../order/selectors'

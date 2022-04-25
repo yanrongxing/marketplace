@@ -1,4 +1,4 @@
-import { Collection } from '@dcl/schemas'
+import { Collection } from '@yanrongxing/schemas'
 import { createSelector } from 'reselect'
 import { RootState } from '../reducer'
 

@@ -4,7 +4,7 @@ import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { formatMANA } from '../../../lib/mana'
 import { Props } from './Stats.types'
 import { Mana } from '../../Mana'
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import './Stats.css'
 
 const Stats = ({

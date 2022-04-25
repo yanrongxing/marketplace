@@ -1,4 +1,4 @@
-import { Network, Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@yanrongxing/schemas'
 import { AssetType } from '../asset/types'
 import { VendorName } from '../vendor/types'
 import { View } from '../ui/types'

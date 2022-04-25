@@ -1,4 +1,4 @@
-import { Item, Order } from '@dcl/schemas'
+import { Item, Order } from '@yanrongxing/schemas'
 import { NFT } from '../../nft/types'
 import { VendorName } from '../../vendor'
 

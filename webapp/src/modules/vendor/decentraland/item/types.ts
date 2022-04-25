@@ -5,7 +5,7 @@ import {
   NFTCategory,
   Rarity,
   WearableCategory
-} from '@dcl/schemas'
+} from '@yanrongxing/schemas'
 import { WearableGender } from '../../../nft/wearable/types'
 
 export type ItemFilters = {

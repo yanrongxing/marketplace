@@ -4,7 +4,7 @@ import {
   Order,
   Rarity,
   WearableCategory
-} from '@dcl/schemas'
+} from '@yanrongxing/schemas'
 import { WearableGender } from '../../../nft/wearable/types'
 import { NFT } from '../../../nft/types'
 import { VendorName } from '../../types'

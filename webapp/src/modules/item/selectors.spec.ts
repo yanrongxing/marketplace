@@ -1,4 +1,4 @@
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 import { INITIAL_STATE } from './reducer'
 import { getData, getError, getLoading, getState } from './selectors'
 

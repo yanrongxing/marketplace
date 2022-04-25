@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Page, Loader } from '@yanrongxing/ui'
-import { NFTCategory } from '@dcl/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 
 import { locations } from '../../modules/routing/locations'
 import { VendorFactory } from '../../modules/vendor/VendorFactory'

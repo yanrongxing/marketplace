@@ -1,4 +1,4 @@
-import { Rarity } from '@dcl/schemas'
+import { Rarity } from '@yanrongxing/schemas'
 import { AssetType } from '../asset/types'
 import { WearableGender } from '../nft/wearable/types'
 import { VendorName } from '../vendor'

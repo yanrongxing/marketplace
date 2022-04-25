@@ -3,7 +3,7 @@ import {
   getSearch as getRouterSearch,
   getLocation
 } from 'connected-react-router'
-import { Network, Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@yanrongxing/schemas'
 import { getView } from '../ui/browse/selectors'
 import { View } from '../ui/types'
 import { WearableGender } from '../nft/wearable/types'

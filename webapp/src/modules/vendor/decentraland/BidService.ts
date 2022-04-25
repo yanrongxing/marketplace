@@ -1,5 +1,5 @@
 import { parseUnits } from '@ethersproject/units'
-import { Bid, ListingStatus, Network } from '@dcl/schemas'
+import { Bid, ListingStatus, Network } from '@yanrongxing/schemas'
 import {
   ContractData,
   ContractName,

@@ -1,4 +1,4 @@
-import { BodyShape } from '@dcl/schemas'
+import { BodyShape } from '@yanrongxing/schemas'
 import classNames from 'classnames'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import React from 'react'

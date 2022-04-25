@@ -1,4 +1,4 @@
-import { ListingStatus, Order } from '@dcl/schemas'
+import { ListingStatus, Order } from '@yanrongxing/schemas'
 import { BaseAPI } from '@yanrongxing/dapps/dist/lib/api'
 import { NFT_SERVER_URL } from '../nft'
 

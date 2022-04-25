@@ -1,4 +1,4 @@
-import { Network, Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@yanrongxing/schemas'
 import { getLocation, push } from 'connected-react-router'
 import { expectSaga } from 'redux-saga-test-plan'
 import { call, select } from 'redux-saga/effects'

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { LazyImage } from 'react-lazy-images'
 import classNames from 'classnames'
-import { BodyShape, NFTCategory, PreviewEmote, Rarity } from '@dcl/schemas'
+import { BodyShape, NFTCategory, PreviewEmote, Rarity } from '@yanrongxing/schemas'
 import { T, t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { getAnalytics } from '@yanrongxing/dapps/dist/modules/analytics/utils'
 import { Button, Center, Loader, Popup, WearablePreview } from '@yanrongxing/ui'

@@ -1,4 +1,4 @@
-import { Network, ChainId } from '@dcl/schemas'
+import { Network, ChainId } from '@yanrongxing/schemas'
 import * as walletUtils from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { NFT, NFTsCountParams, NFTsFetchParams } from '../../nft/types'

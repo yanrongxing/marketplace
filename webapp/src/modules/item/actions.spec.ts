@@ -1,4 +1,4 @@
-import { ChainId, Item, Network } from '@dcl/schemas'
+import { ChainId, Item, Network } from '@yanrongxing/schemas'
 import { buildTransactionPayload } from '@yanrongxing/dapps/dist/modules/transaction/utils'
 import { formatMANA } from '../../lib/mana'
 import { getAssetName } from '../asset/utils'

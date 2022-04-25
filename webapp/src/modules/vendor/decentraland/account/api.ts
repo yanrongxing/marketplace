@@ -1,4 +1,4 @@
-import { Account, AccountFilters } from '@dcl/schemas'
+import { Account, AccountFilters } from '@yanrongxing/schemas'
 import { BaseAPI } from '@yanrongxing/dapps/dist/lib/api'
 import { NFT_SERVER_URL } from '../nft'
 import { AccountResponse } from './types'

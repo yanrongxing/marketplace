@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { Popup } from '@yanrongxing/ui'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
-import { Rarity } from '@dcl/schemas'
+import { Rarity } from '@yanrongxing/schemas'
 import { Props } from './RarityBadge.types'
 import styles from './RarityBadge.module.css'
 

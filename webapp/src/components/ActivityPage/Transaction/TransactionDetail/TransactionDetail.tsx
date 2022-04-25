@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Loader, Icon } from '@yanrongxing/ui'
-import { Network } from '@dcl/schemas'
+import { Network } from '@yanrongxing/schemas'
 import { getChainConfiguration } from '@yanrongxing/dapps/dist/lib/chainConfiguration'
 import { t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import {

@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { Item } from '@dcl/schemas'
+import { Item } from '@yanrongxing/schemas'
 
 import { NFT } from '../../modules/nft/types'
 import { VendorName } from '../../modules/vendor/types'
