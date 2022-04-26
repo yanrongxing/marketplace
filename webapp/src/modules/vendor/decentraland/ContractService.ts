@@ -159,7 +159,7 @@ const contracts = ({
       address: getContract(CN.MANAToken, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -167,7 +167,7 @@ const contracts = ({
       address: getContract(CN.Marketplace, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -175,7 +175,7 @@ const contracts = ({
       address: getContract(CN.Bid, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -183,7 +183,7 @@ const contracts = ({
       address: getContract(CN.MANAToken, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -191,7 +191,7 @@ const contracts = ({
       address: getContract(CN.MarketplaceV2, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -199,7 +199,7 @@ const contracts = ({
       address: getContract(CN.Marketplace, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -207,7 +207,7 @@ const contracts = ({
       address: getContract(CN.CollectionStore, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
@@ -215,7 +215,7 @@ const contracts = ({
       address: getContract(CN.BidV2, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
-      network: Network.ETHEREUM,
+      network: Network.TEST,
       chainId: ChainId.TEST
     }
   ],
