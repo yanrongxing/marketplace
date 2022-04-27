@@ -67,7 +67,7 @@ typings/
 dist
 
 # Indexer generated data
-indexer/build
-indexer/src/entities
+#indexer/build
+#indexer/src/entities
 
 .vscode

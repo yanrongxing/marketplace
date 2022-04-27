@@ -1,0 +1,109 @@
+specVersion: 0.0.2
+description: Decentraland's Marketplace
+repository: https://github.com/decentraland/decentraland
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ERC721CollectionFactoryV2
+    network: mainnet
+    source:
+      address: "0x2cd7A86BfE944874113Ba4C594c5CE4B7b22B2aA"
+      abi: ERC721CollectionFactoryV2
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ERC721CollectionFactoryV2/ERC721CollectionFactoryV2.wasm
+      entities:
+        - ERC721
+      abis:
+        - name: ERC721CollectionFactoryV2
+          file: ERC721CollectionFactoryV2/abis/ERC721CollectionFactoryV2.json
+      eventHandlers:
+        - event: createCollectionEvent(indexed address,indexed bool)
+          handler: handleCreateCollectionEvent
+  - kind: ethereum/contract
+    name: Marketplace
+    network: mainnet
+    source:
+      address: "0x2a8AA56fc4bbed8CBc6828A33C0fCA84DDe53a0E"
+      abi: Marketplace
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: Marketplace/Marketplace.wasm
+      entities:
+        - Order
+        - NFT
+      abis:
+        - name: Marketplace
+          file: Marketplace/abis/Marketplace.json
+      eventHandlers:
+        - event: OrderCreated(bytes32,indexed uint256,indexed address,address,uint256,uint256)
+          handler: handleOrderCreated
+        - event: OrderSuccessful(bytes32,indexed uint256,indexed address,address,uint256,indexed
+            address)
+          handler: handleOrderSuccessful
+        - event: OrderCancelled(bytes32,indexed uint256,indexed address,address)
+          handler: handleOrderCancelled
+  - kind: ethereum/contract
+    name: ERC721Bid
+    network: mainnet
+    source:
+      address: "0x2eac693481A47E74f2113000377a2872CB04Ad9d"
+      abi: ERC721Bid
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ERC721Bid/ERC721Bid.wasm
+      entities:
+        - Bid
+      abis:
+        - name: ERC721Bid
+          file: ERC721Bid/abis/ERC721Bid.json
+      eventHandlers:
+        - event: BidCreated(bytes32,indexed address,indexed uint256,indexed
+            address,uint256,uint256,bytes)
+          handler: handleBidCreated
+        - event: BidAccepted(bytes32,indexed address,indexed uint256,address,indexed
+            address,uint256,uint256)
+          handler: handleBidAccepted
+        - event: BidCancelled(bytes32,indexed address,indexed uint256,indexed address)
+          handler: handleBidCancelled
+templates:
+  - name: ERC721
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: ERC721
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: templates/ERC721/ERC721.wasm
+      entities:
+        - NFT
+        - Parcel
+        - Estate
+        - Wearable
+        - ENS
+      abis:
+        - name: ERC721
+          file: ERC721/abis/ERC721.json
+        - name: LANDRegistry
+          file: ERC721/abis/LANDRegistry.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256,address,bytes,bytes)
+          handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,indexed uint256,address,bytes)
+          handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
