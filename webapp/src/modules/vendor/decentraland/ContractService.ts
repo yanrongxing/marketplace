@@ -15,7 +15,9 @@ export enum ContractName {
   MARKETPLACE = 'Marketplace',
   LEGACY_MARKETPLACE = 'LegacyMarketplace',
   BIDS = 'Bids',
-  COLLECTION_STORE = 'CollectionStore'
+  COLLECTION_STORE = 'CollectionStore',
+  TEST = 'TEST',
+
 }
 
 const contracts = ({
@@ -215,6 +217,21 @@ const contracts = ({
       address: getContract(CN.BidV2, ChainId.TEST).address,
       vendor: 'decentraland',
       category: null,
+      network: Network.TEST,
+      chainId: ChainId.TEST
+    },    {
+      name: ContractName.TEST,
+      address: '0xe95fbea0ba0c541cd36b5b30cbe1d1ac9b938817',
+      vendor: 'decentraland',
+      category: 'wearable',
+      network: Network.TEST,
+      chainId: ChainId.TEST
+    },
+    {
+      name: ContractName.TEST,
+      address: '0x0476a7bd9f13f222b4c6c6fe60d3ba996c3e0c5f',
+      vendor: 'decentraland',
+      category: 'wearable',
       network: Network.TEST,
       chainId: ChainId.TEST
     }

@@ -288,7 +288,7 @@
     "uncommon": "罕见",
     "common": "常见"
   },
-  "rarity_tooltip": {
+  "rarity_description": {
     "unique": "像圣杯一样：独一无二",
     "mythic": "给幸运的人：最多10个",
     "legendary": "限量供应：最多100个",

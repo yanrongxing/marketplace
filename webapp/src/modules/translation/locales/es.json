@@ -288,7 +288,7 @@
     "uncommon": "Poco común",
     "common": "Común"
   },
-  "rarity_tooltip": {
+  "rarity_description": {
     "unique": "Único en su tipo: uno solo en existencia",
     "mythic": "Para algunos pocos: máximo 10",
     "legendary": "Edición limitada: máximo 100",
