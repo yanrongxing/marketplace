@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Header, Form, Field, Button } from '@yanrongxing/ui'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 import { t, T } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import {
   Authorization,

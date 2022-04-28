@@ -6,7 +6,7 @@ import {
   Authorization,
   AuthorizationType
 } from '@yanrongxing/dapps/dist/modules/authorization/types'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 import { hasAuthorization } from '@yanrongxing/dapps/dist/modules/authorization/utils'
 import { ChainButton } from '@yanrongxing/dapps/dist/containers'
 import { locations } from '../../../modules/routing/locations'

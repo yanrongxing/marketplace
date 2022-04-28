@@ -1,6 +1,6 @@
 import { utils } from 'ethers'
 import { ChainId, ListingStatus, Order } from '@yanrongxing/schemas'
-import { ContractData } from 'decentraland-transactions'
+import { ContractData } from '@yanrongxing/transactions'
 import * as walletUtils from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import * as orderAPI from './order/api'
 import { NFT } from '../../nft/types'

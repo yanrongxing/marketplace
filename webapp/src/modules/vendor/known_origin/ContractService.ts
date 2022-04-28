@@ -10,13 +10,32 @@ const network = process.env.REACT_APP_NETWORK! as AppNetwork
 
 export enum ContractName {
   DIGITAL_ASSET = 'DigitalAssset',
-  MARKETPLACE_ADAPTER = 'MarketplaceAdapter'
+  MARKETPLACE_ADAPTER = 'MarketplaceAdapter',
+  TEST = 'TEST',
 }
 
 const contracts = ({
   [AppNetwork.ROPSTEN]: [],
   [AppNetwork.BSC]: [],
-  [AppNetwork.TEST]: [],
+  [AppNetwork.TEST]: [
+    {
+      name: ContractName.TEST,
+      address: '0xe95fbea0ba0c541cd36b5b30cbe1d1ac9b938817',
+      vendor: 'known_origin',
+      category: 'wearable',
+      network: Network.TEST,
+      chainId: ChainId.TEST
+    },
+    {
+      name: ContractName.TEST,
+      address: '0x0476a7bd9f13f222b4c6c6fe60d3ba996c3e0c5f',
+      vendor: 'known_origin',
+      category: 'wearable',
+      network: Network.TEST,
+      chainId: ChainId.TEST
+    }
+    
+  ],
   [AppNetwork.MAINNET]: [
     {
       name: ContractName.DIGITAL_ASSET,

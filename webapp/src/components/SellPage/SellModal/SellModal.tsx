@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Network, NFTCategory } from '@yanrongxing/schemas'
+import { NFTCategory } from '@yanrongxing/schemas'
 import { fromWei } from 'web3x/utils'
 import dateFnsFormat from 'date-fns/format'
 import {
@@ -10,7 +10,7 @@ import { hasAuthorization } from '@yanrongxing/dapps/dist/modules/authorization/
 import { t, T } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import { ChainButton } from '@yanrongxing/dapps/dist/containers'
 import { Header, Form, Field, Button } from '@yanrongxing/ui'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 import { toMANA, fromMANA } from '../../../lib/mana'
 import {
   INPUT_FORMAT,
@@ -69,7 +69,7 @@ const SellModal = (props: Props) => {
     authorizedAddress: marketplace.address,
     contractAddress: nft.contractAddress,
     contractName:
-      nft.category === NFTCategory.WEARABLE && nft.network === Network.MATIC
+      nft.category === NFTCategory.WEARABLE 
         ? ContractName.ERC721CollectionV2
         : ContractName.ERC721,
     chainId: nft.chainId,

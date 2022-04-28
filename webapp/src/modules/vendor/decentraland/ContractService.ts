@@ -1,12 +1,12 @@
 import { ChainId, Network } from '@yanrongxing/schemas'
-import { getContract, ContractName as CN } from 'decentraland-transactions'
+import { getContract, ContractName as CN } from '@yanrongxing/transactions'
 import {
   Contract,
   ContractService as ContractServiceInterface
 } from '../services'
 import { Network as AppNetwork } from '../../contract/types'
 import { TransferType } from '../types'
-import { nftAPI } from './nft'
+// import { nftAPI } from './nft'
 
 const network = process.env.REACT_APP_NETWORK! as AppNetwork
 
@@ -291,16 +291,17 @@ export class ContractService implements ContractServiceInterface {
   contracts = contracts
 
   hasFetched = false
-
+  
   async build() {
     if (this.hasFetched) {
       return
     }
-
-    const contracts = await nftAPI.fetchContracts()
-    for (const contract of contracts) {
-      this.contracts.push(contract)
-    }
+    console.log(network);
+    console.log(this.contracts);
+    // const contracts = await nftAPI.fetchContracts()
+    // for (const contract of contracts) {
+    //   this.contracts.push(contract)
+    // }
 
     this.hasFetched = true
   }

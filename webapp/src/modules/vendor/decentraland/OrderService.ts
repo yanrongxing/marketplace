@@ -4,7 +4,7 @@ import {
   ContractName,
   getContract,
   getContractName
-} from 'decentraland-transactions'
+} from '@yanrongxing/transactions'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { NFT } from '../../nft/types'

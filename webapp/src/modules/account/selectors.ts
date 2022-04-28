@@ -30,7 +30,8 @@ export const getMetricsByAddressByNetwork = createSelector(
     const addresses = new Set([
       ...Object.keys(metrics.ETHEREUM),
       ...Object.keys(metrics.MATIC),
-      ...Object.keys(metrics.BSC)
+      ...Object.keys(metrics.BSC),
+      ...Object.keys(metrics.TEST)
     ])
 
     const res: Record<string, Record<Network, AccountMetrics>> = {}
@@ -39,7 +40,8 @@ export const getMetricsByAddressByNetwork = createSelector(
       res[address] = {
         [Network.ETHEREUM]: metrics[Network.ETHEREUM][address],
         [Network.MATIC]: metrics[Network.MATIC][address],
-        [Network.BSC]: metrics[Network.BSC][address]
+        [Network.BSC]: metrics[Network.BSC][address],
+        [Network.TEST]: metrics[Network.TEST][address]
       }
     }
 

@@ -9,7 +9,7 @@ import {
 import { hasAuthorization } from '@yanrongxing/dapps/dist/modules/authorization/utils'
 import { ChainButton } from '@yanrongxing/dapps/dist/containers'
 import { Network, NFTCategory } from '@yanrongxing/schemas'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 import { locations } from '../../../modules/routing/locations'
 import { isPartner } from '../../../modules/vendor/utils'
 import { useFingerprint } from '../../../modules/nft/hooks'

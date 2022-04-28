@@ -11,7 +11,7 @@ import {
   ContractData,
   ContractName,
   getContract
-} from 'decentraland-transactions'
+} from '@yanrongxing/transactions'
 
 jest.mock('@yanrongxing/dapps/dist/modules/wallet/utils')
 jest.mock('./nft/api')

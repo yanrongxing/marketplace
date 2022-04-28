@@ -3,7 +3,7 @@ import {
   ContractData,
   ContractName,
   getContract
-} from 'decentraland-transactions'
+} from '@yanrongxing/transactions'
 
 export function getERC721ContractData(data: {
   contractAddress: string

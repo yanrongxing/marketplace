@@ -1,6 +1,6 @@
 import { Item } from '@yanrongxing/schemas'
 import { put, takeEvery } from '@redux-saga/core/effects'
-import { ContractName, getContract } from 'decentraland-transactions'
+import { ContractName, getContract } from '@yanrongxing/transactions'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { call, select } from 'redux-saga/effects'
 import { itemAPI } from '../vendor/decentraland/item/api'

@@ -377,7 +377,7 @@
       "title": "请确认",
       "create_bid_line_one": "您即将为 {name} 出价 {amount}。",
       "accept_bid_line_one": "您即将接受对 {name} 的 {amount} 出价。",
-      "line_two": "请重新输入价格以确认："
+      "accept_bid_line_two": "请重新输入价格以确认："
     }
   },
   "my_bids_page": {
@@ -496,7 +496,9 @@
   },
   "networks": {
     "ethereum": "Ethereum",
-    "matic": "Polygon"
+    "matic": "Polygon",
+    "bsc": "Bianace",
+    "test": "Test"
   },
   "intro_popup": {
     "title": "介绍Polygon MANA",

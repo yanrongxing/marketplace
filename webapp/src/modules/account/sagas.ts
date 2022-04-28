@@ -37,7 +37,8 @@ export function* handleFetchAccountMetricsRequest(
       fetchAccountMetricsSuccess(filters, {
         [Network.ETHEREUM]: results[0].data,
         [Network.MATIC]: results[1].data,
-        [Network.BSC]: results[2].data
+        [Network.BSC]: results[2].data,
+        [Network.TEST]: results[3].data
       })
     )
   } catch (error) {

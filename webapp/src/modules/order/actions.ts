@@ -1,7 +1,7 @@
 import { action } from 'typesafe-actions'
 import { Order } from '@yanrongxing/schemas'
 import { buildTransactionPayload } from '@yanrongxing/dapps/dist/modules/transaction/utils'
-import { ErrorCode } from 'decentraland-transactions'
+import { ErrorCode } from '@yanrongxing/transactions'
 
 import { NFT } from '../nft/types'
 import { getAssetName } from '../asset/utils'

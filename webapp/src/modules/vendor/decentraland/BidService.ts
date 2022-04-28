@@ -4,7 +4,7 @@ import {
   ContractData,
   ContractName,
   getContract
-} from 'decentraland-transactions'
+} from '@yanrongxing/transactions'
 import { Wallet } from '@yanrongxing/dapps/dist/modules/wallet/types'
 import { sendTransaction } from '@yanrongxing/dapps/dist/modules/wallet/utils'
 import { NFT } from '../../nft/types'
@@ -88,6 +88,20 @@ export class BidService
         )
       }
       case Network.BSC: {
+        const contract: ContractData = getContract(
+          ContractName.BidV2,
+          nft.chainId
+        )
+        return sendTransaction(contract, bids =>
+          bids['placeBid(address,uint256,uint256,uint256)'](
+            nft.contractAddress,
+            nft.tokenId,
+            priceInWei,
+            expiresIn
+          )
+        )
+      }
+      case Network.TEST: {
         const contract: ContractData = getContract(
           ContractName.BidV2,
           nft.chainId

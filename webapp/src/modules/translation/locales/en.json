@@ -498,7 +498,9 @@
   },
   "networks": {
     "ethereum": "Ethereum",
-    "matic": "Polygon"
+    "matic": "Polygon",
+    "bsc": "Bianace",
+    "test": "Test"
   },
   "intro_popup": {
     "title": "Introducing Polygon MANA",

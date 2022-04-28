@@ -33,7 +33,8 @@ const INITIAL_STATE: AccountState = {
   metrics: {
     [Network.ETHEREUM]: {},
     [Network.MATIC]: {},
-    [Network.BSC]: {}
+    [Network.BSC]: {},
+    [Network.TEST]: {}
   },
   loading: [],
   error: null
@@ -83,6 +84,13 @@ export function accountReducer(
             return acc
           },
           { ...state.metrics.BSC }
+        ),
+        [Network.TEST]: accountMetrics.TEST.reduce(
+          (acc, metrics) => {
+            acc[metrics.address] = metrics
+            return acc
+          },
+          { ...state.metrics.TEST }
         )
       }
 

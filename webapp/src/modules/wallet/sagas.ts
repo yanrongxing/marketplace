@@ -1,6 +1,6 @@
 import { takeEvery, all, put } from 'redux-saga/effects'
 import { ChainId, Network, NFTCategory } from '@yanrongxing/schemas'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 import { createWalletSaga } from '@yanrongxing/dapps/dist/modules/wallet/sagas'
 import {
   ConnectWalletSuccessAction,
@@ -45,46 +45,46 @@ function* handleWallet(
 
   const marketplaceEthereum = getContract({
     name: contractNames.MARKETPLACE,
-    network: Network.ETHEREUM
+    network: Network.TEST
   })
 
   const marketplaceMatic = getContract({
     name: contractNames.MARKETPLACE,
-    network: Network.MATIC
+    network: Network.TEST
   })
 
-  const legacyMarketplaceMatic = getContract({
-    name: contractNames.LEGACY_MARKETPLACE,
-    network: Network.MATIC
-  })
+  // const legacyMarketplaceMatic = getContract({
+  //   name: contractNames.LEGACY_MARKETPLACE,
+  //   network: Network.BSC
+  // })
 
-  const marketplaceAdapter = getContract({
-    name: contractNames.MARKETPLACE_ADAPTER
-  })
+  // const marketplaceAdapter = getContract({
+  //   name: contractNames.MARKETPLACE_ADAPTER
+  // })
 
   const bidsEthereum = getContract({
     name: contractNames.BIDS,
-    network: Network.ETHEREUM
+    network: Network.TEST
   })
 
   const bidsMatic = getContract({
     name: contractNames.BIDS,
-    network: Network.MATIC
+    network: Network.TEST
   })
 
   const manaEthereum = getContract({
     name: contractNames.MANA,
-    network: Network.ETHEREUM
+    network: Network.TEST
   })
 
   const manaMatic = getContract({
     name: contractNames.MANA,
-    network: Network.MATIC
+    network: Network.TEST
   })
 
   const collectionStore = getContract({
     name: contractNames.COLLECTION_STORE,
-    network: Network.MATIC
+    network: Network.TEST
   })
 
   const authorizations: Authorization[] = []
@@ -107,23 +107,23 @@ function* handleWallet(
     type: AuthorizationType.ALLOWANCE
   })
 
-  authorizations.push({
-    address,
-    authorizedAddress: legacyMarketplaceMatic.address,
-    contractAddress: manaMatic.address,
-    contractName: ContractName.MANAToken,
-    chainId: manaMatic.chainId,
-    type: AuthorizationType.ALLOWANCE
-  })
+  // authorizations.push({
+  //   address,
+  //   authorizedAddress: legacyMarketplaceMatic.address,
+  //   contractAddress: manaMatic.address,
+  //   contractName: ContractName.MANAToken,
+  //   chainId: manaMatic.chainId,
+  //   type: AuthorizationType.ALLOWANCE
+  // })
 
-  authorizations.push({
-    address,
-    authorizedAddress: marketplaceAdapter.address,
-    contractAddress: manaEthereum.address,
-    contractName: ContractName.MANAToken,
-    chainId: manaEthereum.chainId,
-    type: AuthorizationType.ALLOWANCE
-  })
+  // authorizations.push({
+  //   address,
+  //   authorizedAddress: marketplaceAdapter.address,
+  //   contractAddress: manaEthereum.address,
+  //   contractName: ContractName.MANAToken,
+  //   chainId: manaEthereum.chainId,
+  //   type: AuthorizationType.ALLOWANCE
+  // })
 
   authorizations.push({
     address,
@@ -153,6 +153,7 @@ function* handleWallet(
   })
 
   for (const contract of contracts.filter(c => c.category !== null)) {
+    
     const marketplace = getContract({
       name:
         contract.vendor && isPartner(contract.vendor)
@@ -160,7 +161,9 @@ function* handleWallet(
           : contractNames.MARKETPLACE,
       network: contract.network
     })!
-
+    if(!marketplace){
+      continue
+    }
     // Skip SuperRare contract since it's not ERC721 compliant (lacks approveForAll)
     if (contract.name === contractNames.SUPER_RARE) {
       continue

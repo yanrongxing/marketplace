@@ -6,7 +6,7 @@ import { Footer } from '@yanrongxing/dapps/dist/containers'
 import { isMobile } from '@yanrongxing/dapps/dist/lib/utils'
 import { AuthorizationType } from '@yanrongxing/dapps/dist/modules/authorization/types'
 import { Page, Grid, Blockie, Loader, Form } from '@yanrongxing/ui'
-import { ContractName } from 'decentraland-transactions'
+import { ContractName } from '@yanrongxing/transactions'
 
 import { locations } from '../../modules/routing/locations'
 import { shortenAddress } from '../../modules/wallet/utils'
