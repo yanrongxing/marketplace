@@ -335,8 +335,10 @@
     "subtitle": "Pon un precio y fecha de expiración para {name}.",
     "update_subtitle": "Pon un nuevo precio y fecha de expiración para {name}.",
     "price": "Precio",
+    "quantity": "quantity",
     "expiration_date": "Fecha de expiración",
     "invalid_date": "Esta fecha ya pasó",
+    "invalid_quantity": "This amount is incorrect",
     "submit": "Poner en venta",
     "update_submit": "Actualizar",
     "confirm": {

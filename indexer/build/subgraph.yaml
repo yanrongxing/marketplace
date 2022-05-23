@@ -8,7 +8,7 @@ dataSources:
     name: ERC721CollectionFactoryV2
     network: mainnet
     source:
-      address: "0x2cd7A86BfE944874113Ba4C594c5CE4B7b22B2aA"
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
       abi: ERC721CollectionFactoryV2
       startBlock: 0
     mapping:
@@ -28,7 +28,7 @@ dataSources:
     name: Marketplace
     network: mainnet
     source:
-      address: "0x2a8AA56fc4bbed8CBc6828A33C0fCA84DDe53a0E"
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
       abi: Marketplace
       startBlock: 0
     mapping:
@@ -54,7 +54,7 @@ dataSources:
     name: ERC721Bid
     network: mainnet
     source:
-      address: "0x2eac693481A47E74f2113000377a2872CB04Ad9d"
+      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F"
       abi: ERC721Bid
       startBlock: 0
     mapping:

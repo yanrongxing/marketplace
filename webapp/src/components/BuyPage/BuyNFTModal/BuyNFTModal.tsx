@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react'
-import { Header, Button } from '@yanrongxing/ui'
+import { Header, Button,Field} from '@yanrongxing/ui'
 import { Link } from 'react-router-dom'
 import { T, t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import {
@@ -35,9 +35,11 @@ const BuyNFTModal = (props: Props) => {
 
   const [fingerprint, isFingerprintLoading] = useFingerprint(nft)
   const [showAuthorizationModal, setShowAuthorizationModal] = useState(false)
-
+  const [quantity, setQuantity] = useState(
+     order!.quantity|0
+  )
   const handleExecuteOrder = useCallback(() => {
-    onExecuteOrder(order!, nft, fingerprint)
+    onExecuteOrder(order!, nft, quantity,fingerprint)
   }, [order, nft, fingerprint, onExecuteOrder])
 
   const authorization: Authorization = useMemo(() => {
@@ -120,13 +122,25 @@ const BuyNFTModal = (props: Props) => {
       />
     )
   }
-
+  const isInvalidQuantity = quantity > 0
   return (
     <AssetAction asset={nft}>
       <Header size="large">
         {t('buy_page.title', { category: t(`global.${nft.category}`) })}
       </Header>
       <div className={isDisabled ? 'error' : ''}>{subtitle}</div>
+      <div className="form-fields">
+          <Field
+            label={t('sell_page.quantity')}
+            type="text"
+            value={quantity}
+            onChange={(_event, props) =>
+              setQuantity(Number(props.value))
+            }
+            error={isInvalidQuantity}
+            message={isInvalidQuantity ? t('sell_page.invalid_quantity') : undefined}
+          />
+        </div>
       <div className="buttons">
         <Button as={Link} to={locations.nft(nft.contractAddress, nft.tokenId)}>
           {t('global.cancel')}

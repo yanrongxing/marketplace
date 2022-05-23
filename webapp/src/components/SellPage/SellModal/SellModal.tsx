@@ -49,6 +49,9 @@ const SellModal = (props: Props) => {
       ? dateFnsFormat(+order!.expiresAt, INPUT_FORMAT)
       : getDefaultExpirationDate()
   )
+  const [quantity, setQuantity] = useState(
+    isUpdate ? order!.quantity : 0
+  )
   const [showConfirm, setShowConfirm] = useState(false)
 
   const [showAuthorizationModal, setShowAuthorizationModal] = useState(false)
@@ -77,7 +80,7 @@ const SellModal = (props: Props) => {
   }
 
   const handleCreateOrder = () =>
-    onCreateOrder(nft, fromMANA(price), new Date(expiresAt).getTime())
+    onCreateOrder(nft, fromMANA(price), new Date(expiresAt).getTime(),quantity)
 
   const handleSubmit = () => {
     if (hasAuthorization(authorizations, authorization)) {
@@ -93,6 +96,7 @@ const SellModal = (props: Props) => {
   const { orderService } = VendorFactory.build(nft.vendor)
 
   const isInvalidDate = new Date(expiresAt).getTime() < Date.now()
+  const isInvalidQuantity = quantity > 0 
   const isDisabled =
     !orderService.canSell() ||
     !isOwnedBy(nft, wallet) ||
@@ -115,6 +119,16 @@ const SellModal = (props: Props) => {
 
       <Form onSubmit={() => setShowConfirm(true)}>
         <div className="form-fields">
+          <Field
+            label={t('sell_page.quantity')}
+            type="text"
+            value={quantity}
+            onChange={(_event, props) =>
+              setQuantity(Number(props.value))
+            }
+            error={isInvalidQuantity}
+            message={isInvalidQuantity ? t('sell_page.invalid_quantity') : undefined}
+          />
           <ManaField
             label={t('sell_page.price')}
             type="text"

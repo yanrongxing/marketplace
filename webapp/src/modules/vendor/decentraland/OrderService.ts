@@ -18,11 +18,13 @@ export class OrderService
     return orderAPI.fetchByNFT(nft.contractAddress, nft.tokenId, status)
   }
 
+
   async create(
     _wallet: Wallet | null,
     nft: NFT,
     price: number,
-    expiresAt: number
+    expiresAt: number,
+    quantity:number | 0
   ) {
     const contract = getContract(
       nft.network === Network.ETHEREUM
@@ -35,7 +37,8 @@ export class OrderService
         nft.contractAddress,
         nft.tokenId,
         utils.parseEther(price.toString()),
-        expiresAt
+        expiresAt,
+        quantity
       )
     )
   }
@@ -68,7 +71,7 @@ export class OrderService
     const contractName = getContractName(order.marketplaceAddress)
     const contract = getContract(contractName, order.chainId)
     return sendTransaction(contract, marketplace =>
-      marketplace.cancelOrder(order.contractAddress, order.tokenId)
+      marketplace.cancelOrder(order.id)
     )
   }
 

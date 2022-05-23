@@ -44,7 +44,8 @@ export interface OrderService<V extends VendorName> {
     wallet: Wallet | null,
     nft: NFT<V>,
     price: number,
-    expiresAt: number
+    expiresAt: number,
+    quantity:number
   ) => Promise<string>
   execute: (
     wallet: Wallet | null,

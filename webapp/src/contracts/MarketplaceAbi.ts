@@ -1,742 +1,669 @@
-import { ContractAbi } from 'web3x/contract'
+import { ContractAbi} from 'web3x/contract';
 export default new ContractAbi([
   {
-    constant: false,
-    inputs: [
+    "inputs": [
       {
-        name: '_ownerCutPerMillion',
-        type: 'uint256'
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_feesCollector",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_acceptedToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_feesCollectorCutPerMillion",
+        "type": "uint256"
       }
     ],
-    name: 'setOwnerCutPerMillion',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    constant: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '_legacyNFTAddress',
-        type: 'address'
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feesCollectorCutPerMillion",
+        "type": "uint256"
       }
     ],
-    name: 'setLegacyNFTAddress',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "ChangedFeesCollectorCutPerMillion",
+    "type": "event"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'ERC721_Interface',
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '',
-        type: 'bytes4'
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "publicationFee",
+        "type": "uint256"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "ChangedPublicationFee",
+    "type": "event"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'InterfaceId_ValidateFingerprint',
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '',
-        type: 'bytes4'
+        "indexed": true,
+        "internalType": "address",
+        "name": "oldFeesCollector",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newFeesCollector",
+        "type": "address"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "FeesCollectorSet",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [],
-    name: 'unpause',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: 'acceptedToken',
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '',
-        type: 'address'
+        "indexed": false,
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "relayerAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "functionSignature",
+        "type": "bytes"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "MetaTransactionExecuted",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: 'assetId',
-        type: 'uint256'
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    name: 'cancelOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "OrderCancelled",
+    "type": "event"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'paused',
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '',
-        type: 'bool'
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "priceInWei",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "expiresAt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "OrderCreated",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: 'nftAddress',
-        type: 'address'
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       },
       {
-        name: 'assetId',
-        type: 'uint256'
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    name: 'cancelOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "OrderSuccessful",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: 'nftAddress',
-        type: 'address'
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        name: 'priceInWei',
-        type: 'uint256'
-      },
-      {
-        name: 'expiresAt',
-        type: 'uint256'
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
       }
     ],
-    name: 'createOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [],
-    name: 'initialize',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
-    constant: false,
-    inputs: [],
-    name: 'pause',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: 'owner',
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: '',
-        type: 'address'
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "Paused",
+    "type": "event"
   },
   {
-    constant: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        name: 'nftAddress',
-        type: 'address'
-      },
-      {
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        name: 'price',
-        type: 'uint256'
-      },
-      {
-        name: 'fingerprint',
-        type: 'bytes'
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
       }
     ],
-    name: 'safeExecuteOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "Unpaused",
+    "type": "event"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'ownerCutPerMillion',
-    outputs: [
+    "inputs": [],
+    "name": "ERC1155_Interface",
+    "outputs": [
       {
-        name: '',
-        type: 'uint256'
+        "internalType": "bytes4",
+        "name": "",
+        "type": "bytes4"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [],
+    "name": "ERC721_Interface",
+    "outputs": [
       {
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        name: 'priceInWei',
-        type: 'uint256'
-      },
-      {
-        name: 'expiresAt',
-        type: 'uint256'
+        "internalType": "bytes4",
+        "name": "",
+        "type": "bytes4"
       }
     ],
-    name: 'createOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'publicationFeeInWei',
-    outputs: [
+    "inputs": [],
+    "name": "InterfaceId_ValidateFingerprint",
+    "outputs": [
       {
-        name: '',
-        type: 'uint256'
+        "internalType": "bytes4",
+        "name": "",
+        "type": "bytes4"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [],
+    "name": "acceptedToken",
+    "outputs": [
       {
-        name: 'nftAddress',
-        type: 'address'
-      },
-      {
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        name: 'price',
-        type: 'uint256'
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
       }
     ],
-    name: 'executeOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [
       {
-        name: '_publicationFee',
-        type: 'uint256'
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       }
     ],
-    name: 'setPublicationFee',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "cancelOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [
+    "inputs": [
       {
-        name: 'contractName',
-        type: 'string'
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
       },
       {
-        name: 'migrationId',
-        type: 'string'
-      }
-    ],
-    name: 'isMigrated',
-    outputs: [
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
       {
-        name: '',
-        type: 'bool'
+        "internalType": "uint256",
+        "name": "priceInWei",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "expiresAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "createOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [],
+    "name": "domainSeparator",
+    "outputs": [
       {
-        name: '_acceptedToken',
-        type: 'address'
-      },
-      {
-        name: '_legacyNFTAddress',
-        type: 'address'
-      },
-      {
-        name: '_owner',
-        type: 'address'
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
       }
     ],
-    name: 'initialize',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [
       {
-        name: '_sender',
-        type: 'address'
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "functionSignature",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "sigR",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "sigS",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "sigV",
+        "type": "uint8"
       }
     ],
-    name: 'initialize',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "name": "executeMetaTransaction",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'legacyNFTAddress',
-    outputs: [
+    "inputs": [
       {
-        name: '',
-        type: 'address'
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "name": "executeOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [
+    "inputs": [],
+    "name": "feesCollector",
+    "outputs": [
       {
-        name: 'assetId',
-        type: 'uint256'
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
-    name: 'auctionByAssetId',
-    outputs: [
-      {
-        name: '',
-        type: 'bytes32'
-      },
-      {
-        name: '',
-        type: 'address'
-      },
-      {
-        name: '',
-        type: 'uint256'
-      },
-      {
-        name: '',
-        type: 'uint256'
-      }
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [
+    "inputs": [],
+    "name": "feesCollectorCutPerMillion",
+    "outputs": [
       {
-        name: '',
-        type: 'address'
-      },
-      {
-        name: '',
-        type: 'uint256'
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    name: 'orderByAssetId',
-    outputs: [
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getChainId",
+    "outputs": [
       {
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        name: 'seller',
-        type: 'address'
-      },
-      {
-        name: 'nftAddress',
-        type: 'address'
-      },
-      {
-        name: 'price',
-        type: 'uint256'
-      },
-      {
-        name: 'expiresAt',
-        type: 'uint256'
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function'
+    "stateMutability": "pure",
+    "type": "function"
   },
   {
-    constant: false,
-    inputs: [
+    "inputs": [
       {
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        name: 'price',
-        type: 'uint256'
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
       }
     ],
-    name: 'executeOrder',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
-    constant: false,
-    inputs: [
+    "name": "getNonce",
+    "outputs": [
       {
-        name: 'newOwner',
-        type: 'address'
+        "internalType": "uint256",
+        "name": "nonce",
+        "type": "uint256"
       }
     ],
-    name: 'transferOwnership',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
-      },
-      {
-        indexed: false,
-        name: 'nftAddress',
-        type: 'address'
-      },
-      {
-        indexed: false,
-        name: 'priceInWei',
-        type: 'uint256'
-      },
-      {
-        indexed: false,
-        name: 'expiresAt',
-        type: 'uint256'
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
       }
     ],
-    name: 'OrderCreated',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [
+    "name": "orderById",
+    "outputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
       },
       {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
       },
       {
-        indexed: false,
-        name: 'nftAddress',
-        type: 'address'
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        name: 'totalPrice',
-        type: 'uint256'
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        name: 'buyer',
-        type: 'address'
+        "internalType": "uint256",
+        "name": "expiresAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
       }
     ],
-    name: 'OrderSuccessful',
-    type: 'event'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
-      },
-      {
-        indexed: false,
-        name: 'nftAddress',
-        type: 'address'
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
-    name: 'OrderCancelled',
-    type: 'event'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
       {
-        indexed: false,
-        name: 'publicationFee',
-        type: 'uint256'
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
-    name: 'ChangedPublicationFee',
-    type: 'event'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "publicationFeeInWei",
+    "outputs": [
       {
-        indexed: false,
-        name: 'ownerCutPerMillion',
-        type: 'uint256'
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    name: 'ChangedOwnerCutPerMillion',
-    type: 'event'
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       {
-        indexed: true,
-        name: 'legacyNFTAddress',
-        type: 'address'
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "fingerprint",
+        "type": "bytes"
       }
     ],
-    name: 'ChangeLegacyNFTAddress',
-    type: 'event'
+    "name": "safeExecuteOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
-      },
-      {
-        indexed: false,
-        name: 'priceInWei',
-        type: 'uint256'
-      },
-      {
-        indexed: false,
-        name: 'expiresAt',
-        type: 'uint256'
+        "internalType": "address",
+        "name": "_newFeesCollector",
+        "type": "address"
       }
     ],
-    name: 'AuctionCreated',
-    type: 'event'
+    "name": "setFeesCollector",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
-      },
-      {
-        indexed: false,
-        name: 'totalPrice',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'winner',
-        type: 'address'
+        "internalType": "uint256",
+        "name": "_feesCollectorCutPerMillion",
+        "type": "uint256"
       }
     ],
-    name: 'AuctionSuccessful',
-    type: 'event'
+    "name": "setFeesCollectorCutPerMillion",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        name: 'id',
-        type: 'bytes32'
-      },
-      {
-        indexed: true,
-        name: 'assetId',
-        type: 'uint256'
-      },
-      {
-        indexed: true,
-        name: 'seller',
-        type: 'address'
+        "internalType": "uint256",
+        "name": "_publicationFee",
+        "type": "uint256"
       }
     ],
-    name: 'AuctionCancelled',
-    type: 'event'
+    "name": "setPublicationFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [],
-    name: 'Pause',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [],
-    name: 'Unpause',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        name: 'previousOwner',
-        type: 'address'
-      },
-      {
-        indexed: true,
-        name: 'newOwner',
-        type: 'address'
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
       }
     ],
-    name: 'OwnershipTransferred',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        name: 'contractName',
-        type: 'string'
-      },
-      {
-        indexed: false,
-        name: 'migrationId',
-        type: 'string'
-      }
-    ],
-    name: 'Migrated',
-    type: 'event'
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
-])
+]);

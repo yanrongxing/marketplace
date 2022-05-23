@@ -23,13 +23,13 @@ export function* orderSaga() {
 }
 
 function* handleCreateOrderRequest(action: CreateOrderRequestAction) {
-  const { nft, price, expiresAt } = action.payload
+  const { nft, price, expiresAt,quantity } = action.payload
   try {
     const { orderService } = VendorFactory.build(nft.vendor)
 
     const wallet: ReturnType<typeof getWallet> = yield select(getWallet)
     const txHash: string = yield call(() =>
-      orderService.create(wallet, nft, price, expiresAt)
+      orderService.create(wallet, nft, price, expiresAt,quantity)
     )
     yield put(createOrderSuccess(nft, price, expiresAt, txHash))
   } catch (error) {
