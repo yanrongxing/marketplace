@@ -35,8 +35,9 @@ export const locations = {
   },
   nft: (
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/tokens/${tokenId}`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/tokens/${tokenId}/${owner}`,
   item: (
     contractAddress: string = ':contractAddress',
     itemId: string = ':itemId'
@@ -46,24 +47,29 @@ export const locations = {
   buy: (
     type: AssetType,
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/${getResource(type)}/${tokenId}/buy`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/${getResource(type)}/${tokenId}/${owner}/buy`,
   sell: (
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/tokens/${tokenId}/sell`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/tokens/${tokenId}/${owner}/sell`,
   cancel: (
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/tokens/${tokenId}/cancel`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/tokens/${tokenId}/${owner}/cancel`,
   transfer: (
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/tokens/${tokenId}/transfer`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/tokens/${tokenId}/${owner}/transfer`,
   bid: (
     contractAddress: string = ':contractAddress',
-    tokenId: string = ':tokenId'
-  ) => `/contracts/${contractAddress}/tokens/${tokenId}/bid`,
+    tokenId: string = ':tokenId',
+    owner: string = ':owner'
+  ) => `/contracts/${contractAddress}/tokens/${tokenId}/${owner}/bid`,
   activity: () => `/activity`
 }
 

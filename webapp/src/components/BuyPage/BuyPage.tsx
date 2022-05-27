@@ -25,7 +25,7 @@ const BuyPage = (props: Props) => {
     order: Order | null
   ) =>
     !!order &&
-    wallet.networks[asset.network].mana < +fromWei(order.price, 'ether')
+    wallet.networks[asset.network].mana < +(order.quantity > 0 ? order.quantity*Number(fromWei(order.price, 'ether')):fromWei(order.price, 'ether'))
 
   return (
     <>

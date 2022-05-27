@@ -23,7 +23,7 @@ const AssetCell = ({ asset }: Props) => {
 
   const link =
     'tokenId' in asset
-      ? locations.nft(asset.contractAddress, asset.tokenId)
+      ? locations.nft(asset.contractAddress, asset.tokenId,asset.owner)
       : locations.item(asset.contractAddress, asset.itemId!)
 
   return (

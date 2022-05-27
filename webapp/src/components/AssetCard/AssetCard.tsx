@@ -17,11 +17,11 @@ import ListedBadge from '../ListedBadge'
 import './AssetCard.css'
 
 const AssetCard = (props: Props) => {
-  const { asset, price, showListedTag } = props
+  const { asset, price,quantity, showListedTag } = props
 
   const title = getAssetName(asset)
   const { parcel, estate, wearable, emote, ens } = asset.data
-
+  // const nftProps = asset.data.props
   return (
     <Card className="AssetCard" link as={Link} to={getAssetUrl(asset)}>
       <AssetImage asset={asset} showMonospace />
@@ -29,18 +29,32 @@ const AssetCard = (props: Props) => {
       <Card.Content>
         <Card.Header>
           <div className="title">{title}</div>
+
           {price ? (
             <Mana network={asset.network} inline>
               {formatMANA(price)}
             </Mana>
           ) : null}
+          
         </Card.Header>
-        <Card.Meta>{t(`networks.${asset.network.toLowerCase()}`)}</Card.Meta>
+        <Card.Meta >
+          <div className='left'>
+          {t(`networks.${asset.network.toLowerCase()}`)}
+          </div>
+          {quantity! > 0 &&
+          <div>
+            {quantity?.toString()}
+          </div>
+          }
+          
+        </Card.Meta>
+        
         {parcel ? <ParcelTags nft={asset as NFT} /> : null}
         {estate ? <EstateTags nft={asset as NFT} /> : null}
         {wearable ? <WearableTags asset={asset} /> : null}
         {emote ? <EmoteTags nft={asset as NFT} /> : null}
         {ens ? <ENSTags nft={asset as NFT} /> : null}
+        {/* {nftProps} */}
       </Card.Content>
     </Card>
   )

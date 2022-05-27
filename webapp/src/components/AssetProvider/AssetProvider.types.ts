@@ -15,6 +15,7 @@ export type Props<T extends AssetType = AssetType> = {
   type: T
   contractAddress: string | null
   tokenId: string | null
+  owner: string | null | undefined
   asset: Asset<T> | null
   order: Order | null
   isLoading: boolean
@@ -29,7 +30,7 @@ export type Props<T extends AssetType = AssetType> = {
 
 export type MapStateProps = Pick<
   Props,
-  'contractAddress' | 'tokenId' | 'asset' | 'order' | 'isLoading'
+  'contractAddress' | 'tokenId' | 'asset' | 'order' | 'isLoading' | 'owner'
 >
 export type MapDispatchProps = Pick<Props, 'onFetchNFT' | 'onFetchItem'>
 export type MapDispatch = Dispatch<
@@ -39,4 +40,4 @@ export type OwnProps<T extends AssetType = AssetType> = Pick<
   Props<T>,
   'type' | 'children'
 > &
-  Partial<Pick<Props<T>, 'contractAddress' | 'tokenId'>>
+  Partial<Pick<Props<T>, 'contractAddress' | 'tokenId' | 'owner'>>

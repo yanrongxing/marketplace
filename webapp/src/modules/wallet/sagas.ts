@@ -43,114 +43,51 @@ function* handleWallet(
 
   const contractNames = getContractNames()
 
-  const marketplaceEthereum = getContract({
+
+
+  const marketplace = getContract({
     name: contractNames.MARKETPLACE,
     network: Network.TEST
   })
 
-  const marketplaceMatic = getContract({
-    name: contractNames.MARKETPLACE,
-    network: Network.TEST
-  })
 
-  // const legacyMarketplaceMatic = getContract({
-  //   name: contractNames.LEGACY_MARKETPLACE,
-  //   network: Network.BSC
-  // })
 
-  // const marketplaceAdapter = getContract({
-  //   name: contractNames.MARKETPLACE_ADAPTER
-  // })
-
-  const bidsEthereum = getContract({
+  const bids = getContract({
     name: contractNames.BIDS,
     network: Network.TEST
   })
 
-  const bidsMatic = getContract({
-    name: contractNames.BIDS,
-    network: Network.TEST
-  })
 
-  const manaEthereum = getContract({
+
+  const mana = getContract({
     name: contractNames.MANA,
     network: Network.TEST
   })
 
-  const manaMatic = getContract({
-    name: contractNames.MANA,
-    network: Network.TEST
-  })
 
-  const collectionStore = getContract({
-    name: contractNames.COLLECTION_STORE,
-    network: Network.TEST
-  })
 
   const authorizations: Authorization[] = []
 
   authorizations.push({
     address,
-    authorizedAddress: marketplaceEthereum.address,
-    contractAddress: manaEthereum.address,
+    authorizedAddress: marketplace.address,
+    contractAddress: mana.address,
     contractName: ContractName.MANAToken,
-    chainId: manaEthereum.chainId,
+    chainId: mana.chainId,
     type: AuthorizationType.ALLOWANCE
   })
+
 
   authorizations.push({
     address,
-    authorizedAddress: marketplaceMatic.address,
-    contractAddress: manaMatic.address,
+    authorizedAddress: bids.address,
+    contractAddress: mana.address,
     contractName: ContractName.MANAToken,
-    chainId: manaMatic.chainId,
+    chainId: mana.chainId,
     type: AuthorizationType.ALLOWANCE
   })
 
-  // authorizations.push({
-  //   address,
-  //   authorizedAddress: legacyMarketplaceMatic.address,
-  //   contractAddress: manaMatic.address,
-  //   contractName: ContractName.MANAToken,
-  //   chainId: manaMatic.chainId,
-  //   type: AuthorizationType.ALLOWANCE
-  // })
 
-  // authorizations.push({
-  //   address,
-  //   authorizedAddress: marketplaceAdapter.address,
-  //   contractAddress: manaEthereum.address,
-  //   contractName: ContractName.MANAToken,
-  //   chainId: manaEthereum.chainId,
-  //   type: AuthorizationType.ALLOWANCE
-  // })
-
-  authorizations.push({
-    address,
-    authorizedAddress: bidsEthereum.address,
-    contractAddress: manaEthereum.address,
-    contractName: ContractName.MANAToken,
-    chainId: manaEthereum.chainId,
-    type: AuthorizationType.ALLOWANCE
-  })
-
-  authorizations.push({
-    address,
-    authorizedAddress: bidsMatic.address,
-    contractAddress: manaMatic.address,
-    contractName: ContractName.MANAToken,
-    chainId: manaMatic.chainId,
-    type: AuthorizationType.ALLOWANCE
-  })
-
-  authorizations.push({
-    address,
-    authorizedAddress: collectionStore.address,
-    contractAddress: manaMatic.address,
-    contractName: ContractName.MANAToken,
-    chainId: manaMatic.chainId,
-    type: AuthorizationType.ALLOWANCE
-  })
 
   for (const contract of contracts.filter(c => c.category !== null)) {
     
@@ -168,16 +105,21 @@ function* handleWallet(
     if (contract.name === contractNames.SUPER_RARE) {
       continue
     }
+    let tokenContract = ContractName.ERC721;
+    switch(contract.category){
+      case NFTCategory.WEARABLE:
+        tokenContract = ContractName.ERC721CollectionV2
+        break
+      case NFTCategory.PROPS:
+        tokenContract = ContractName.ERC1155
+        break
+    }
 
     authorizations.push({
       address,
       authorizedAddress: marketplace.address,
       contractAddress: contract.address,
-      contractName:
-        contract.category === NFTCategory.WEARABLE &&
-        contract.network === Network.MATIC
-          ? ContractName.ERC721CollectionV2
-          : ContractName.ERC721,
+      contractName:tokenContract,
       chainId: contract.chainId,
       type: AuthorizationType.APPROVAL
     })

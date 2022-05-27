@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import { Sale } from '@yanrongxing/schemas'
+import { NFTCategory, Sale } from '@yanrongxing/schemas'
 import {
   Header,
   Table,
@@ -98,6 +98,12 @@ const TransactionHistory = (props: Props) => {
                   <Table.HeaderCell>
                     {t('transaction_history.price')}
                   </Table.HeaderCell>
+                  {
+                    asset?.category === NFTCategory.PROPS &&
+                    <Table.HeaderCell>
+                      {t('transaction_history.quantity')}
+                    </Table.HeaderCell>
+                  }
                 </Table.Row>
               </Table.Header>
 
@@ -123,6 +129,14 @@ const TransactionHistory = (props: Props) => {
                         {formatMANA(sale.price)}
                       </Mana>
                     </Table.Cell>
+                    {
+                    asset?.category === NFTCategory.PROPS &&
+                    <Table.Cell>
+                      <Mana network={network} inline>
+                        {sale.quantity}
+                      </Mana>
+                    </Table.Cell>
+                  }
                   </Table.Row>
                 ))}
                 {isLoading ? <Loader active /> : null}

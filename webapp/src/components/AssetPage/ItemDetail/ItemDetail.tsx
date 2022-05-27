@@ -57,6 +57,7 @@ const ItemDetail = ({ item, wallet }: Props) => {
           {item.category === NFTCategory.WEARABLE && (
             <CategoryBadge
               wearable={item.data.wearable!}
+              props={undefined}
               assetType={AssetType.ITEM}
             />
           )}
@@ -124,7 +125,8 @@ const ItemDetail = ({ item, wallet }: Props) => {
                 to={locations.buy(
                   AssetType.ITEM,
                   item.contractAddress,
-                  item.itemId
+                  item.itemId,
+                  item.creator
                 )}
                 primary
               >

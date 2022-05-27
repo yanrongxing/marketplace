@@ -17,8 +17,9 @@ const nftDetailMatchSelector = createMatchSelector<
   {
     contractAddress: string
     tokenId: string
+    owner:string
   }
->(locations.nft(':contractAddress', ':tokenId'))
+>(locations.nft(':contractAddress', ':tokenId',':owner'))
 
 export const getContractAddress = createSelector<
   RootState,
@@ -32,8 +33,15 @@ export const getTokenId = createSelector<
   string | null
 >(nftDetailMatchSelector, match => match?.params.tokenId || null)
 
+export const getOwner = createSelector<
+  RootState,
+  ReturnType<typeof nftDetailMatchSelector>,
+  string | null
+>(nftDetailMatchSelector, match => match?.params.owner || null)
+
 export const getCurrentNFT = createSelector<
   RootState,
+  string | null,
   string | null,
   string | null,
   NFTState['data'],
@@ -41,8 +49,9 @@ export const getCurrentNFT = createSelector<
 >(
   state => getContractAddress(state),
   state => getTokenId(state),
+  state => getOwner(state),
   state => getData(state),
-  (contractAddress, tokenId, nfts) => getNFT(contractAddress, tokenId, nfts)
+  (contractAddress, tokenId,owner, nfts) => getNFT(contractAddress, tokenId,nfts,owner)
 )
 
 export const getNFTsByOwner = createSelector<

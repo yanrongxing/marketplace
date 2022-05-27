@@ -36,7 +36,7 @@ const Actions = (props: Props) => {
           <>
             <Button
               as={Link}
-              to={locations.sell(contractAddress, tokenId)}
+              to={locations.sell(contractAddress, tokenId,wallet?.address.toLocaleLowerCase())}
               primary
               fluid
             >
@@ -44,7 +44,7 @@ const Actions = (props: Props) => {
             </Button>
             <Button
               as={Link}
-              to={locations.cancel(contractAddress, tokenId)}
+              to={locations.cancel(contractAddress, tokenId,wallet?.address.toLocaleLowerCase())}
               fluid
             >
               {t('asset_page.actions.cancel_sale')}
@@ -54,7 +54,7 @@ const Actions = (props: Props) => {
           <>
             <Button
               as={Link}
-              to={locations.buy(AssetType.NFT, contractAddress, tokenId)}
+              to={locations.buy(AssetType.NFT, contractAddress, tokenId,nft.owner)}
               primary
               fluid
             >
@@ -78,7 +78,7 @@ const Actions = (props: Props) => {
       ) : isOwner && canSell ? (
         <Button
           as={Link}
-          to={locations.sell(contractAddress, tokenId)}
+          to={locations.sell(contractAddress, tokenId,wallet?.address.toLocaleLowerCase())}
           primary
           fluid
         >

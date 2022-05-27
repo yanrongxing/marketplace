@@ -70,7 +70,7 @@ export function initStore() {
   )
   const enhancer = composeEnhancers(middleware)
   const store = createStore(rootReducer, enhancer)
-
+  
   sagasMiddleware.run(rootSaga)
   loadStorageMiddleware(store)
 

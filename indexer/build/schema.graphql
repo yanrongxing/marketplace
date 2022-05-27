@@ -38,6 +38,7 @@ type Order @entity {
   owner: Bytes!
   buyer: Bytes
   price: BigInt!
+  quantity: BigInt!
   status: OrderStatus!
   blockNumber: BigInt!
   expiresAt: BigInt!
@@ -119,6 +120,15 @@ type Wearable @entity {
   nft: NFT @derivedFrom(field: "wearable")
 }
 
+type Props @entity {
+  id: ID!
+  owner: Account!
+  name: String!
+  description: String!
+  category: PropsCategory!
+  nft: NFT @derivedFrom(field: "props")
+}
+
 type ENS @entity {
   id: ID!
   tokenId: BigInt!
@@ -142,15 +152,14 @@ type NFT @entity {
   orders: [Order!] @derivedFrom(field: "nft") # History of all orders. Should only ever be ONE open order. all others must be cancelled or sold
   bids: [Bid!] @derivedFrom(field: "nft") # History of all bids.
   activeOrder: Order
-
+  balance:BigInt
   name: String
   image: String
-
   parcel: Parcel
   estate: Estate
   wearable: Wearable
   ens: ENS
-
+  props:Props
   createdAt: BigInt!
   updatedAt: BigInt!
   soldAt: BigInt
@@ -181,6 +190,7 @@ type NFT @entity {
   searchWearableRarity: String # We're using String instead of WearableRarity here so we can later query this field via ()_in
   searchWearableCategory: WearableCategory
   searchWearableBodyShapes: [WearableBodyShape!]
+  searchPropsCategory: PropsCategory
 }
 
 # ---------------------------------------------------------
@@ -201,12 +211,18 @@ type Account @entity {
 # ---------------------------------------------------------
 # Enums ---------------------------------------------------
 # ---------------------------------------------------------
-
+enum PropsCategory @entity {
+  diamond
+  box
+  fragments
+  vibranium
+}
 enum Category @entity {
   parcel
   estate
   wearable
   ens
+  props
 }
 
 enum OrderStatus @entity {
@@ -269,7 +285,7 @@ type Sale @entity {
   nft: NFT!
   timestamp: BigInt!
   txHash: Bytes!
-
+  quantity:BigInt!
   # search
   searchTokenId: BigInt!
   searchContractAddress: Bytes!

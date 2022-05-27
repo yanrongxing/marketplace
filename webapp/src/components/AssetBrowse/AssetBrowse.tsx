@@ -45,6 +45,7 @@ const hasPrimarySales = (section?: Section) => {
     case DecentralandSection.WEARABLES_TIARA:
     case DecentralandSection.WEARABLES_TOP_HEAD:
     case DecentralandSection.WEARABLES_SKIN:
+    case DecentralandSection.PROPS:
     case DecentralandSection.EMOTES: {
       return true
     }
@@ -215,6 +216,7 @@ const AssetBrowse = (props: Props) => {
     Sections.decentraland.COLLECTIONS,
     Sections.decentraland.LAND,
     Sections.decentraland.WEARABLES,
+    Sections.decentraland.PROPS,
     Sections.decentraland.EMOTES,
     Sections.decentraland.ENS,
     Sections.decentraland.ON_SALE,

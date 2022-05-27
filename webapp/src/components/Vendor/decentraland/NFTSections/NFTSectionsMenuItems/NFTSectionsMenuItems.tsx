@@ -123,6 +123,39 @@ const NFTSectionsMenuItems = ({ section, sections, onSectionClick }: Props) => {
             </>
           ) : null}
         </>
+      )}{shouldRenderSection(Section.PROPS, sections) && (
+        <>
+          <MenuItem
+            value={Section.PROPS}
+            currentValue={section}
+            onClick={onSectionClick}
+          />
+          {[
+            Section.PROPS,
+            Section.PROPS_DIAMOND,
+            Section.PROPS_BOX,
+            Section.PROPS_FRAGMENTS,
+            Section.PROPS_VIBRANIUM
+          ].includes(section!) ? (
+            <>
+              {[
+                Section.PROPS_DIAMOND,
+                Section.PROPS_BOX,
+                Section.PROPS_FRAGMENTS,
+                Section.PROPS_VIBRANIUM
+              ].map(menuSection => (
+                <MenuItem
+                  key={menuSection}
+                  value={menuSection}
+                  currentValue={section}
+                  onClick={onSectionClick}
+                  nestedLevel={1}
+                />
+              ))}
+
+            </>
+          ) : null}
+        </>
       )}
       {shouldRenderSection(Section.EMOTES, sections) && (
         <MenuItem

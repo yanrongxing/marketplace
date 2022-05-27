@@ -54,5 +54,5 @@ export const WZWonderbot = '{{address:WZWonderbot}}'
 export const Xmas2019Collection = '{{address:Xmas2019Collection}}'
 export const Xmas2020Collection = '{{address:Xmas2020Collection}}'
 export const XmashUp2020 = '{{address:XmashUp2020}}'
-
+export const ERC1155 = '{{address:ERC1155}}'
 

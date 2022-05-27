@@ -27,7 +27,6 @@ import { getContractNames } from '../../../modules/vendor'
 import { getContract } from '../../../modules/contract/utils'
 import { ConfirmInputValueModal } from '../../ConfirmInputValueModal'
 import { Props } from './SellModal.types'
-
 const SellModal = (props: Props) => {
   const {
     nft,
@@ -50,7 +49,7 @@ const SellModal = (props: Props) => {
       : getDefaultExpirationDate()
   )
   const [quantity, setQuantity] = useState(
-    isUpdate ? order!.quantity : 0
+    isUpdate ? order!.quantity : undefined
   )
   const [showConfirm, setShowConfirm] = useState(false)
 
@@ -67,20 +66,27 @@ const SellModal = (props: Props) => {
     network: nft.network
   })
 
+  let tokenContract = ContractName.ERC721;
+  switch(nft.category){
+    case NFTCategory.WEARABLE:
+      tokenContract = ContractName.ERC721CollectionV2
+      break
+    case NFTCategory.PROPS:
+      tokenContract = ContractName.ERC1155
+      break
+  }
+
   const authorization: Authorization = {
     address: wallet.address,
     authorizedAddress: marketplace.address,
     contractAddress: nft.contractAddress,
-    contractName:
-      nft.category === NFTCategory.WEARABLE 
-        ? ContractName.ERC721CollectionV2
-        : ContractName.ERC721,
+    contractName:tokenContract,
     chainId: nft.chainId,
     type: AuthorizationType.APPROVAL
   }
 
   const handleCreateOrder = () =>
-    onCreateOrder(nft, fromMANA(price), new Date(expiresAt).getTime(),quantity)
+    onCreateOrder(nft, fromMANA(price), new Date(expiresAt).getTime(),quantity?quantity:0)
 
   const handleSubmit = () => {
     if (hasAuthorization(authorizations, authorization)) {
@@ -96,7 +102,7 @@ const SellModal = (props: Props) => {
   const { orderService } = VendorFactory.build(nft.vendor)
 
   const isInvalidDate = new Date(expiresAt).getTime() < Date.now()
-  const isInvalidQuantity = quantity > 0 
+  const isInvalidQuantity =  quantity! <= 0
   const isDisabled =
     !orderService.canSell() ||
     !isOwnedBy(nft, wallet) ||
@@ -119,16 +125,24 @@ const SellModal = (props: Props) => {
 
       <Form onSubmit={() => setShowConfirm(true)}>
         <div className="form-fields">
-          <Field
-            label={t('sell_page.quantity')}
-            type="text"
-            value={quantity}
-            onChange={(_event, props) =>
-              setQuantity(Number(props.value))
-            }
-            error={isInvalidQuantity}
-            message={isInvalidQuantity ? t('sell_page.invalid_quantity') : undefined}
-          />
+          {
+            nft.category === NFTCategory.PROPS &&
+            <ManaField
+              label={t('sell_page.quantity')}
+              type="text"
+              network={nft.network}
+              value={quantity}
+              onChange={(_event, props) =>{
+                  if(parseFloat(props.value).toString() !== "NaN"){
+                    setQuantity(Number(props.value))
+                  }
+                }
+              }
+              error={isInvalidQuantity}
+              message={isInvalidQuantity ? t('sell_page.invalid_quantity') : undefined}
+            />
+          }
+          
           <ManaField
             label={t('sell_page.price')}
             type="text"
@@ -156,7 +170,7 @@ const SellModal = (props: Props) => {
           <Button
             as="div"
             onClick={() =>
-              onNavigate(locations.nft(nft.contractAddress, nft.tokenId))
+              onNavigate(locations.nft(nft.contractAddress, nft.tokenId,nft.owner))
             }
           >
             {t('global.cancel')}
@@ -194,6 +208,7 @@ const SellModal = (props: Props) => {
         }
         onConfirm={handleSubmit}
         valueToConfirm={price}
+        quantityToConfirm={quantity}
         network={nft.network}
         onCancel={() => setShowConfirm(false)}
         loading={isCreatingOrder}

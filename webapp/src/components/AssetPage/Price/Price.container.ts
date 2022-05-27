@@ -7,17 +7,21 @@ import { Item } from '@yanrongxing/schemas'
 
 const mapState = (state: RootState, { asset }: OwnProps): MapStateProps => {
   let price: string | undefined
+  let quantity: number | undefined
 
   if ('price' in asset) {
     price = (asset as Item).price
   }
+  
 
   if ('activeOrderId' in asset) {
     price = getCurrentOrder(state)?.price
+    quantity = getCurrentOrder(state)?.quantity
   }
 
+
   return {
-    price
+    price,quantity
   }
 }
 

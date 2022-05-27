@@ -16,7 +16,8 @@ export function handleBidCreated(event: BidCreated): void {
   let nftId = getNFTId(
     category,
     event.params._tokenAddress.toHexString(),
-    event.params._tokenId.toString()
+    event.params._tokenId.toString(),
+    ''
   )
   let id = getBidId(
     event.params._tokenAddress.toHexString(),
@@ -83,6 +84,7 @@ export function handleBidAccepted(event: BidAccepted): void {
     event.params._seller,
     nft.id,
     bid.price,
+    BigInt.fromI32(0),
     event.block.timestamp,
     event.transaction.hash
   )

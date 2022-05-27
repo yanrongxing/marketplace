@@ -5,7 +5,7 @@ import { getActiveOrder } from '../../modules/order/utils'
 import { MapStateProps, OwnProps, MapDispatchProps } from './AssetCard.types'
 import AssetCard from './AssetCard'
 import { getView } from '../../modules/ui/browse/selectors'
-import { getAssetPrice } from '../../modules/asset/utils'
+import { getAssetPrice, getAssetQuantity } from '../../modules/asset/utils'
 import { View } from '../../modules/ui/types'
 
 const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
@@ -18,9 +18,12 @@ const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
 
   const view = getView(state)
   const price = getAssetPrice(asset, order)
+  debugger;
+  const quantity = getAssetQuantity(order)
 
   return {
     price: getAssetPrice(asset, order),
+    quantity:quantity,
     showListedTag: Boolean(view === View.CURRENT_ACCOUNT && price)
   }
 }

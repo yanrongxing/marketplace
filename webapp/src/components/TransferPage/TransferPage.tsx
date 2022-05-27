@@ -104,7 +104,7 @@ const TransferPage = (props: Props) => {
                           as="div"
                           onClick={() =>
                             onNavigate(
-                              locations.nft(nft.contractAddress, nft.tokenId)
+                              locations.nft(nft.contractAddress, nft.tokenId,nft.owner)
                             )
                           }
                         >

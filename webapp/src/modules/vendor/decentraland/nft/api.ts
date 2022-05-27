@@ -18,10 +18,12 @@ class NFTAPI extends BaseAPI {
     return this.request('get', `/nfts?${queryParams}`)
   }
 
-  async fetchOne(contractAddress: string, tokenId: string): Promise<NFTResult> {
+  async fetchOne(contractAddress: string, tokenId: string,owner?:string): Promise<NFTResult> {
+    
     const response: NFTResponse = await this.request('get', '/nfts', {
       contractAddress,
-      tokenId
+      tokenId,
+      owner
     })
 
     if (response.data.length === 0) {

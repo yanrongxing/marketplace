@@ -25,6 +25,7 @@ export type MakersPlaceAsset = {
   token_contract_address: string
   name: string
   description: string
+  balance: string | null
   total_supply: number
   image_url: string
   owner: string
@@ -32,6 +33,7 @@ export type MakersPlaceAsset = {
   sale_created_at?: string
   price_in_wei?: string
   sale_contract_address?: string
+  
 }
 
 export type FetchOneSuccessResponse = {

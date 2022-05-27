@@ -165,6 +165,7 @@ export class NFTService implements NFTServiceInterface<VendorName.SUPER_RARE> {
       itemId: null,
       createdAt: 0,
       updatedAt: 0,
+      balance : null,
       soldAt: 0
     }
   }
@@ -193,7 +194,8 @@ export class NFTService implements NFTServiceInterface<VendorName.SUPER_RARE> {
       updatedAt: +order.timestamp,
       expiresAt: Infinity,
       chainId: Number(process.env.REACT_APP_CHAIN_ID),
-      network: Network.ETHEREUM
+      network: Network.ETHEREUM,
+      quantity: 0
     }
   }
 

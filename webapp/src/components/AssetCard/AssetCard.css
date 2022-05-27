@@ -17,6 +17,14 @@
   margin-right: 20px;
 }
 
+.AssetCard .meta .left {
+  flex: 1 2 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
 .ui.card.AssetCard > .content {
   flex: none;
 }
@@ -34,6 +42,7 @@
 
 .ui.cards > .ui.card.AssetCard.link .meta,
 .ui.card.link .meta {
+  display: flex;
   margin-bottom: 4px;
 }
 
@@ -80,6 +89,10 @@ a.ui.card.link:hover .meta {
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
+  }
+  .AssetCard .meta {
+    display: flex;
+    flex-direction: column;
   }
 }
 

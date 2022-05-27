@@ -10,6 +10,7 @@
     "parcel_with_coords": "地块 {x},{y}",
     "estate": "产业",
     "wearable": "可穿戴",
+    "props":"道具",
     "ens": "名称",
     "art": "艺术",
     "cancel": "取消",
@@ -73,6 +74,11 @@
     "parcels": "地块",
     "estates": "产业",
     "wearables": "可穿戴",
+    "props": "道具",
+    "props_diamond":"钻石",
+    "props_box":"宝箱",
+    "props_fragments":"碎片",
+    "props_vibranium":"振金",
     "wearables_head": "头部",
     "wearables_eyebrows": "眉毛",
     "wearables_eyes": "眼睛",
@@ -238,9 +244,11 @@
       "mint_item": "薄荷项目"
     },
     "description": "描述",
+    "balance": "持有数量",
     "owner": "持有者",
     "creator": "创造者",
     "price": "价格",
+    "quantity":"数量",
     "collection": "珍藏",
     "available": "可用的",
     "stock": "股票",
@@ -272,7 +280,8 @@
     "to": "至",
     "type": "类型",
     "when": "时间",
-    "price": "价格"
+    "price": "价格",
+    "quantity":"数量"
   },
   "body_shape": {
     "male": "男性",
@@ -296,6 +305,14 @@
     "rare": "最大供应量：5000个",
     "uncommon": "最大供应量：10,000个",
     "common": "最大供应量：100,000个"
+  },
+  "props": {
+    "category": {
+      "diamond": "砖石",
+      "box": "宝箱",
+      "fragments": "碎片",
+      "vibranium": "振金"
+    }
   },
   "wearable": {
     "category": {
@@ -350,7 +367,7 @@
   },
   "buy_page": {
     "title": "购买{category}",
-    "subtitle": "您将以{amount}的价格购买{name}。",
+    "subtitle": "您将以单价{amount}的价格购买{name}。",
     "not_for_sale": "{name}为非卖品",
     "buy": "购买",
     "no_fingerprint": "无法加载指纹。",
@@ -467,7 +484,7 @@
     "detail": {
       "approve_token": "您{action} {contract}合同代表您操作{token}。",
       "create_order": "您列出了以{price}出售的{name}。",
-      "cancel_order": "您删除了{价格}的{名称}列表。",
+      "cancel_order": "您删除了{price}的{name}列表。",
       "execute_order": "您以{price}购买了{name}。",
       "transfer": "您已将{name}转移到{address}。",
       "place_bid": "您对{name}出价了{price}。",

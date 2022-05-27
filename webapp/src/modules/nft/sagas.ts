@@ -34,7 +34,6 @@ function* handleFetchNFTsRequest(action: FetchNFTsRequestAction) {
     ...DEFAULT_BASE_NFT_PARAMS,
     ...action.payload.options.params
   }
-
   try {
     const vendor: Vendor<VendorName> = yield call(
       VendorFactory.build,
@@ -68,8 +67,8 @@ function* handleFetchNFTsRequest(action: FetchNFTsRequestAction) {
 }
 
 function* handleFetchNFTRequest(action: FetchNFTRequestAction) {
-  const { contractAddress, tokenId } = action.payload
-
+  const { contractAddress, tokenId,owner } = action.payload
+  
   try {
     const contract: ReturnType<typeof getContract> = yield call(getContract, {
       address: contractAddress
@@ -79,7 +78,6 @@ function* handleFetchNFTRequest(action: FetchNFTRequestAction) {
         `Couldn't find a valid vendor for contract ${contract.address}`
       )
     }
-
     const vendor: Vendor<VendorName> = yield call(
       VendorFactory.build,
       contract.vendor
@@ -88,7 +86,8 @@ function* handleFetchNFTRequest(action: FetchNFTRequestAction) {
     const [nft, order]: AwaitFn<typeof vendor.nftService.fetchOne> = yield call(
       [vendor.nftService, 'fetchOne'],
       contractAddress,
-      tokenId
+      tokenId,
+      owner!
     )
 
     yield put(fetchNFTSuccess(nft as NFT, order))

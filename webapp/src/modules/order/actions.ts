@@ -17,7 +17,7 @@ export const createOrderRequest = (
   nft: NFT,
   price: number,
   expiresAt: number,
-  quantity:number
+  quantity:number|null
 ) => action(CREATE_ORDER_REQUEST, { nft, price, expiresAt,quantity })
 export const createOrderSuccess = (
   nft: NFT,
@@ -70,7 +70,8 @@ export const executeOrderSuccess = (order: Order, nft: NFT, txHash: string) =>
       contractAddress: nft.contractAddress,
       network: nft.network,
       name: getAssetName(nft),
-      price: formatMANA(order.price)
+      price: formatMANA(order.price),
+      owner: nft.owner
     })
   })
 export const executeOrderFailure = (
@@ -101,7 +102,8 @@ export const cancelOrderSuccess = (order: Order, nft: NFT, txHash: string) =>
       contractAddress: nft.contractAddress,
       network: nft.network,
       name: getAssetName(nft),
-      price: formatMANA(order.price)
+      price: formatMANA(order.price),
+      owner:nft.owner
     })
   })
 export const cancelOrderFailure = (

@@ -28,7 +28,8 @@ export interface NFTService<V extends VendorName> {
   ) => Promise<number>
   fetchOne: (
     contractAddress: string,
-    tokenId: string
+    tokenId: string,
+    owner?:string
   ) => Promise<readonly [NFT<V>, Order | undefined]>
   transfer: (
     wallet: Wallet | null,
@@ -51,6 +52,7 @@ export interface OrderService<V extends VendorName> {
     wallet: Wallet | null,
     nft: NFT<V>,
     order: Order,
+    quantity:number,
     fingerprint?: string
   ) => Promise<string>
   cancel: (wallet: Wallet | null, order: Order) => Promise<string>

@@ -10,7 +10,8 @@ import {
   getContractAddress as getNFTContractAddress,
   getTokenId as getNFTTokenId,
   getLoading as getNFTLoading,
-  getData as getNFTs
+  getData as getNFTs,
+  getOwner
 } from '../../modules/nft/selectors'
 import {
   getContractAddress as getItemContractAddress,
@@ -34,8 +35,9 @@ import AssetProvider from './AssetProvider'
 const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
   let contractAddress = ownProps.contractAddress
   let tokenId = ownProps.tokenId
+  let owner = ownProps.owner
   const orders = getOrders(state)
-
+  
   let asset: Asset | null = null
   let isLoading = false
   switch (ownProps.type) {
@@ -43,7 +45,8 @@ const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
       const nfts = getNFTs(state)
       contractAddress = contractAddress || getNFTContractAddress(state)
       tokenId = tokenId || getNFTTokenId(state)
-      asset = getNFT(contractAddress, tokenId, nfts)
+      owner = owner || getOwner(state)
+      asset = getNFT(contractAddress, tokenId,nfts,owner)
       isLoading = isLoadingType(getNFTLoading(state), FETCH_NFT_REQUEST)
       break
     }
@@ -63,15 +66,16 @@ const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
   return {
     tokenId,
     contractAddress,
+    owner,
     asset,
     order,
-    isLoading: !asset && isLoading
+    isLoading: !asset && isLoading,
   }
 }
 
 const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({
-  onFetchNFT: (contractAddress: string, tokenId: string) =>
-    dispatch(fetchNFTRequest(contractAddress, tokenId)),
+  onFetchNFT: (contractAddress: string, tokenId: string,owner?: string) =>
+    dispatch(fetchNFTRequest(contractAddress, tokenId,owner)),
   onFetchItem: (contractAddress: string, tokenId: string) =>
     dispatch(fetchItemRequest(contractAddress, tokenId))
 })

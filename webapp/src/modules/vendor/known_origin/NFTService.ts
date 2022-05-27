@@ -37,6 +37,7 @@ export class NFTService
   }
 
   async fetch(params: NFTsFetchParams, filters?: NFTsFetchFilters) {
+
     const fragments = await this.getAPI(filters).fetch(params)
     const [total, oneEthInMANA] = await Promise.all([
       this.count(params, filters),
@@ -89,6 +90,7 @@ export class NFTService
   }
 
   async fetchOne(_contractAddress: string, tokenId: string) {
+  
     const fragment = await this.getAPI().fetchOne(tokenId)
     const oneEthInMANA = await this.getOneEthInMANA()
 
@@ -153,6 +155,7 @@ export class NFTService
       issuedId: null,
       itemId: null,
       createdAt: 0,
+      balance: null,
       updatedAt: 0,
       soldAt: 0
     }
@@ -189,7 +192,8 @@ export class NFTService
       updatedAt: +edition.createdTimestamp,
       expiresAt: Infinity,
       network: Network.ETHEREUM,
-      chainId: Number(process.env.REACT_APP_CHAIN_ID)
+      chainId: Number(process.env.REACT_APP_CHAIN_ID),
+      quantity:0
     }
   }
 

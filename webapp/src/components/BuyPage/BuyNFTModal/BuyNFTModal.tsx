@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react'
-import { Header, Button,Field} from '@yanrongxing/ui'
+import { Header, Button} from '@yanrongxing/ui'
 import { Link } from 'react-router-dom'
 import { T, t } from '@yanrongxing/dapps/dist/modules/translation/utils'
 import {
@@ -20,6 +20,8 @@ import { AuthorizationModal } from '../../AuthorizationModal'
 import { Name } from '../Name'
 import { Price } from '../Price'
 import { Props } from './BuyNFTModal.types'
+import { fromWei } from 'web3x/utils'
+import { ManaField } from '../../ManaField'
 
 const BuyNFTModal = (props: Props) => {
   const {
@@ -40,8 +42,8 @@ const BuyNFTModal = (props: Props) => {
   )
   const handleExecuteOrder = useCallback(() => {
     onExecuteOrder(order!, nft, quantity,fingerprint)
-  }, [order, nft, fingerprint, onExecuteOrder])
-
+  }, [order, nft, quantity,fingerprint, onExecuteOrder])
+  let hasMANA = hasInsufficientMANA;
   const authorization: Authorization = useMemo(() => {
     const contractNames = getContractNames()
 
@@ -82,14 +84,16 @@ const BuyNFTModal = (props: Props) => {
     setShowAuthorizationModal
   ])
 
-  const isDisabled =
-    !order ||
-    isOwner ||
-    hasInsufficientMANA ||
-    (!fingerprint && nft.category === NFTCategory.ESTATE)
+
 
   const name = <Name asset={nft} />
-
+  hasMANA = (Number(fromWei(order!.price, 'ether'))*quantity) > wallet.networks[nft.network].mana;
+  let isDisabled =
+  !order ||
+  isOwner ||
+  hasMANA ||
+  (quantity <= 0 && nft.category === NFTCategory.PROPS) ||
+  (!fingerprint && nft.category === NFTCategory.ESTATE)
   let subtitle = null
   if (!order) {
     subtitle = <T id={'buy_page.not_for_sale'} values={{ name }} />
@@ -101,7 +105,7 @@ const BuyNFTModal = (props: Props) => {
     subtitle = <T id={'buy_page.no_fingerprint'} />
   } else if (isOwner) {
     subtitle = <T id={'buy_page.is_owner'} values={{ name }} />
-  } else if (hasInsufficientMANA) {
+  } else if (hasMANA) {
     subtitle = (
       <T
         id={'buy_page.not_enough_mana'}
@@ -122,7 +126,7 @@ const BuyNFTModal = (props: Props) => {
       />
     )
   }
-  const isInvalidQuantity = quantity > 0
+  const isInvalidQuantity = quantity! <= 0
   return (
     <AssetAction asset={nft}>
       <Header size="large">
@@ -130,12 +134,16 @@ const BuyNFTModal = (props: Props) => {
       </Header>
       <div className={isDisabled ? 'error' : ''}>{subtitle}</div>
       <div className="form-fields">
-          <Field
+          <ManaField
             label={t('sell_page.quantity')}
             type="text"
             value={quantity}
-            onChange={(_event, props) =>
-              setQuantity(Number(props.value))
+            network={nft.network}
+            onChange={(_event, props) =>{
+              if(parseFloat(props.value).toString() !== "NaN"){
+                setQuantity(Number(props.value))
+              }
+            }
             }
             error={isInvalidQuantity}
             message={isInvalidQuantity ? t('sell_page.invalid_quantity') : undefined}

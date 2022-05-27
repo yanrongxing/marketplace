@@ -207,9 +207,9 @@ export function* fetchAssetsFromRoute(options: BrowseOptions) {
   if (isMap) {
     yield put(setView(view))
   }
-
+  console.log('------------section------------',section)
   const category = getCategoryFromSection(section)
-
+  console.log('------------category------------',category)
   switch (section) {
     case Section.BIDS:
     case Section.STORE_SETTINGS:

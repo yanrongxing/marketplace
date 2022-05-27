@@ -11,7 +11,6 @@ import GenderBadge from '../../GenderBadge'
 import SmartBadge from '../SmartBadge'
 import CategoryBadge from '../CategoryBadge'
 import { Owner } from '../Owner'
-import Collection from '../Collection'
 import Price from '../Price'
 import Expiration from '../Expiration'
 import { Actions } from '../Actions'
@@ -37,7 +36,7 @@ const WearableDetail = ({ nft }: Props) => {
             assetType={AssetType.NFT}
             category={NFTCategory.WEARABLE}
           />
-          <CategoryBadge wearable={wearable} assetType={AssetType.NFT} />
+          <CategoryBadge wearable={wearable} props={undefined} assetType={AssetType.NFT} />
           <GenderBadge
             bodyShapes={wearable.bodyShapes}
             assetType={AssetType.NFT}
@@ -51,7 +50,6 @@ const WearableDetail = ({ nft }: Props) => {
           <Description text={wearable.description} />
           <div className="BaseDetail row">
             <Owner asset={nft} />
-            <Collection asset={nft} />
           </div>
         </>
       }

@@ -26,7 +26,7 @@ const BrowsePage = (props: Props) => {
         isFullscreen={Boolean(isFullscreen)}
         view={View.MARKET}
         section={section}
-        sections={[Section.WEARABLES, Section.EMOTES, Section.ENS]}
+        sections={[Section.WEARABLES,Section.PROPS,  Section.EMOTES, Section.ENS]}
       />
       <Footer isFullscreen={isFullscreen} />
     </>

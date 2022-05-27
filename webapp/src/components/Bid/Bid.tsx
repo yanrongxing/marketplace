@@ -57,7 +57,7 @@ const Bid = (props: Props) => {
                     {!nft && isLoading ? <Loader active /> : null}
                     {nft ? (
                       <Link
-                        to={locations.nft(bid.contractAddress, bid.tokenId)}
+                        to={locations.nft(bid.contractAddress, bid.tokenId,bid.bidder)}
                       >
                         <AssetImage asset={nft} />{' '}
                       </Link>

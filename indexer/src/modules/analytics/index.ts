@@ -12,6 +12,7 @@ export function trackSale(
   seller: Address,
   nftId: string,
   price: BigInt,
+  quantity:BigInt,
   timestamp: BigInt,
   txHash: Bytes
 ): void {
@@ -34,6 +35,7 @@ export function trackSale(
   sale.buyer = buyer
   sale.seller = seller
   sale.price = price
+  sale.quantity = quantity
   sale.nft = nftId
   sale.timestamp = timestamp
   sale.txHash = txHash

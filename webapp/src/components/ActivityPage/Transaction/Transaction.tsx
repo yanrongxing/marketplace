@@ -79,12 +79,13 @@ const Transaction = (props: Props) => {
       )
     }
     case CREATE_ORDER_SUCCESS: {
-      const { tokenId, contractAddress, network, name, price } = tx.payload
+      const { tokenId, contractAddress, network, name, price,owner } = tx.payload
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -94,7 +95,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.create_order"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {name}
                       </Link>
                     ),
@@ -113,12 +114,14 @@ const Transaction = (props: Props) => {
       )
     }
     case CANCEL_ORDER_SUCCESS: {
-      const { tokenId, contractAddress, network, name, price } = tx.payload
+      const { tokenId, contractAddress, network, name, price,owner } = tx.payload
+
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -128,7 +131,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.cancel_order"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {name}
                       </Link>
                     ),
@@ -154,7 +157,8 @@ const Transaction = (props: Props) => {
         contractAddress,
         network,
         name,
-        price
+        price,
+        owner
       } = tx.payload
 
       let assetTokenId: string
@@ -167,7 +171,7 @@ const Transaction = (props: Props) => {
       } else {
         type = AssetType.NFT
         assetTokenId = tokenId
-        url = locations.nft(contractAddress, assetTokenId)
+        url = locations.nft(contractAddress, assetTokenId,owner)
       }
 
       return (
@@ -175,6 +179,7 @@ const Transaction = (props: Props) => {
           type={type}
           contractAddress={contractAddress}
           tokenId={assetTokenId}
+          owner={owner}
         >
           {asset => (
             <TransactionDetail
@@ -199,12 +204,13 @@ const Transaction = (props: Props) => {
       )
     }
     case TRANSFER_NFT_SUCCESS: {
-      const { tokenId, contractAddress, name, address } = tx.payload
+      const { tokenId, contractAddress, name, address,owner } = tx.payload
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -214,7 +220,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.transfer"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {name}
                       </Link>
                     ),
@@ -233,13 +239,14 @@ const Transaction = (props: Props) => {
       )
     }
     case PLACE_BID_SUCCESS: {
-      const { tokenId, contractAddress, price } = tx.payload
+      const { tokenId, contractAddress, price,owner } = tx.payload
 
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -249,7 +256,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.place_bid"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {nft ? getAssetName(nft) : ''}
                       </Link>
                     ),
@@ -268,12 +275,13 @@ const Transaction = (props: Props) => {
       )
     }
     case ACCEPT_BID_SUCCESS: {
-      const { tokenId, contractAddress, price } = tx.payload
+      const { tokenId, contractAddress, price,owner } = tx.payload
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -283,7 +291,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.accept_bid"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {nft ? getAssetName(nft) : ''}
                       </Link>
                     ),
@@ -302,12 +310,13 @@ const Transaction = (props: Props) => {
       )
     }
     case CANCEL_BID_SUCCESS: {
-      const { tokenId, contractAddress, price } = tx.payload
+      const { tokenId, contractAddress, price,owner } = tx.payload
       return (
         <AssetProvider
           type={AssetType.NFT}
           contractAddress={contractAddress}
           tokenId={tokenId}
+          owner={owner}
         >
           {nft => (
             <TransactionDetail
@@ -317,7 +326,7 @@ const Transaction = (props: Props) => {
                   id="transaction.detail.cancel_bid"
                   values={{
                     name: (
-                      <Link to={locations.nft(contractAddress, tokenId)}>
+                      <Link to={locations.nft(contractAddress, tokenId,nft?.owner)}>
                         {nft ? getAssetName(nft) : ''}
                       </Link>
                     ),

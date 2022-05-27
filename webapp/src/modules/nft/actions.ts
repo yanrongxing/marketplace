@@ -60,8 +60,8 @@ export const FETCH_NFT_REQUEST = '[Request] Fetch NFT'
 export const FETCH_NFT_SUCCESS = '[Success] Fetch NFT'
 export const FETCH_NFT_FAILURE = '[Failure] Fetch NFT'
 
-export const fetchNFTRequest = (contractAddress: string, tokenId: string) =>
-  action(FETCH_NFT_REQUEST, { contractAddress, tokenId })
+export const fetchNFTRequest = (contractAddress: string, tokenId: string, owner?: string) =>
+  action(FETCH_NFT_REQUEST, { contractAddress, tokenId,owner })
 export const fetchNFTSuccess = (nft: NFT, order?: Order) =>
   action(FETCH_NFT_SUCCESS, { nft, order })
 export const fetchNFTFailure = (
@@ -81,7 +81,7 @@ export const TRANSFER_NFT_SUCCESS = '[Success] Transfer NFT'
 export const TRANSFER_NFT_FAILURE = '[Failure] Transfer NFT'
 
 export const transferNFTRequest = (nft: NFT, address: string) =>
-  action(TRANSFER_NFT_REQUEST, { nft, address })
+  action(TRANSFER_NFT_REQUEST, { nft, address})
 export const transferNFTSuccess = (nft: NFT, address: string, txHash: string) =>
   action(TRANSFER_NFT_SUCCESS, {
     nft,

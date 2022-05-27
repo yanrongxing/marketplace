@@ -4,17 +4,31 @@ import { Mana, Stats } from '@yanrongxing/ui'
 import { formatMANA } from '../../../lib/mana'
 import { Props } from './Price.types'
 
-const Price = ({ asset, price }: Props) => {
-  if (!price) {
-    return null
-  }
+const Price = ({ asset, price,quantity }: Props) => {
+  
 
   return (
-    <Stats title={t('asset_page.price')}>
-      <Mana network={asset.network} withTooltip>
-        {formatMANA(price)}
-      </Mana>
-    </Stats>
+    <>
+    {
+      price && 
+      <Stats title={t('asset_page.price')}>
+        <Mana network={asset.network} withTooltip>
+          {formatMANA(price)}
+        </Mana>
+      </Stats>
+    }
+    {
+      quantity!>0 && 
+      <Stats title={t('asset_page.quantity')}>
+        <Mana network={asset.network} withTooltip>
+          {quantity}
+        </Mana>
+      </Stats>
+    }
+    
+    </>
+    
+    
   )
 }
 

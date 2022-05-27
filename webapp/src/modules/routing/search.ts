@@ -3,7 +3,8 @@ import {
   ItemSortBy,
   Network,
   NFTCategory,
-  WearableCategory
+  WearableCategory,
+  PropsCategory
 } from '@yanrongxing/schemas'
 import { View } from '../ui/types'
 import { BrowseOptions, SortBy, SortDirection } from './types'
@@ -92,16 +93,28 @@ export function getSearchParams(options?: BrowseOptions) {
   return params
 }
 
-export function getCategoryFromSection(section: string) {
+export function getCategoryFromSection(section: string) :NFTCategory {
+  let result = "" as NFTCategory;
   switch (section) {
     case Section.PARCELS:
-      return NFTCategory.PARCEL
+      result =  NFTCategory.PARCEL
+      break;
     case Section.ESTATES:
-      return NFTCategory.ESTATE
+      result =  NFTCategory.ESTATE
+      break;
     case Section.ENS:
-      return NFTCategory.ENS
+      result =  NFTCategory.ENS
+      break;
     case Section.EMOTES:
-      return NFTCategory.EMOTE
+      result =  NFTCategory.EMOTE
+      break;
+    case Section.PROPS:
+    case Section.PROPS_BOX:
+    case Section.PROPS_DIAMOND:
+    case Section.PROPS_VIBRANIUM:
+    case Section.PROPS_FRAGMENTS:
+      result =  NFTCategory.PROPS
+      break;
     case Section.WEARABLES:
     case Section.WEARABLES_HEAD:
     case Section.WEARABLES_EYEBROWS:
@@ -121,8 +134,10 @@ export function getCategoryFromSection(section: string) {
     case Section.WEARABLES_TIARA:
     case Section.WEARABLES_TOP_HEAD:
     case Section.WEARABLES_SKIN:
-      return NFTCategory.WEARABLE
+      result =  NFTCategory.WEARABLE
+      break;
   }
+  return result;
 }
 
 export function getSectionFromCategory(category: NFTCategory) {
@@ -137,6 +152,30 @@ export function getSectionFromCategory(category: NFTCategory) {
       return Section.EMOTES
     case NFTCategory.WEARABLE:
       return Section.WEARABLES
+    case NFTCategory.PROPS:
+      return Section.PROPS
+  }
+}
+
+export function getSearchPropsSection(category: PropsCategory) {
+  for (const section of Object.values(Section)) {
+    const sectionCategory = getSearchPropsCategory(section)
+    if (category === sectionCategory) {
+      return section
+    }
+  }
+}
+
+export function getSearchPropsCategory(section: string) {
+  switch (section) {
+    case Section.PROPS_BOX:
+      return PropsCategory.BOX
+    case Section.PROPS_DIAMOND:
+      return PropsCategory.DIAMOND
+    case Section.PROPS_FRAGMENTS:
+      return PropsCategory.FRAGMENTS
+    case Section.PROPS_VIBRANIUM:
+      return PropsCategory.VIBRANIUM
   }
 }
 

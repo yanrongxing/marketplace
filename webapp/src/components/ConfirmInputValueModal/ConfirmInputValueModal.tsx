@@ -10,6 +10,7 @@ const ConfirmInputValueModal = ({
   open,
   content,
   headerTitle,
+  quantityToConfirm,
   valueToConfirm,
   onCancel,
   onConfirm,
@@ -18,13 +19,26 @@ const ConfirmInputValueModal = ({
   network
 }: Props) => {
   const [confirmedInput, setConfirmedInput] = useState<string>('')
-
+  const [confirmedInputQuantity, setConfirmedInputQuantity] = useState<number>()
   return (
     <Modal size="small" open={open} className="ConfirmInputValueModal">
       <Modal.Header>{headerTitle}</Modal.Header>
       <Form onSubmit={onConfirm}>
         <Modal.Content>
           {content}
+          {
+          quantityToConfirm!>0 &&
+          <ManaField
+            label={t('sell_page.quantity')}
+            network={network}
+            placeholder={quantityToConfirm}
+            value={confirmedInputQuantity}
+            onChange={(_event, props) => {
+              setConfirmedInputQuantity(Number(props.value))
+            }}
+          />
+          }
+          
           <ManaField
             label={t('global.price')}
             network={network}
@@ -41,6 +55,7 @@ const ConfirmInputValueModal = ({
             type="button"
             onClick={() => {
               setConfirmedInput('')
+              setConfirmedInputQuantity(0);
               onCancel()
             }}
           >
@@ -50,7 +65,7 @@ const ConfirmInputValueModal = ({
             type="submit"
             primary
             disabled={
-              disabled || fromMANA(valueToConfirm) !== fromMANA(confirmedInput)
+              disabled || fromMANA(valueToConfirm) !== fromMANA(confirmedInput) || ( quantityToConfirm! > 0 && quantityToConfirm !== confirmedInputQuantity)
             }
             loading={loading}
           >

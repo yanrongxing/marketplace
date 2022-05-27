@@ -39,7 +39,8 @@ export function handleTransfer(event: Transfer): void {
   let id = getNFTId(
     category,
     event.address.toHexString(),
-    event.params.tokenId.toString()
+    event.params.tokenId.toString(),
+    ''
   )
 
   let nft = new NFT(id)

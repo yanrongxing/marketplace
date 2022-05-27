@@ -5,6 +5,13 @@ export enum Section {
   PARCELS = 'parcels',
   ESTATES = 'estates',
   WEARABLES = 'wearables',
+  PROPS = 'props',
+  PROPS_DIAMOND = 'props_diamond',
+  PROPS_BOX = 'props_box',
+  PROPS_FRAGMENTS = 'props_fragments',
+  PROPS_VIBRANIUM = 'props_vibranium',
+  
+  
 
   WEARABLES_HEAD = 'wearables_head',
   WEARABLES_EYEBROWS = 'wearables_eyebrows',

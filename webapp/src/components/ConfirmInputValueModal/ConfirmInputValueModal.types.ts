@@ -9,6 +9,7 @@ export type Props = {
   network: Network
   disabled?: boolean
   valueToConfirm: string
+  quantityToConfirm?:number
   onCancel: () => void
   onConfirm: () => void
 }

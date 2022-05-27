@@ -10,6 +10,7 @@
     "parcel_with_coords": "Parcel {x},{y}",
     "estate": "Estate",
     "wearable": "Wearable",
+    "props":"Props",
     "ens": "Name",
     "art": "Art",
     "cancel": "Cancel",
@@ -72,6 +73,11 @@
     "land": "Land",
     "parcels": "Parcels",
     "estates": "Estates",
+    "props": "Props",
+    "props_diamond":"Diamond",
+    "props_box":"Box",
+    "props_fragments":"Fragments",
+    "props_vibranium":"Vibranium",
     "wearables": "Wearables",
     "wearables_head": "Head",
     "wearables_eyebrows": "Eyebrows",
@@ -240,9 +246,11 @@
       "mint_item": "Mint item"
     },
     "description": "Description",
+    "balance": "Balance",
     "owner": "Owner",
     "creator": "Creator",
     "price": "Price",
+    "quantity":"Quantity",
     "available": "Available",
     "stock": "Stock",
     "collection": "Collection",
@@ -274,7 +282,8 @@
     "to": "To",
     "type": "Type",
     "when": "When",
-    "price": "Price"
+    "price": "Price",
+    "quantity":"Quantity"
   },
   "body_shape": {
     "male": "Male",
@@ -298,6 +307,14 @@
     "rare": "Max supply: 5000",
     "uncommon": "Max supply: 10,000",
     "common": "Max supply: 100,000"
+  },
+  "props": {
+    "category": {
+      "diamond": "Diamond",
+      "box": "Box",
+      "fragments": "Fragments",
+      "vibranium": "Vibranium"
+    }
   },
   "wearable": {
     "category": {
@@ -337,7 +354,7 @@
     "subtitle": "Set a price and expiration date for {name}.",
     "update_subtitle": "Set a new price and expiration date for {name}.",
     "price": "Price",
-    "quantity": "quantity",
+    "quantity": "Quantity",
     "expiration_date": "Expiration date",
     "invalid_date": "This date has already passed",
     "invalid_quantity": "This amount is incorrect",
@@ -352,7 +369,7 @@
   },
   "buy_page": {
     "title": "Buy {category}",
-    "subtitle": "You are about to buy {name} for {amount}.",
+    "subtitle": "You are about to buy {name} for {amount}  per unit.",
     "not_for_sale": "{name} is not for sale.",
     "buy": "Buy",
     "no_fingerprint": "Could not load fingerprint.",

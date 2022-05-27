@@ -10,7 +10,7 @@ import * as addresses from '../data/addresses'
 export function handleNameRegistered(event: NameRegistered): void {
   let tokenId = getTokenIdFromLabelHash(event.params._labelHash)
 
-  let id = getNFTId(categories.ENS, addresses.DCLRegistrar, tokenId.toString())
+  let id = getNFTId(categories.ENS, addresses.DCLRegistrar, tokenId.toString(),'')
 
   let ens = new ENS(id)
   ens.tokenId = tokenId

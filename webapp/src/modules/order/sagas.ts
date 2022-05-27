@@ -24,12 +24,14 @@ export function* orderSaga() {
 
 function* handleCreateOrderRequest(action: CreateOrderRequestAction) {
   const { nft, price, expiresAt,quantity } = action.payload
+
   try {
+    
     const { orderService } = VendorFactory.build(nft.vendor)
 
     const wallet: ReturnType<typeof getWallet> = yield select(getWallet)
     const txHash: string = yield call(() =>
-      orderService.create(wallet, nft, price, expiresAt,quantity)
+      orderService.create(wallet, nft, price, expiresAt,quantity!)
     )
     yield put(createOrderSuccess(nft, price, expiresAt, txHash))
   } catch (error) {
@@ -40,7 +42,7 @@ function* handleCreateOrderRequest(action: CreateOrderRequestAction) {
 }
 
 function* handleExecuteOrderRequest(action: ExecuteOrderRequestAction) {
-  const { order, nft, fingerprint } = action.payload
+  const { order, nft,quantity,fingerprint } = action.payload
   try {
     if (
       nft.contractAddress !== order.contractAddress &&
@@ -52,7 +54,7 @@ function* handleExecuteOrderRequest(action: ExecuteOrderRequestAction) {
 
     const wallet: ReturnType<typeof getWallet> = yield select(getWallet)
     const txHash: string = yield call(() =>
-      orderService.execute(wallet, nft, order, fingerprint)
+      orderService.execute(wallet,nft, order,Number(quantity), fingerprint)
     )
 
     yield put(executeOrderSuccess(order, nft, txHash))

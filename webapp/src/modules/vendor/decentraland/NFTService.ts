@@ -45,8 +45,8 @@ export class NFTService
     return result.total
   }
 
-  async fetchOne(contractAddress: string, tokenId: string) {
-    const response = await nftAPI.fetchOne(contractAddress, tokenId)
+  async fetchOne(contractAddress: string, tokenId: string,owner?:string) {
+    const response = await nftAPI.fetchOne(contractAddress, tokenId,owner!)
     const nft: NFT = { ...response.nft, vendor: VendorName.DECENTRALAND }
     return [nft, response.order || undefined] as const
   }

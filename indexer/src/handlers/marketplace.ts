@@ -1,4 +1,4 @@
-import { log } from '@graphprotocol/graph-ts'
+import { BigInt, log } from '@graphprotocol/graph-ts'
 import {
   OrderCreated,
   OrderSuccessful,
@@ -14,13 +14,15 @@ import { getCategory } from '../modules/category'
 import { buildCountFromOrder } from '../modules/count'
 import * as status from '../modules/order/status'
 import { ORDER_SALE_TYPE, trackSale } from '../modules/analytics'
+import * as categories from '../modules/category/categories'
 
 export function handleOrderCreated(event: OrderCreated): void {
-  let category = getCategory(event.params.nftAddress.toHexString())
+  let category = getCategory(event.params.tokenAddress.toHexString())
   let nftId = getNFTId(
     category,
-    event.params.nftAddress.toHexString(),
-    event.params.assetId.toString()
+    event.params.tokenAddress.toHexString(),
+    event.params.tokenId.toString(),
+    event.params.seller.toHexString()
   )
 
   let nft = NFT.load(nftId)
@@ -32,8 +34,8 @@ export function handleOrderCreated(event: OrderCreated): void {
     order.status = status.OPEN
     order.category = category
     order.nft = nftId
-    order.nftAddress = event.params.nftAddress
-    order.tokenId = event.params.assetId
+    order.nftAddress = event.params.tokenAddress
+    order.tokenId = event.params.tokenId
     order.txHash = event.transaction.hash
     order.owner = event.params.seller
     order.price = event.params.priceInWei
@@ -41,7 +43,7 @@ export function handleOrderCreated(event: OrderCreated): void {
     order.blockNumber = event.block.number
     order.createdAt = event.block.timestamp
     order.updatedAt = event.block.timestamp
-
+    order.quantity = event.params.quantity
     order.save()
 
     cancelActiveOrder(nft!, event.block.timestamp)
@@ -56,11 +58,12 @@ export function handleOrderCreated(event: OrderCreated): void {
 }
 
 export function handleOrderSuccessful(event: OrderSuccessful): void {
-  let category = getCategory(event.params.nftAddress.toHexString())
+  let category = getCategory(event.params.tokenAddress.toHexString())
   let nftId = getNFTId(
     category,
-    event.params.nftAddress.toHexString(),
-    event.params.assetId.toString()
+    event.params.tokenAddress.toHexString(),
+    event.params.tokenId.toString(),
+    event.params.seller.toHexString()
   )
   let orderId = event.params.id.toHex()
 
@@ -68,21 +71,23 @@ export function handleOrderSuccessful(event: OrderSuccessful): void {
   if (order == null) {
     return
   }
-
+  order.quantity = order.quantity.minus(event.params.quantity);
   order.category = category
-  order.status = status.SOLD
+  if(order.quantity.toI32() <= 0){
+    order.status = status.SOLD
+  }
+  
   order.buyer = event.params.buyer
-  order.price = event.params.totalPrice
   order.blockNumber = event.block.number
   order.updatedAt = event.block.timestamp
   order.save()
-
   let nft = NFT.load(nftId)
-  if (nft == null) {
+  if (!nft) {
     return
   }
-
-  nft.owner = event.params.buyer.toHex()
+  if(category !== categories.PROPS){
+    nft.owner = event.params.buyer.toHex()
+  }
   nft.updatedAt = event.block.timestamp
   nft = updateNFTOrderProperties(nft!, order!)
   nft.save()
@@ -94,17 +99,19 @@ export function handleOrderSuccessful(event: OrderSuccessful): void {
     event.params.seller,
     nft.id,
     order.price,
+    event.params.quantity,
     event.block.timestamp,
     event.transaction.hash
   )
 }
 
 export function handleOrderCancelled(event: OrderCancelled): void {
-  let category = getCategory(event.params.nftAddress.toHexString())
+  let category = getCategory(event.params.tokenAddress.toHexString())
   let nftId = getNFTId(
     category,
-    event.params.nftAddress.toHexString(),
-    event.params.assetId.toString()
+    event.params.tokenAddress.toHexString(),
+    event.params.tokenId.toString(),
+    event.params.seller.toHexString()
   )
   let orderId = event.params.id.toHex()
 

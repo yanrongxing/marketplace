@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import { ListingStatus, Network, Order } from '@yanrongxing/schemas'
+import { ListingStatus, Order } from '@yanrongxing/schemas'
 import {
   ContractName,
   getContract,
@@ -26,10 +26,7 @@ export class OrderService
     expiresAt: number,
     quantity:number | 0
   ) {
-    const contract = getContract(
-      nft.network === Network.ETHEREUM
-        ? ContractName.Marketplace
-        : ContractName.MarketplaceV2,
+    const contract = getContract(ContractName.MarketplaceV3,
       nft.chainId
     )
     return sendTransaction(contract, marketplace =>
@@ -47,22 +44,23 @@ export class OrderService
     _wallet: Wallet | null,
     nft: NFT,
     order: Order,
+    quantity:number | 0,
     fingerprint?: string
   ) {
     const contractName = getContractName(order.marketplaceAddress)
     const contract = getContract(contractName, order.chainId)
+    console.log(nft.contractAddress)
     if (fingerprint) {
       return sendTransaction(contract, marketplace =>
         marketplace.safeExecuteOrder(
-          nft.contractAddress,
-          nft.tokenId,
-          order.price,
+          order.id,
+          quantity,
           fingerprint
         )
       )
     } else {
       return sendTransaction(contract, marketplace =>
-        marketplace.executeOrder(nft.contractAddress, nft.tokenId, order.price)
+        marketplace.executeOrder(order.id,quantity)
       )
     }
   }

@@ -11,7 +11,9 @@ export function getCategory(contractAddress: string): string {
     category = categories.ESTATE
   } else if (contractAddress == addresses.DCLRegistrar) {
     category = categories.ENS
-  } else  {
+  } else if (contractAddress == addresses.ERC1155) {
+    category = categories.PROPS
+  }  else  {
     category = categories.WEARABLE
   }
 

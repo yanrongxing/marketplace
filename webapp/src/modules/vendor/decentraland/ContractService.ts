@@ -16,7 +16,8 @@ export enum ContractName {
   LEGACY_MARKETPLACE = 'LegacyMarketplace',
   BIDS = 'Bids',
   COLLECTION_STORE = 'CollectionStore',
-  TEST = 'TEST',
+  ERC721 = 'ERC721',
+  ERC1155 = 'ERC1155',
 
 }
 
@@ -230,19 +231,19 @@ const contracts = ({
       category: null,
       network: Network.TEST,
       chainId: ChainId.TEST
-    },    {
-      name: ContractName.TEST,
-      address: '0xe95fbea0ba0c541cd36b5b30cbe1d1ac9b938817',
+    },{
+      name: ContractName.ERC721,
+      address: '0x470e6eab50c268dd5b3d91ff5498284c1f04758d',
       vendor: 'decentraland',
       category: 'wearable',
       network: Network.TEST,
       chainId: ChainId.TEST
     },
     {
-      name: ContractName.TEST,
-      address: '0x0476a7bd9f13f222b4c6c6fe60d3ba996c3e0c5f',
+      name: ContractName.ERC1155,
+      address: '0x68b1d87f95878fe05b998f19b66f4baba5de1aed',
       vendor: 'decentraland',
-      category: 'wearable',
+      category: 'props',
       network: Network.TEST,
       chainId: ChainId.TEST
     }

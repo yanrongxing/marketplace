@@ -22,7 +22,9 @@ export function getAssetName(asset: Asset) {
 
     case NFTCategory.ENS:
       return t('global.ens')
-
+    case NFTCategory.PROPS:
+      return t('global.props')
+  
     case 'art':
       return t('global.art')
 
@@ -43,7 +45,7 @@ export function getAssetImage(asset: Asset) {
 
 export function getAssetUrl(asset: Asset) {
   if ('tokenId' in asset) {
-    return locations.nft(asset.contractAddress, asset.tokenId)
+    return locations.nft(asset.contractAddress, asset.tokenId,asset.owner)
   }
   if ('itemId' in asset) {
     return locations.item(asset.contractAddress, asset.itemId)
@@ -59,6 +61,10 @@ export function getAssetPrice(asset: Asset, order?: Order) {
     : order
     ? order.price
     : null
+}
+
+export function getAssetQuantity( order?: Order) {
+  return order ? order!.quantity : 0
 }
 
 export function isOwnedBy(asset: Asset, wallet: Wallet | null) {

@@ -20,11 +20,12 @@ export const NotFound = () => (
 
 const AssetProviderPage = (props: Props) => {
   const { type, isConnecting, children } = props
+  
   return (
     <AssetProvider type={type}>
       {(asset, order, isAssetLoading) => {
         const isLoading = isConnecting || isAssetLoading
-
+        
         return (
           <>
             {isLoading ? <Loading /> : null}
