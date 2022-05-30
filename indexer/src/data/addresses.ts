@@ -54,6 +54,6 @@ export const WZWonderbot = '{{address:WZWonderbot}}'
 export const Xmas2019Collection = '{{address:Xmas2019Collection}}'
 export const Xmas2020Collection = '{{address:Xmas2020Collection}}'
 export const XmashUp2020 = '{{address:XmashUp2020}}'
-export const ERC1155 = '0x68b1d87f95878fe05b998f19b66f4baba5de1aed'
+export const ERC1155 = '0x610178da211fef7d417bc0e6fed39f05609ad788'
 
 

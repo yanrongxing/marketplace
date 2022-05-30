@@ -2,7 +2,7 @@ import { log, BigInt,Address } from '@graphprotocol/graph-ts'
 
 import { NFT, Order, Bid } from '../../entities/schema'
 import { ERC1155 } from '../../entities/ERC1155/ERC1155'
-import { ERC721, Transfer } from '../../entities/templates/ERC721/ERC721'
+import { ERC721, Transfer } from '../../entities/ERC721/ERC721'
 import * as status from '../order/status'
 import * as addresses from '../../data/addresses'
 import * as categories from '../category/categories'

@@ -1,5 +1,5 @@
 import { BigInt } from '@graphprotocol/graph-ts'
-import { Transfer } from '../entities/templates/ERC721/ERC721'
+import { Transfer } from '../entities/ERC721/ERC721'
 import { NFT, Parcel, Estate, Order, ENS, Wearable } from '../entities/schema'
 import {
   isMint,

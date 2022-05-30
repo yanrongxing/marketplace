@@ -4,119 +4,14 @@ repository: https://github.com/decentraland/decentraland
 schema:
   file: ./schema.graphql
 dataSources:
-  # ---------------------------------------------------------
-  # PARCELS -------------------------------------------------
-  # ---------------------------------------------------------
-  # - kind: ethereum/contract
-  #   name: LANDRegistry
-  #   network: tixon
-  #   source:
-  #     address: '{{address:LANDRegistry}}'
-  #     abi: LANDRegistry
-  #     startBlock: {{startBlock:LANDRegistry}}
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     file: ./src/handlers/parcel.ts
-  #     entities:
-  #       - ERC721
-  #       - Parcel
-  #       - Data
-  #     abis:
-  #       - name: LANDRegistry
-  #         file: ./abis/LANDRegistry.json
-  #     callHandlers:
-  #       - function: initialize(bytes)
-  #         handler: handleInitialize
-  #     eventHandlers:
-  #       - event: Update(indexed uint256,indexed address,indexed address,string)
-  #         handler: handleUpdate
-
-
-  - kind: ethereum/contract
-    name: ERC721CollectionFactoryV2
-    network: mainnet
-    source:
-      address: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
-      abi: ERC721CollectionFactoryV2
-      startBlock: 0
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      file: ./src/handlers/nftinit.ts
-      entities:
-        - ERC721
-      abis:
-        - name: ERC721CollectionFactoryV2
-          file: ./abis/ERC721CollectionFactoryV2.json
-      eventHandlers:
-        - event: createCollectionEvent(indexed address,indexed bool)
-          handler: handleCreateCollectionEvent
-
-  # ---------------------------------------------------------
-  # ESTATES -------------------------------------------------
-  # ---------------------------------------------------------
-  # - kind: ethereum/contract
-  #   name: EstateRegistry
-  #   network: tixon
-  #   source:
-  #     address: '{{address:EstateRegistry}}'
-  #     abi: EstateRegistry
-  #     startBlock: {{startBlock:EstateRegistry}}
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     file: ./src/handlers/estate.ts
-  #     entities:
-  #       - Estate
-  #       - Parcel
-  #       - Data
-  #     abis:
-  #       - name: EstateRegistry
-  #         file: ./abis/EstateRegistry.json
-  #       - name: LANDRegistry
-  #         file: ./abis/LANDRegistry.json
-  #     eventHandlers:
-  #       - event: CreateEstate(indexed address,indexed uint256,string)
-  #         handler: handleCreateEstate
-  #       - event: AddLand(indexed uint256,indexed uint256)
-  #         handler: handleAddLand
-  #       - event: RemoveLand(indexed uint256,indexed uint256,indexed address)
-  #         handler: handleRemoveLand
-  #       - event: Update(indexed uint256,indexed address,indexed address,string)
-  #         handler: handleUpdate
-
-  # ---------------------------------------------------------
-  # MANA ----------------------------------------------------
-  # ---------------------------------------------------------
-  # - kind: ethereum/contract
-  #   name: MANAToken
-  #   network: tixon
-  #   source:
-  #     address: '{{address:MANAToken}}'
-  #     abi: MANAToken
-  #     startBlock: {{startBlock:MANAToken}}
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     file: ./src/handlers/manaToken.ts
-  #     entities:
-  #       - Wallet
-  #     abis:
-  #       - name: MANAToken
-  #         file: ./abis/MANAToken.json
-  #     eventHandlers:
-  #       - event: Mint(indexed address,uint256)
-  #         handler: handleMint
-  #       - event: Burn(indexed address,uint256)
-  #         handler: handleBurn
-  #       - event: Transfer(indexed address,indexed address,uint256)
-  #         handler: handleTransfer
-
+# Contract deployed by: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+# Mana: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+# Collection imp: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+# Collection Manager : 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+# Forwarder: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+# Collection Factory: 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+# NFT Marketplace: 0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
+# bidContract: 0x0165878A594ca255338adfa4d48449f69242Eb8F
   # ---------------------------------------------------------
   # ORDERS --------------------------------------------------
   # ---------------------------------------------------------
@@ -147,30 +42,6 @@ dataSources:
           handler: handleOrderCancelled
 
   # ---------------------------------------------------------
-  # ENS -------------------------------------------------
-  # ---------------------------------------------------------
-  # - kind: ethereum/contract
-  #   name: DCLRegistrar
-  #   network: tixon
-  #   source:
-  #     address: '{{address:DCLRegistrar}}'
-  #     abi: DCLRegistrar
-  #     startBlock: {{startBlock:DCLRegistrar}}
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.4
-  #     language: wasm/assemblyscript
-  #     file: ./src/handlers/ens.ts
-  #     entities:
-  #       - DCLRegistrar
-  #     abis:
-  #       - name: DCLRegistrar
-  #         file: ./abis/DCLRegistrar.json
-  #     eventHandlers:
-  #       - event: NameRegistered(indexed address,indexed address,indexed bytes32,string,uint256)
-  #         handler: handleNameRegistered
-
-  # ---------------------------------------------------------
   # BIDS ----------------------------------------------------
   # ---------------------------------------------------------
   - kind: ethereum/contract
@@ -199,13 +70,13 @@ dataSources:
           handler: handleBidCancelled
 
   # ---------------------------------------------------------
-  # ERC1155 ----------------------------------------------------
+  # ERC1155 ----------------------------------------------------0x610178dA211FEF7D417bC0e6FeD39F05609AD788
   # ---------------------------------------------------------
   - kind: ethereum/contract
     name: ERC1155
     network: mainnet
     source:
-      address: '0x68B1D87F95878fE05B998F19b66F4baba5De1aed'
+      address: '0x610178dA211FEF7D417bC0e6FeD39F05609AD788'
       abi: ERC1155
       startBlock: 0
     mapping:
@@ -228,18 +99,13 @@ dataSources:
           handler: handleTransfer
         - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
           handler: handleTransfers
-
-
-
-# ---------------------------------------------------------
-# TEMPLATES -----------------------------------------------
-# ---------------------------------------------------------
-templates:
-  - name: ERC721
-    kind: ethereum/contract
+  - kind: ethereum/contract
+    name: ERC721
     network: mainnet
     source:
+      address: '0x669b1Bb3665Abc2D4ce4A5402836A9E571E3C2e7'
       abi: ERC721
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

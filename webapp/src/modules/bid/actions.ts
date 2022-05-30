@@ -33,7 +33,8 @@ export const placeBidSuccess = (
     ...buildTransactionPayload(chainId, txHash, {
       tokenId: nft.tokenId,
       contractAddress: nft.contractAddress,
-      price
+      price,
+      owner:nft.owner
     })
   })
 export const placeBidFailure = (
@@ -78,7 +79,8 @@ export const acceptBidSuccess = (bid: Bid, txHash: string) =>
     ...buildTransactionPayload(bid.chainId, txHash, {
       tokenId: bid.tokenId,
       contractAddress: bid.contractAddress,
-      price: formatMANA(bid.price)
+      price: formatMANA(bid.price),
+      owner:bid.seller
     })
   })
 export const acceptBidFailure = (bid: Bid, error: string) =>
@@ -101,7 +103,8 @@ export const cancelBidSuccess = (bid: Bid, txHash: string) =>
     ...buildTransactionPayload(bid.chainId, txHash, {
       tokenId: bid.tokenId,
       contractAddress: bid.contractAddress,
-      price: formatMANA(bid.price)
+      price: formatMANA(bid.price),
+      owner:bid.seller
     })
   })
 export const cancelBidFailure = (bid: Bid, error: string) =>

@@ -233,7 +233,7 @@ const contracts = ({
       chainId: ChainId.TEST
     },{
       name: ContractName.ERC721,
-      address: '0x470e6eab50c268dd5b3d91ff5498284c1f04758d',
+      address: '0x669b1Bb3665Abc2D4ce4A5402836A9E571E3C2e7',
       vendor: 'decentraland',
       category: 'wearable',
       network: Network.TEST,
@@ -241,7 +241,7 @@ const contracts = ({
     },
     {
       name: ContractName.ERC1155,
-      address: '0x68b1d87f95878fe05b998f19b66f4baba5de1aed',
+      address: '0x610178dA211FEF7D417bC0e6FeD39F05609AD788',
       vendor: 'decentraland',
       category: 'props',
       network: Network.TEST,

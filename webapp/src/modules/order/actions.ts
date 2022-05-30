@@ -34,7 +34,8 @@ export const createOrderSuccess = (
       contractAddress: nft.contractAddress,
       network: nft.network,
       name: getAssetName(nft),
-      price
+      price,
+      owner:nft.owner
     })
   })
 export const createOrderFailure = (
@@ -103,7 +104,7 @@ export const cancelOrderSuccess = (order: Order, nft: NFT, txHash: string) =>
       network: nft.network,
       name: getAssetName(nft),
       price: formatMANA(order.price),
-      owner:nft.owner
+      owner: nft.owner
     })
   })
 export const cancelOrderFailure = (

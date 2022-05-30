@@ -18,7 +18,7 @@ const mapState = (state: RootState, ownProps: OwnProps): MapStateProps => {
 
   const view = getView(state)
   const price = getAssetPrice(asset, order)
-  debugger;
+  
   const quantity = getAssetQuantity(order)
 
   return {

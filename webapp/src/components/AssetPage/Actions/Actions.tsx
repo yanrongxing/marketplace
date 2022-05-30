@@ -10,6 +10,7 @@ import { VendorFactory } from '../../../modules/vendor'
 import { Props } from './Actions.types'
 import styles from './Actions.module.css'
 import { builderUrl } from '../../../lib/environment'
+import { NFTCategory } from '@yanrongxing/schemas'
 
 const Actions = (props: Props) => {
   const { wallet, nft, order, bids } = props
@@ -27,7 +28,8 @@ const Actions = (props: Props) => {
   const canBid =
     !isOwner &&
     isBiddable &&
-    (!wallet || !bids.some(bid => bid.bidder === wallet.address))
+    (!wallet || !bids.some(bid => bid.bidder === wallet.address)) &&
+    nft.category !== NFTCategory.PROPS
 
   return (
     <div className={styles.container}>

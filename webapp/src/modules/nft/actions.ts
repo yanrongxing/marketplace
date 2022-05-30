@@ -90,7 +90,8 @@ export const transferNFTSuccess = (nft: NFT, address: string, txHash: string) =>
       tokenId: nft.tokenId,
       contractAddress: nft.contractAddress,
       name: getAssetName(nft),
-      address
+      address,
+      owner:nft.owner
     })
   })
 export const transferNFTFailure = (

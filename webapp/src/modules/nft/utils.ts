@@ -23,7 +23,7 @@ export function getNFT(
   if (!contractAddress || !tokenId) {
     return null
   }
-  debugger;
+  
   const nftId = getNFTId(contractAddress, tokenId,owner!)
   return nftId in nfts ? nfts[nftId] : null
 }

@@ -5,26 +5,6 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: ERC721CollectionFactoryV2
-    network: mainnet
-    source:
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
-      abi: ERC721CollectionFactoryV2
-      startBlock: 0
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      file: ERC721CollectionFactoryV2/ERC721CollectionFactoryV2.wasm
-      entities:
-        - ERC721
-      abis:
-        - name: ERC721CollectionFactoryV2
-          file: ERC721CollectionFactoryV2/abis/ERC721CollectionFactoryV2.json
-      eventHandlers:
-        - event: createCollectionEvent(indexed address,indexed bool)
-          handler: handleCreateCollectionEvent
-  - kind: ethereum/contract
     name: Marketplace
     network: mainnet
     source:
@@ -81,7 +61,7 @@ dataSources:
     name: ERC1155
     network: mainnet
     source:
-      address: "0x68B1D87F95878fE05B998F19b66F4baba5De1aed"
+      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788"
       abi: ERC1155
       startBlock: 0
     mapping:
@@ -104,17 +84,18 @@ dataSources:
           handler: handleTransfer
         - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
           handler: handleTransfers
-templates:
-  - name: ERC721
-    kind: ethereum/contract
+  - kind: ethereum/contract
+    name: ERC721
     network: mainnet
     source:
+      address: "0x669b1Bb3665Abc2D4ce4A5402836A9E571E3C2e7"
       abi: ERC721
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
-      file: templates/ERC721/ERC721.wasm
+      file: ERC721/ERC721.wasm
       entities:
         - NFT
         - Parcel
