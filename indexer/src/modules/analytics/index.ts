@@ -39,8 +39,8 @@ export function trackSale(
   sale.nft = nftId
   sale.timestamp = timestamp
   sale.txHash = txHash
-  sale.searchTokenId = nft.tokenId
-  sale.searchContractAddress = nft.contractAddress
+  sale.searchTokenId = nft!.tokenId
+  sale.searchContractAddress = nft!.contractAddress
   sale.save()
 
   // update buyer account
@@ -56,9 +56,9 @@ export function trackSale(
   sellerAccount.save()
 
   // update nft
-  nft.soldAt = timestamp
-  nft.sales += 1
-  nft.volume = nft.volume.plus(price)
-  nft.updatedAt = timestamp
-  nft.save()
+  nft!.soldAt = timestamp
+  nft!.sales += 1
+  nft!.volume = nft!.volume.plus(price)
+  nft!.updatedAt = timestamp
+  nft!.save()
 }

@@ -66,11 +66,11 @@ export function handleTransferFn(contractAddress: Address,operator: Address,from
 
   
   if(oldFromNFT){
-    oldFromNFT.balance = oldFromNFT.balance.minus(value);
+    oldFromNFT.balance = oldFromNFT.balance!.minus(value);
     
     //删除原账号的订单
-    if (cancelERC1155ActiveOrder(oldFromNFT!, timestamp,value,operator)) {
-      oldFromNFT = clearNFTOrderProperties(oldFromNFT!)
+    if (cancelERC1155ActiveOrder(oldFromNFT, timestamp,value,operator)) {
+      oldFromNFT = clearNFTOrderProperties(oldFromNFT)
     }
     oldFromNFT.save();
   }
@@ -99,7 +99,7 @@ export function handleTransferFn(contractAddress: Address,operator: Address,from
     props.save()
   }else{
     //如果原收款账号存在，增加余额
-    toNft.balance = oldToNFT.balance.plus(value);
+    toNft.balance = oldToNFT.balance!.plus(value);
   }
   
   createOrLoadAccount(to)

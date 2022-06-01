@@ -290,3 +290,21 @@ type Sale @entity {
   searchTokenId: BigInt!
   searchContractAddress: Bytes!
 }
+
+type NFTJSON @entity {
+  id: ID!
+  name: String!
+  image: String!
+  description: String
+  category: WearableCategory
+  rarity: WearableRarity
+  attributes: [NFTAttribute!] @derivedFrom(field: "nftJson")
+}
+
+type NFTAttribute @entity{
+  id: ID!
+  nftJson: NFTJSON
+  trait_type: String
+  value: String
+  display_type: String
+}

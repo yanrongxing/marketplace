@@ -341,6 +341,14 @@ export class LANDRegistry__decodeTokenIdResult {
     map.set("value1", ethereum.Value.fromSignedBigInt(this.value1));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
 }
 
 export class LANDRegistry__landOfResult {
@@ -357,6 +365,14 @@ export class LANDRegistry__landOfResult {
     map.set("value0", ethereum.Value.fromSignedBigIntArray(this.value0));
     map.set("value1", ethereum.Value.fromSignedBigIntArray(this.value1));
     return map;
+  }
+
+  getValue0(): Array<BigInt> {
+    return this.value0;
+  }
+
+  getValue1(): Array<BigInt> {
+    return this.value1;
   }
 }
 

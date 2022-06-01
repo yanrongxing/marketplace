@@ -1,6 +1,6 @@
-import { BigInt } from '@graphprotocol/graph-ts'
+import { BigInt , JSONValue, Value, ipfs,log} from '@graphprotocol/graph-ts'
 import { Transfer } from '../entities/ERC721/ERC721'
-import { NFT, Parcel, Estate, Order, ENS, Wearable } from '../entities/schema'
+import { NFT, Parcel, Estate, Order, ENS, Wearable , NFTJSON, NFTAttribute} from '../entities/schema'
 import {
   isMint,
   getNFTId,
@@ -24,10 +24,10 @@ import {
   isWearableAccessory,
 } from '../modules/wearable'
 import { buildENSFromNFT } from '../modules/ens'
-import { toLowerCase } from '../modules/utils'
 import * as categories from '../modules/category/categories'
 import * as addresses from '../data/addresses'
 import { createOrLoadAccount } from '../modules/account'
+import { toLowerCase } from '../modules/utils'
 
 export function handleTransfer(event: Transfer): void {
   if (event.params.tokenId.toString() == '') {
@@ -78,8 +78,8 @@ export function handleTransfer(event: Transfer): void {
     metric.save()
   } else {
     let oldNFT = NFT.load(id)
-    if (cancelActiveOrder(oldNFT!, event.block.timestamp)) {
-      nft = clearNFTOrderProperties(nft!)
+    if (oldNFT!.activeOrder && cancelActiveOrder(oldNFT!, event.block.timestamp)) {
+      nft = clearNFTOrderProperties(nft)
     }
   }
 
@@ -131,6 +131,25 @@ export function handleTransfer(event: Transfer): void {
       wearable = new Wearable(nft.id)
       wearable.owner = nft.owner
     }
+    let nftJson = getNFTJSON(nft,event);
+
+    if(nftJson){
+      wearable.name = nftJson.name
+
+      if(nftJson.description){
+        wearable.description = nftJson.description!
+      }
+      if(nftJson.category){
+        wearable.category = nftJson.category!
+      }
+      if(nftJson.rarity){
+        wearable.rarity = nftJson.rarity!
+      }
+      if(nftJson.image){
+        nft.image = nftJson.image.replaceAll('ipfs://','https://cloudflare-ipfs.com/ipfs/')
+      }
+      nft.name = nftJson.name
+    }
     wearable.save()
   } else if (category == categories.ENS) {
     let ens: ENS
@@ -147,4 +166,61 @@ export function handleTransfer(event: Transfer): void {
   createOrLoadAccount(event.params.to)
 
   nft.save()
+}
+
+export function getNFTJSON(nft:NFT,event:Transfer):NFTJSON | null{
+  let nftJSON = NFTJSON.load(nft.id)
+  if(!nftJSON){
+    // getTokenURI(event);
+    ipfs.mapJSON('QmZJkd9jGJFx3jvvbNoHn3VPkojzcj9UUMxa2UEVx5DGA7/'+nft.tokenId.toString()+".json", 'processItem',Value.fromString(nft.id))
+    nftJSON  = NFTJSON.load(nft.id)
+  }
+  return nftJSON
+}
+
+
+export function processItem(value: JSONValue, userData: Value): void {
+  let nftJSON = new NFTJSON(userData.toString())
+
+  let obj = value.toObject()
+  nftJSON.name = obj.get("name")!.toString()
+  nftJSON.image = obj.get('image')!.toString()
+  if(obj.get('description')){
+    nftJSON.description = obj.get('description')!.toString()
+  }
+  if(obj.get('category')){
+    nftJSON.category = obj.get('category')!.toString()
+  }
+  if(obj.get('rarity')){
+    nftJSON.rarity = obj.get('rarity')!.toString()
+  }
+  nftJSON.save()
+
+  let attributes = new Array<JSONValue>();
+  if(obj.get('attributes')){
+    attributes = obj.get('attributes')!.toArray()
+  }
+
+  
+  for (let index = 0; index < attributes.length; index++) {
+    const element = attributes[index]
+    let eleObj = element.toObject()
+    let arrId = userData.toString()+'-'+index.toString()
+    let nftAtt = new NFTAttribute(arrId)
+    let trait_type =  eleObj.get('trait_type')
+    if(trait_type){
+      nftAtt.trait_type = trait_type.toString()
+    }
+    let value =  eleObj.get('value')
+    if(value){
+      nftAtt.value = value.toString()
+    }
+    let display_type =  eleObj.get('display_type')
+    if(display_type){
+      nftAtt.display_type = display_type.toString()
+    }
+    nftAtt.nftJson = userData.toString()
+    nftAtt.save()
+  }
+  
 }

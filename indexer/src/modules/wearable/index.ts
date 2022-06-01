@@ -1,6 +1,6 @@
 import { log } from '@graphprotocol/graph-ts'
 
-import { NFT, Wearable as WearableEntity } from '../../entities/schema'
+import { NFT, NFTJSON, Wearable as WearableEntity } from '../../entities/schema'
 import {
   Wearable,
   atari_launch,
@@ -171,7 +171,7 @@ export function buildWearableFromNFT(nft: NFT): WearableEntity {
 
   log.error(
     'Coud not find a wearable for the id {} found on the tokenURI {} and nft {}',
-    [wearableId, nft.tokenURI, nft.id]
+    [wearableId, nft.tokenURI!, nft.id]
   )
   return new WearableEntity('')
 }

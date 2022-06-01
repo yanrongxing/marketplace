@@ -46,10 +46,11 @@ export function handleOrderCreated(event: OrderCreated): void {
     order.quantity = event.params.quantity
     order.save()
 
-    cancelActiveOrder(nft!, event.block.timestamp)
-
+    if(nft.activeOrder){
+      cancelActiveOrder(nft, event.block.timestamp)
+    }
     nft.updatedAt = event.block.timestamp
-    nft = updateNFTOrderProperties(nft!, order)
+    nft = updateNFTOrderProperties(nft, order)
     nft.save()
 
     let count = buildCountFromOrder(order)
@@ -89,7 +90,7 @@ export function handleOrderSuccessful(event: OrderSuccessful): void {
     nft.owner = event.params.buyer.toHex()
   }
   nft.updatedAt = event.block.timestamp
-  nft = updateNFTOrderProperties(nft!, order!)
+  nft = updateNFTOrderProperties(nft, order)
   nft.save()
 
   // analytics
@@ -126,7 +127,7 @@ export function handleOrderCancelled(event: OrderCancelled): void {
     order.save()
 
     nft.updatedAt = event.block.timestamp
-    nft = updateNFTOrderProperties(nft!, order!)
+    nft = updateNFTOrderProperties(nft, order)
     nft.save()
   }
 }

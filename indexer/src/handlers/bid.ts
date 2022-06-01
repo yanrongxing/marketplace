@@ -64,7 +64,7 @@ export function handleBidAccepted(event: BidAccepted): void {
   if (bid == null) {
     return
   }
-  let nft = NFT.load(bid.nft)
+  let nft = NFT.load(bid.nft!)
   if (nft == null) {
     return
   }
@@ -101,7 +101,7 @@ export function handleBidCancelled(event: BidCancelled): void {
   if (bid == null) {
     return
   }
-  let nft = NFT.load(bid.nft)
+  let nft = NFT.load(bid.nft!)
   if (nft == null) {
     return
   }

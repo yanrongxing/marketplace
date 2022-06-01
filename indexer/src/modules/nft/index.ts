@@ -126,7 +126,8 @@ export function clearNFTOrderProperties(nft: NFT): NFT {
 }
 
 export function cancelActiveOrder(nft: NFT, now: BigInt): boolean {
-  let oldOrder = Order.load(nft.activeOrder)
+  
+  let oldOrder = Order.load(nft.activeOrder!)
 
   if (oldOrder != null && oldOrder.status == status.OPEN) {
     // Here we are setting old orders as cancelled, because the smart contract allows new orders to be created
@@ -143,15 +144,15 @@ export function cancelActiveOrder(nft: NFT, now: BigInt): boolean {
 
 
 export function cancelERC1155ActiveOrder(nft: NFT, now: BigInt,quantity:BigInt,operator:Address): boolean {
-  let oldOrder = Order.load(nft.activeOrder)
+  let oldOrder = Order.load(nft.activeOrder!)
   
-  if(operator.toHexString() == oldOrder.marketplaceAddress.toHexString()){
+  if(operator.toHexString() == oldOrder!.marketplaceAddress.toHexString()){
     
     return false
   }
   let balance =  nft.balance;
-  let remainBalance = balance.minus(quantity);
-  if(remainBalance < oldOrder.quantity && oldOrder != null && oldOrder.status == status.OPEN){
+  let remainBalance = balance!.minus(quantity);
+  if(oldOrder != null && remainBalance < oldOrder.quantity && oldOrder.status == status.OPEN){
     oldOrder.status = status.CANCELLED
     oldOrder.updatedAt = now
     oldOrder.save()

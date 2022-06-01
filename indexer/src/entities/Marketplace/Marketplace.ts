@@ -304,6 +304,34 @@ export class Marketplace__orderByIdResult {
     map.set("value6", ethereum.Value.fromUnsignedBigInt(this.value6));
     return map;
   }
+
+  getId(): Bytes {
+    return this.value0;
+  }
+
+  getSeller(): Address {
+    return this.value1;
+  }
+
+  getTokenAddress(): Address {
+    return this.value2;
+  }
+
+  getTokenId(): BigInt {
+    return this.value3;
+  }
+
+  getPrice(): BigInt {
+    return this.value4;
+  }
+
+  getExpiresAt(): BigInt {
+    return this.value5;
+  }
+
+  getQuantity(): BigInt {
+    return this.value6;
+  }
 }
 
 export class Marketplace extends ethereum.SmartContract {
