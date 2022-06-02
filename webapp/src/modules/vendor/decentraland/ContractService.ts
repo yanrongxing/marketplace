@@ -9,7 +9,7 @@ import { TransferType } from '../types'
 // import { nftAPI } from './nft'
 
 const network = process.env.REACT_APP_NETWORK! as AppNetwork
-
+console.log("network:",network);
 export enum ContractName {
   MANA = 'MANA',
   MARKETPLACE = 'Marketplace',
@@ -313,7 +313,91 @@ const contracts = ({
       network: Network.BSC,
       chainId: ChainId.BSC_MAINNET
     }
-  ]
+  ],
+  [AppNetwork.MATIC]: [
+    {
+      name: ContractName.MANA,
+      address: getContract(CN.MANAToken, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      // address: getContract(CN.Marketplace, ChainId.TEST).address,
+      address:"0x91f6d91c1345707D57212371cFf12A62709E43BF",
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      // address: getContract(CN.Bid, ChainId.TEST).address,
+      address:"0x6fd3958d1b352fD8b18EA00e3Aee530D51556663",
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.MANA,
+      // address: getContract(CN.MANAToken, ChainId.TEST).address,
+      address:"0x60E57e4AD9af84A2E7424A2ecb5dCa0c328183EA",
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.MARKETPLACE,
+      address: getContract(CN.MarketplaceV2, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.LEGACY_MARKETPLACE,
+      address: getContract(CN.Marketplace, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: CN.CollectionStore,
+      address: getContract(CN.CollectionStore, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.BIDS,
+      address: getContract(CN.BidV2, ChainId.MATIC_MAINNET).address,
+      vendor: 'decentraland',
+      category: null,
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },{
+      name: ContractName.ERC721,
+      address: '0x0B96d89854aCDb0373A1A761BB6071D13E4f7be5',
+      vendor: 'decentraland',
+      category: 'wearable',
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    },
+    {
+      name: ContractName.ERC1155,
+      address: '0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133',
+      vendor: 'decentraland',
+      category: 'props',
+      network: Network.MATIC,
+      chainId: ChainId.MATIC_MAINNET
+    }
+  ],
 } as Record<AppNetwork, Contract[]>)[network]
 
 export class ContractService implements ContractServiceInterface {

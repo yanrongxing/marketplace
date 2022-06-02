@@ -10,9 +10,9 @@ dataSources:
     name: Marketplace
     network: mainnet
     source:
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+      address: "0x91f6d91c1345707D57212371cFf12A62709E43BF"
       abi: Marketplace
-      startBlock: 0
+      startBlock: 29023822
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -37,9 +37,9 @@ dataSources:
     name: ERC721Bid
     network: mainnet
     source:
-      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+      address: "0x6fd3958d1b352fD8b18EA00e3Aee530D51556663"
       abi: ERC721Bid
-      startBlock: 0
+      startBlock: 29024107
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -63,9 +63,9 @@ dataSources:
     name: ERC1155
     network: mainnet
     source:
-      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788"
+      address: "0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133"
       abi: ERC1155
-      startBlock: 0
+      startBlock: 28501376
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -90,9 +90,9 @@ dataSources:
     name: ERC721
     network: mainnet
     source:
-      address: "0x669b1Bb3665Abc2D4ce4A5402836A9E571E3C2e7"
+      address: "0x0B96d89854aCDb0373A1A761BB6071D13E4f7be5"
       abi: ERC721
-      startBlock: 0
+      startBlock: 28461800
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

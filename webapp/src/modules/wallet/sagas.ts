@@ -25,6 +25,7 @@ const baseWalletSaga = createWalletSaga({
   POLL_INTERVAL: 0,
   TRANSACTIONS_API_URL
 })
+console.log('Number(process.env.REACT_APP_CHAIN_ID)',Number(process.env.REACT_APP_CHAIN_ID) || ChainId.ETHEREUM_MAINNET)
 
 export function* walletSaga() {
   yield all([baseWalletSaga(), fullWalletSaga()])
@@ -47,21 +48,21 @@ function* handleWallet(
 
   const marketplace = getContract({
     name: contractNames.MARKETPLACE,
-    network: Network.TEST
+    network: Network.MATIC
   })
 
 
 
   const bids = getContract({
     name: contractNames.BIDS,
-    network: Network.TEST
+    network: Network.MATIC
   })
 
 
 
   const mana = getContract({
     name: contractNames.MANA,
-    network: Network.TEST
+    network: Network.MATIC
   })
 
 

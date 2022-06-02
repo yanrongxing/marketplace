@@ -5,42 +5,49 @@ import * as path from 'path'
 
 enum Network {
   MAINNET = 'mainnet',
-  ROPSTEN = 'ropsten'
+  ROPSTEN = 'ropsten',
+  MATIC = 'matic'
 }
 enum ContractName {
-  MANAToken = 'MANAToken',
-  ERC721Bid = 'ERC721Bid',
-  LANDProxy = 'LANDProxy',
-  EstateProxy = 'EstateProxy',
-  MarketplaceProxy = 'MarketplaceProxy',
-  DCLRegistrar = 'DCLRegistrar'
+  MANAToken="MANAToken",
+  Marketplace="Marketplace",
+  ERC721Bid="ERC721Bid",
+  ERC721="ERC721",
+  ERC1155="ERC1155"
+
 }
 type ContractsResponse = Record<Network, Record<ContractName, string>>
 
 const startBlockByNetwork: Record<Network, Record<ContractName, number>> = {
   [Network.MAINNET]: {
-    MANAToken: 4162050,
-    ERC721Bid: 7270906,
-    LANDProxy: 4944642,
-    EstateProxy: 6236547,
-    MarketplaceProxy: 6496012,
-    DCLRegistrar: 9412979
-  },
+    MANAToken: 28461793,
+    Marketplace: 29023822,
+    ERC721Bid: 29024107,
+    ERC721: 28461800,
+    ERC1155: 28501376
+  }, 
   [Network.ROPSTEN]: {
-    MANAToken: 1891200,
-    ERC721Bid: 5058246,
-    LANDProxy: 2482847,
-    EstateProxy: 3890399,
-    MarketplaceProxy: 4202120,
-    DCLRegistrar: 7170497
+    MANAToken: 28461793,
+    Marketplace: 29023822,
+    ERC721Bid: 29024107,
+    ERC721: 28461800,
+    ERC1155: 28501376
+  },
+  [Network.MATIC]: {
+    MANAToken: 28461793,
+    Marketplace: 29023822,
+    ERC721Bid: 29024107,
+    ERC721: 28461800,
+    ERC1155: 28501376
   }
 }
 
 const contractNameToProxy: Record<string, ContractName> = {
   MANAToken: ContractName.MANAToken,
-  LANDRegistry: ContractName.LANDProxy,
-  EstateRegistry: ContractName.EstateProxy,
-  Marketplace: ContractName.MarketplaceProxy
+  Marketplace: ContractName.Marketplace,
+  ERC721Bid: ContractName.ERC721Bid,
+  ERC721: ContractName.ERC721,
+  ERC1155: ContractName.ERC1155
 }
 
 // TODO: Handle ctrl+C
@@ -95,7 +102,7 @@ class Ethereum {
 
   async fetchContracts() {
     const contractsByNetwork: ContractsResponse = await fetch(
-      'https://contracts.decentraland.org/addresses.json'
+      'https://raw.githubusercontent.com/yanrongxing/marketplace/master/indexer/scripts/addresses.json'
     )
     this.contractAddresses = contractsByNetwork[this.network]
   }
@@ -251,6 +258,8 @@ function getNetwork() {
       }
     }
   }
+  console.log(network)
+  console.log(Object.values(Network))
 
   if (!network || !Object.values(Network).includes(network)) {
     throw new Error(

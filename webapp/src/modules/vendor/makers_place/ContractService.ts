@@ -18,6 +18,7 @@ const contracts = ({
   [AppNetwork.ROPSTEN]: [],
   [AppNetwork.BSC]: [],
   [AppNetwork.TEST]: [],
+  [AppNetwork.MATIC]: [],
   [AppNetwork.MAINNET]: [
     {
       name: ContractName.DIGITAL_MEDIA_CORE,

@@ -4,8 +4,6 @@ import {
   BigInt,
   log
 } from "@graphprotocol/graph-ts";
-import { getURI } from '../nft';
-import { ERC1155,TransferSingle } from '../../entities/ERC1155/ERC1155'
 export function buildPropsFromNFT(nft: NFT): Props {
   let props = new Props(nft.id)
   props.owner = nft.owner

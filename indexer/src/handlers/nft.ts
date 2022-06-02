@@ -54,10 +54,10 @@ export function handleTransfer(event: Transfer): void {
   nft.sales = 0
   nft.volume = BigInt.fromI32(0)
 
-  if (contractAddress != addresses.LANDRegistry) {
-    // The LANDRegistry contract does not have a tokenURI method
-    nft.tokenURI = getTokenURI(event)
-  }
+  // if (contractAddress != addresses.LANDRegistry) {
+  //   // The LANDRegistry contract does not have a tokenURI method
+  //   nft.tokenURI = getTokenURI(event)
+  // }
 
   if (isMint(event)) {
     nft.createdAt = event.block.timestamp

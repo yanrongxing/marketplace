@@ -2,11 +2,7 @@ import { Address, BigInt } from '@graphprotocol/graph-ts'
 import { TransferSingle,TransferBatch } from '../entities/ERC1155/ERC1155'
 import { NFT, Parcel, Estate, Order, ENS, Wearable,Props } from '../entities/schema'
 import {
-  isMint,
   getNFTId,
-  getTokenURI,
-  getURI,
-  cancelActiveOrder,
   clearNFTOrderProperties,
   cancelERC1155ActiveOrder,
 } from '../modules/nft'
@@ -59,7 +55,6 @@ export function handleTransferFn(contractAddress: Address,operator: Address,from
   toNft.soldAt = null
   toNft.sales = 0
   toNft.volume = BigInt.fromI32(0)
-  toNft.tokenURI = getURI(category,contractAddress,id);
 
   let oldToNFT = NFT.load(toId)
   let oldFromNFT = NFT.load(fromId)
@@ -69,7 +64,7 @@ export function handleTransferFn(contractAddress: Address,operator: Address,from
     oldFromNFT.balance = oldFromNFT.balance!.minus(value);
     
     //删除原账号的订单
-    if (cancelERC1155ActiveOrder(oldFromNFT, timestamp,value,operator)) {
+    if (oldFromNFT.activeOrder && cancelERC1155ActiveOrder(oldFromNFT, timestamp,value,operator)) {
       oldFromNFT = clearNFTOrderProperties(oldFromNFT)
     }
     oldFromNFT.save();

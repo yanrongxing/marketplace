@@ -28,6 +28,7 @@ const contracts = ({
       chainId: ChainId.ETHEREUM_ROPSTEN
     }
   ],
+  [AppNetwork.MATIC]: [],
   [AppNetwork.MAINNET]: [
     {
       name: ContractName.SUPER_RARE,
@@ -70,7 +71,7 @@ const contracts = ({
       chainId: ChainId.ETHEREUM_MAINNET
     }
   ]
-} as Record<AppNetwork, Contract[]>)[network]
+} as unknown as Record<AppNetwork, Contract[]>)[network]
 
 export class ContractService implements ContractServiceInterface {
   contracts = contracts
