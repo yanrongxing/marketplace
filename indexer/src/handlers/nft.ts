@@ -172,7 +172,7 @@ export function getNFTJSON(nft:NFT,event:Transfer):NFTJSON | null{
   let nftJSON = NFTJSON.load(nft.id)
   if(!nftJSON){
     // getTokenURI(event);
-    ipfs.mapJSON('QmZJkd9jGJFx3jvvbNoHn3VPkojzcj9UUMxa2UEVx5DGA7/'+nft.tokenId.toString()+".json", 'processItem',Value.fromString(nft.id))
+    ipfs.mapJSON('QmP3sw1GDTY8ptbZ4xLx7qk4GDSEPss2jXX74S6CTy4H5M/'+nft.tokenId.toString()+".json", 'processItem',Value.fromString(nft.id))
     nftJSON  = NFTJSON.load(nft.id)
   }
   return nftJSON
