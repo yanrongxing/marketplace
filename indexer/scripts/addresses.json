@@ -48,7 +48,7 @@
       "ERC721BidV2": "0x6fd3958d1b352fD8b18EA00e3Aee530D51556663",
       "ERC721": "0x0B96d89854aCDb0373A1A761BB6071D13E4f7be5",
       "ERC1155": "0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133",
-      "FundChannel": "0x202df1d7d044761A0294580B9F6D2A7289C883Df"
+      "FundChannelUpgrades": "0x202df1d7d044761A0294580B9F6D2A7289C883Df"
     },
     "mumbai": {
         "MANAToken": "0x60E57e4AD9af84A2E7424A2ecb5dCa0c328183EA",
@@ -61,13 +61,14 @@
         "ERC1155": "0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133"
     },
     "local": {
-        "MANAToken": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-        "Marketplace": "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
-        "MarketplaceV2": "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
-        "MarketplaceV3": "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
-        "ERC721Bid": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "ERC721BidV2": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "ERC721": "0x0B96d89854aCDb0373A1A761BB6071D13E4f7be5",
-        "ERC1155": "0x68B1D87F95878fE05B998F19b66F4baba5De1aed"
+        "MANAToken": "0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9",
+        "Marketplace": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
+        "MarketplaceV2": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
+        "MarketplaceV3": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
+        "ERC721Bid": "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
+        "ERC721BidV2": "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
+        "ERC721": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "ERC1155": "0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0",
+        "FundChannelUpgrades": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0"
     }
   }
