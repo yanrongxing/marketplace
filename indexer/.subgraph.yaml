@@ -62,7 +62,37 @@ dataSources:
           handler: handleBidAccepted
         - event: BidCancelled(bytes32,indexed address,indexed uint256,indexed address)
           handler: handleBidCancelled
-
+  # ---------------------------------------------------------
+  # FUNDCHANNEL --------------------------------------------------
+  # ---------------------------------------------------------
+  - kind: ethereum/contract
+    name: FundChannelUpgrades
+    network: mainnet
+    source:
+      address: '{{address:FundChannelUpgrades}}'
+      abi: FundChannelUpgrades
+      startBlock: {{startBlock:FundChannelUpgrades}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/handlers/fundChannel.ts
+      entities:
+        - Order
+        - NFT
+      abis:
+        - name: FundChannelUpgrades
+          file: ./abis/FundChannelUpgrades.json
+      eventHandlers:
+        - event: AssertTypeAdded(indexed uint256,indexed address,indexed string)
+          handler: handleAssertTypeAdded
+        - event: AssertTypeUpdated(indexed uint256,indexed address,indexed string)
+          handler: handleAssertTypeUpdated
+          
+# ---------------------------------------------------------
+# TEMPLATES -----------------------------------------------
+# ---------------------------------------------------------
+templates:
   # ---------------------------------------------------------
   # ERC1155 -------------------------------------------------
   # ---------------------------------------------------------
@@ -70,9 +100,7 @@ dataSources:
     name: ERC1155
     network: mainnet
     source:
-      address: '{{address:ERC1155}}'
       abi: ERC1155
-      startBlock: {{startBlock:ERC1155}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -97,9 +125,7 @@ dataSources:
     name: ERC721
     network: mainnet
     source:
-      address: '{{address:ERC721}}'
       abi: ERC721
-      startBlock: {{startBlock:ERC721}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -126,3 +152,5 @@ dataSources:
           handler: handleTransfer
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        - event: SetTokenURI(indexed uint256,indexed string,indexed string)
+          handler: handleSetTokenURI

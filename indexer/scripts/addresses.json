@@ -61,14 +61,14 @@
         "ERC1155": "0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133"
     },
     "local": {
-        "MANAToken": "0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9",
-        "Marketplace": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
-        "MarketplaceV2": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
-        "MarketplaceV3": "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
-        "ERC721Bid": "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
-        "ERC721BidV2": "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
+        "MANAToken": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+        "Marketplace": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+        "MarketplaceV2": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+        "MarketplaceV3": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+        "ERC721Bid": "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
+        "ERC721BidV2": "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
         "ERC721": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
         "ERC1155": "0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0",
-        "FundChannelUpgrades": "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0"
+        "FundChannelUpgrades": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
     }
   }

@@ -134,6 +134,32 @@ export class Transfer3__Params {
   }
 }
 
+export class SetTokenURI extends ethereum.Event {
+  get params(): SetTokenURI__Params {
+    return new SetTokenURI__Params(this);
+  }
+}
+
+export class SetTokenURI__Params {
+  _event: SetTokenURI;
+
+  constructor(event: SetTokenURI) {
+    this._event = event;
+  }
+
+  get tokenId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
+  get oldURI(): Bytes {
+    return this._event.parameters[1].value.toBytes();
+  }
+
+  get newURI(): Bytes {
+    return this._event.parameters[2].value.toBytes();
+  }
+}
+
 export class ERC721 extends ethereum.SmartContract {
   static bind(address: Address): ERC721 {
     return new ERC721("ERC721", address);

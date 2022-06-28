@@ -216,10 +216,7 @@ function findWearable(id: string, collection: Wearable[]): WearableEntity {
   for (let i = 0; i < collection.length; i++) {
     let representation = collection[i]
     if (id == representation.id) {
-      log.info(
-        'id == representation.id  {} and {}',
-        [id, representation.id]
-      )
+      
       // TODO: representation.toEntity()
       let wearable = new WearableEntity(id)
       wearable.representationId = representation.id

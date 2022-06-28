@@ -1,5 +1,5 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts'
-import { TransferSingle,TransferBatch } from '../entities/ERC1155/ERC1155'
+import { TransferSingle,TransferBatch } from '../entities/templates/ERC1155/ERC1155'
 import { NFT, Parcel, Estate, Order, ENS, Wearable,Props } from '../entities/schema'
 import {
   getNFTId,

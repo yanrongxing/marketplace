@@ -3,18 +3,21 @@ import * as url from 'url'
 import * as fs from 'fs'
 import * as path from 'path'
 
+const configJson = require('./addresses.json')
+
 enum Network {
   MAINNET = 'mainnet',
   ROPSTEN = 'ropsten',
-  MATIC = 'matic'
+  MATIC = 'matic',
+  LOCAL = 'local'
 }
 enum ContractName {
   MANAToken="MANAToken",
   Marketplace="Marketplace",
   ERC721Bid="ERC721Bid",
   ERC721="ERC721",
-  ERC1155="ERC1155"
-
+  ERC1155="ERC1155",
+  FundChannelUpgrades="FundChannelUpgrades"
 }
 type ContractsResponse = Record<Network, Record<ContractName, string>>
 
@@ -24,22 +27,34 @@ const startBlockByNetwork: Record<Network, Record<ContractName, number>> = {
     Marketplace: 29023822,
     ERC721Bid: 29024107,
     ERC721: 28461800,
-    ERC1155: 28501376
+    ERC1155: 28501376,
+    FundChannelUpgrades: 28461788,
   }, 
   [Network.ROPSTEN]: {
     MANAToken: 28461793,
     Marketplace: 29023822,
     ERC721Bid: 29024107,
     ERC721: 28461800,
-    ERC1155: 28501376
+    ERC1155: 28501376,
+    FundChannelUpgrades: 28461788,
   },
   [Network.MATIC]: {
     MANAToken: 28461793,
     Marketplace: 29023822,
     ERC721Bid: 29024107,
     ERC721: 28461800,
-    ERC1155: 28501376
+    ERC1155: 28501376,
+    FundChannelUpgrades: 28461800,
+  },
+  [Network.LOCAL]: {
+    MANAToken: 0,
+    Marketplace: 0,
+    ERC721Bid: 0,
+    ERC721: 0,
+    ERC1155: 0,
+    FundChannelUpgrades: 0,
   }
+  
 }
 
 const contractNameToProxy: Record<string, ContractName> = {
@@ -47,14 +62,16 @@ const contractNameToProxy: Record<string, ContractName> = {
   Marketplace: ContractName.Marketplace,
   ERC721Bid: ContractName.ERC721Bid,
   ERC721: ContractName.ERC721,
-  ERC1155: ContractName.ERC1155
+  ERC1155: ContractName.ERC1155,
+  FundChannelUpgrades: ContractName.FundChannelUpgrades
+  
 }
 
 // TODO: Handle ctrl+C
 async function build() {
   const network = getNetwork()
   const basePath = path.resolve(__dirname, '../')
-
+ 
   const ethereum = new Ethereum(network)
   await ethereum.fetchContracts()
 
@@ -101,10 +118,13 @@ class Ethereum {
   }
 
   async fetchContracts() {
-    const contractsByNetwork: ContractsResponse = await fetch(
-      'https://raw.githubusercontent.com/yanrongxing/marketplace/master/indexer/scripts/addresses.json'
-    )
+    console.log("fetchContracts start");
+    // const contractsByNetwork: ContractsResponse = await fetch(
+    //   'https://raw.githubusercontent.com/yanrongxing/marketplace/master/indexer/scripts/addresses.json'
+    // )
+    const contractsByNetwork: ContractsResponse = configJson;
     this.contractAddresses = contractsByNetwork[this.network]
+    console.log("fetchContracts end");
   }
 
   getAddress(contractName: string) {
@@ -192,8 +212,10 @@ async function fetch(uri: string, method = 'GET'): Promise<any> {
     hostname,
     method,
     port: 443,
-    path
+    path,
+    proxy:'http://127.0.0.1:8889'
   }
+  console.log(options);
   return new Promise(function(resolve, reject) {
     const req = https.request(options, function(res) {
       if (res.statusCode < 200 || res.statusCode >= 300) {

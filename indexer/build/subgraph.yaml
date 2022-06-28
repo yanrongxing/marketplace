@@ -60,17 +60,39 @@ dataSources:
         - event: BidCancelled(bytes32,indexed address,indexed uint256,indexed address)
           handler: handleBidCancelled
   - kind: ethereum/contract
-    name: ERC1155
+    name: FundChannelUpgrades
     network: mainnet
     source:
-      address: "0x31f325A9D4E7e8E8A2E8b3f4a2eD20Fc4E907133"
-      abi: ERC1155
-      startBlock: 28501376
+      address: "0x202df1d7d044761A0294580B9F6D2A7289C883Df"
+      abi: FundChannelUpgrades
+      startBlock: 28461800
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: ERC1155/ERC1155.wasm
+      file: FundChannelUpgrades/FundChannelUpgrades.wasm
+      entities:
+        - Order
+        - NFT
+      abis:
+        - name: FundChannelUpgrades
+          file: FundChannelUpgrades/abis/FundChannelUpgrades.json
+      eventHandlers:
+        - event: AssertTypeAdded(indexed uint256,indexed address,indexed string)
+          handler: handleAssertTypeAdded
+        - event: AssertTypeUpdated(indexed uint256,indexed address,indexed string)
+          handler: handleAssertTypeUpdated
+templates:
+  - kind: ethereum/contract
+    name: ERC1155
+    network: mainnet
+    source:
+      abi: ERC1155
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: templates/ERC1155/ERC1155.wasm
       entities:
         - NFT
         - Parcel
@@ -90,14 +112,12 @@ dataSources:
     name: ERC721
     network: mainnet
     source:
-      address: "0x0B96d89854aCDb0373A1A761BB6071D13E4f7be5"
       abi: ERC721
-      startBlock: 28461800
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: ERC721/ERC721.wasm
+      file: templates/ERC721/ERC721.wasm
       entities:
         - NFT
         - Parcel
@@ -119,3 +139,5 @@ dataSources:
           handler: handleTransfer
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        - event: SetTokenURI(indexed uint256,indexed string,indexed string)
+          handler: handleSetTokenURI

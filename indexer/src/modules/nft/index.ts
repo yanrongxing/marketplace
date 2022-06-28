@@ -1,11 +1,12 @@
 import { log, BigInt,Address } from '@graphprotocol/graph-ts'
 
 import { NFT, Order, Bid } from '../../entities/schema'
-import { ERC1155 } from '../../entities/ERC1155/ERC1155'
-import { ERC721, Transfer } from '../../entities/ERC721/ERC721'
+import { ERC1155 } from '../../entities/templates/ERC1155/ERC1155'
+import { ERC721, Transfer } from '../../entities/templates/ERC721/ERC721'
 import * as status from '../order/status'
 import * as addresses from '../../data/addresses'
 import * as categories from '../category/categories'
+import { SetTokenURI } from '../../entities/templates/ERC721/ERC721'
 
 export function isMint(event: Transfer): boolean {
   return event.params.from.toHexString() == addresses.Null
@@ -31,20 +32,23 @@ export function getNFTId(
   return  id 
 }
 
-export function getTokenURI(event: Transfer): string {
-  let erc721 = ERC721.bind(event.address)
-  let tokenURICallResult = erc721.try_tokenURI(event.params.tokenId)
+export function getTokenURI(address: Address,tokenId : BigInt): string {
+  let erc721 = ERC721.bind(address)
+  let tokenURICallResult = erc721.try_tokenURI(tokenId)
 
   let tokenURI = ''
 
   if (tokenURICallResult.reverted) {
     log.warning('tokenURI reverted for tokenID: {} contract: {}', [
-      event.params.tokenId.toString(),
-      event.address.toHexString()
+      tokenId.toString(),
+      address.toHexString()
     ])
   } else {
     tokenURI = tokenURICallResult.value
   }
+  log.error('tokenURI try_tokenURI: {} ', [
+    tokenURICallResult.value
+  ])
 
   return tokenURI
 }

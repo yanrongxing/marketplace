@@ -1,5 +1,5 @@
-import { BigInt , JSONValue, Value, ipfs,log} from '@graphprotocol/graph-ts'
-import { Transfer } from '../entities/ERC721/ERC721'
+import { BigInt , JSONValue, Value, ipfs,log,Address,Bytes} from '@graphprotocol/graph-ts'
+import { Transfer,ERC721,SetTokenURI } from '../entities/templates/ERC721/ERC721'
 import { NFT, Parcel, Estate, Order, ENS, Wearable , NFTJSON, NFTAttribute} from '../entities/schema'
 import {
   isMint,
@@ -131,7 +131,7 @@ export function handleTransfer(event: Transfer): void {
       wearable = new Wearable(nft.id)
       wearable.owner = nft.owner
     }
-    let nftJson = getNFTJSON(nft,event);
+    let nftJson = getNFTJSON(nft,event.address,event.params.tokenId,false);
 
     if(nftJson){
       wearable.name = nftJson.name
@@ -168,11 +168,57 @@ export function handleTransfer(event: Transfer): void {
   nft.save()
 }
 
-export function getNFTJSON(nft:NFT,event:Transfer):NFTJSON | null{
+export function handleSetTokenURI(event: SetTokenURI): void {
+  
+  
+  let contractAddress = event.address.toHexString()
+  let category = getCategory(contractAddress)
+  let id = getNFTId(
+    category,
+    event.address.toHexString(),
+    event.params.tokenId.toString(),
+    ''
+  )
+  let nft = NFT.load(id)
+  let wearable = Wearable.load(id)
+  let nftJson = getNFTJSON(nft!,event.address,event.params.tokenId,true);
+
+  if(nftJson){
+    if(wearable){
+      wearable.name = nftJson.name
+
+      if(nftJson.description){
+        wearable.description = nftJson.description!
+      }
+      if(nftJson.category){
+        wearable.category = nftJson.category!
+      }
+      if(nftJson.rarity){
+        wearable.rarity = nftJson.rarity!
+      }
+      wearable.save()
+    }
+    if(nft){
+      if(nftJson.image){
+        nft.image = nftJson.image.replaceAll('ipfs://','https://cloudflare-ipfs.com/ipfs/')
+      }
+      nft.name = nftJson.name
+      nft.save()
+    }
+
+  }
+}
+
+export function getNFTJSON(nft:NFT,address: Address,tokenId : BigInt,isReload:boolean):NFTJSON | null{
   let nftJSON = NFTJSON.load(nft.id)
-  if(!nftJSON){
-    // getTokenURI(event);
-    ipfs.mapJSON('QmP3sw1GDTY8ptbZ4xLx7qk4GDSEPss2jXX74S6CTy4H5M/'+nft.tokenId.toString()+".json", 'processItem',Value.fromString(nft.id))
+  
+  if(!nftJSON || isReload){
+    let url = getTokenURI(address,tokenId);
+    let hash = 'QmfUZv2VoWGxozbvm8Gds56ArRuhBfRfit6WNSoha4hVaX'
+    if(url.startsWith('ipfs://') && url.length >= 40){
+      hash = url.replaceAll('ipfs://','');
+    }
+    ipfs.mapJSON(hash, 'processItem',Value.fromString(nft.id))
     nftJSON  = NFTJSON.load(nft.id)
   }
   return nftJSON
